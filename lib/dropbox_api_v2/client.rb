@@ -1,6 +1,6 @@
 module DropboxApiV2
   class Client
-    def initialize(oauth_bearer = ENV["DROPBOX_OAUTH_CODE"])
+    def initialize(oauth_bearer = ENV["DROPBOX_OAUTH_BEARER"])
       @connection = Faraday.new(:url => "https://api.dropboxapi.com") do |c|
         c.authorization :Bearer, oauth_bearer
         c.request :encode_json
