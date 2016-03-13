@@ -22,4 +22,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec"
 
   spec.add_dependency "oauth2", "~> 1.1.0"
+  spec.add_dependency "faraday", ">= 0.8"
 end
