@@ -1,8 +1,6 @@
 # DropboxApiV2
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dropbox_api_v2`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Ruby gem to interact with Dropbox API v2.
 
 ## Installation
 
@@ -22,13 +20,29 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Authorize your application
+
+Dropbox uses OAuth, in order to use this library from your application you'll
+have to get an authorization code:
+
+1. `require "dropbox_api_v2/authenticator"`
+1. `authenticator = DropboxApiV2::Authenticator.new(CLIENT_ID, CLIENT_SECRET)`
+2. `authenticator.authorize_url  #=> "https://www.dropbox.com/..."`
+3. Open the authorization URL in your browser, authorize the application and
+   copy your code.
+4. `auth_bearer = authenticator.get_token(CODE) #=> #<OAuth2::AccessToken ...>`
+5. `auth_bearer.token #=> "VofXAX8D..."`. Keep this token!
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
+After checking out the repo, run `bin/setup` to install dependencies. Then, run
+`bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`. To
+release a new version, update the version number in `version.rb`, and then run
+`bundle exec rake release` to create a git tag for the version, push git
+commits and tags, and push the `.gem` file to
+[rubygems.org](https://rubygems.org).
 
 ## Contributing
 
