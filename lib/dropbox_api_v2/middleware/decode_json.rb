@@ -1,4 +1,4 @@
-module DropboxApiV2
+module DropboxApiV2::MiddleWare
   # If the body happens to be a `Hash`, it's encoded with JSON so it can be
   # sent.
   class DecodeJson < Faraday::Middleware
