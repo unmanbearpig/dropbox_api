@@ -20,13 +20,12 @@ module DropboxApiV2
     private
 
     def request(method, path, params, response_type = nil)
-      # puts response_type
       response = @connection.run_request(method, path, params, {})
 
       if response_type.nil?
         response.body
       else
-        ResponseCaster.new(response.body).as(response_type)
+        ResponseProcessor.new(response.body).cast_as(response_type)
       end
     end
   end
