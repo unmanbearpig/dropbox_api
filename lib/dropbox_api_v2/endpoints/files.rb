@@ -5,11 +5,12 @@ module DropboxApiV2::Endpoints
     #
     # @param from [String] Path in the user's Dropbox to be copied or moved.
     # @param to [String] Path in the user's Dropbox that is the destination.
+    # @return The moved file.
     def copy(from, to)
       request :post, "/2/files/copy", {
         :from_path => from,
         :to_path => to
-      }
+      }, :file_or_folder
     end
 
     # Create a folder at a given path.

@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/copy
+    body:
+      encoding: UTF-8
+      string: '{"from_path":"/a.jpg","to_path":"/b.jpg"}'
+    headers:
+      Authorization:
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 09 Apr 2016 16:19:41 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Content-Type-Options:
+      - nosniff
+      Set-Cookie:
+      - gvc=MTU2MTY2MzMxOTE3MDI4NzAwMzM3MTgzOTU3NzI5OTU1NzYyMzY3; expires=Thu, 08
+        Apr 2021 16:19:41 GMT; httponly; Path=/; secure
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '478'
+      X-Dropbox-Request-Id:
+      - 1e028de5b3ed85f7b60af2a7f96d393a
+    body:
+      encoding: ASCII-8BIT
+      string: '{".tag": "file", "name": "b.jpg", "path_lower": "/b.jpg", "path_display":
+        "/b.jpg", "id": "id:evvfE6q6cK0AAAAAAAAB3Q", "client_modified": "2016-04-09T15:47:32Z",
+        "server_modified": "2016-04-09T16:19:40Z", "rev": "28e24061bdd", "size": 396317}'
+    http_version:
+  recorded_at: Sat, 09 Apr 2016 16:19:41 GMT
+recorded_with: VCR 3.0.1

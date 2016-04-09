@@ -1,6 +1,5 @@
 module DropboxApiV2::MiddleWare
-  # If the body happens to be a `Hash`, it's encoded with JSON so it can be
-  # sent.
+  # Decodes the JSON body to get a Hash object.
   class DecodeJson < Faraday::Middleware
     def call(rq_env)
       @app.call(rq_env).on_complete do |rs_env|
