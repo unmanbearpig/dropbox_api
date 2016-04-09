@@ -1,5 +1,13 @@
+require 'dropbox_api_v2/endpoints/files'
+# require 'dropbox_api_v2/endpoints/sharing'
+# require 'dropbox_api_v2/endpoints/users'
+
 module DropboxApiV2
   class Client
+    include DropboxApiV2::Endpoints::Files
+    # include DropboxApiV2::Endpoints::Sharing
+    # include DropboxApiV2::Endpoints::Users
+
     def initialize(oauth_bearer = ENV["DROPBOX_OAUTH_BEARER"])
       @connection = Faraday.new(:url => "https://api.dropboxapi.com") do |c|
         c.authorization :Bearer, oauth_bearer
@@ -9,10 +17,10 @@ module DropboxApiV2
       end
     end
 
-    # First method, just as a sample
-    def list_folder(path)
-      response = @connection.run_request(:post, "/2/files/list_folder", {:path => path}, nil)
-      response.body
+    private
+
+    def request(method, path, params, headers = nil)
+      @connection.run_request(method, path, params, headers).body
     end
   end
 end
