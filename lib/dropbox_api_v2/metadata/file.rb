@@ -1,4 +1,5 @@
 module DropboxApiV2::Metadata
+  # NOTE: We should have a test to cover the initialization of this object.
   # Sample:
   # {
   #   ".tag": "file",

@@ -1,5 +1,7 @@
 module DropboxApiV2
   class ResponseProcessor
+    # NOTE: This class is expected to implement the logic required to handle
+    # errors.
     def initialize(response_data)
       @response_data = response_data
     end

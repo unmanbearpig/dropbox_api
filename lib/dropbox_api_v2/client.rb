@@ -19,6 +19,8 @@ module DropboxApiV2
 
     private
 
+    # NOTE: The last argument `response_type` should be a required one, need to
+    #       update most methods in Endpoints::Files first.
     def request(method, path, params, response_type = nil)
       response = @connection.run_request(method, path, params, {})
 
