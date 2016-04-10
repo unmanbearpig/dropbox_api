@@ -19,16 +19,10 @@ module DropboxApiV2
 
     private
 
-    # NOTE: The last argument `response_type` should be a required one, need to
-    #       update most methods in Endpoints::Files first.
-    def request(method, path, params, response_type = nil)
+    def request(method, path, params, response_type)
       response = @connection.run_request(method, path, params, {})
 
-      if response_type.nil?
-        response.body
-      else
-        ResponseProcessor.new(response.body).cast_as(response_type)
-      end
+      ResponseProcessor.new(response.body).cast_as(response_type)
     end
   end
 end

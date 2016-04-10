@@ -74,7 +74,7 @@ module DropboxApiV2::Endpoints
         :path => path,
         :include_media_info => options[:include_media_info],
         :include_deleted => options[:include_deleted]
-      }
+      }, :file_or_folder
     end
 
     # Get a preview for a file. Currently previews are only generated for the
