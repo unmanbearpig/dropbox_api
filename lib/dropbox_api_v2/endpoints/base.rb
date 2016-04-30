@@ -19,7 +19,7 @@ module DropboxApiV2::Endpoints
       response = DropboxApiV2::Response.new(raw_response.body)
 
       if response.has_error?
-        raise response.build_error(self.class::ErrorType), response.error_summary
+        raise response.build_error(self.class::ErrorType)
       else
         response.build_result(self.class::ResultType)
       end

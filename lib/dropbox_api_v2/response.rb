@@ -21,7 +21,7 @@ module DropboxApiV2
     end
 
     def build_error(error_type)
-      error_type.build(error)
+      error_type.build(error, error_summary)
     end
   end
 end

@@ -1,7 +1,24 @@
 module DropboxApiV2::Errors
   class BasicError < StandardError
-    def self.build(metadata)
-      self.new
+    class << self
+      def build(metadata, message)
+        subtype, metadata = find_subtype metadata
+
+        if subtype.nil?
+          new message
+        else
+          subtype.build metadata, message
+        end
+      end
+
+      def find_subtype(metadata)
+        if defined? self::ErrorSubtypes
+          discriminator = metadata[".tag"]
+          [self::ErrorSubtypes[discriminator.to_sym], metadata[discriminator]]
+        else
+          [nil, metadata]
+        end
+      end
     end
   end
 
