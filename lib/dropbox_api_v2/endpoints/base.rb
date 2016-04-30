@@ -6,12 +6,13 @@ module DropboxApiV2::Endpoints
 
     protected
 
-    def self.add_endpoint(name, *params)
-      DropboxApiV2::Client.add_endpoint(name, *params, self)
+    def self.add_endpoint(name, &block)
+      define_method(name, block)
+      DropboxApiV2::Client.add_endpoint(name, self)
     end
 
-    def perform_request(method, params)
-      response = @connection.run_request(method, self.class::Path, params, {})
+    def perform_request(params)
+      response = @connection.run_request(self.class::Method, self.class::Path, params, {})
       process_response response
     end
 
