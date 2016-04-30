@@ -15,5 +15,9 @@ require "dropbox_api_v2/errors/write_conflict_error"
 require "dropbox_api_v2/errors/write_error"
 
 require "dropbox_api_v2/client"
+require "dropbox_api_v2/response"
+
+require 'dropbox_api_v2/endpoints/base'
+require 'dropbox_api_v2/endpoints/files/copy'
+
 require "dropbox_api_v2/version"
-require "dropbox_api_v2/response_processor"

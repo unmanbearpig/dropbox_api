@@ -1,10 +1,10 @@
-require 'dropbox_api_v2/endpoints/files'
+# require 'dropbox_api_v2/endpoints/files'
 # require 'dropbox_api_v2/endpoints/sharing'
 # require 'dropbox_api_v2/endpoints/users'
 
 module DropboxApiV2
   class Client
-    include Endpoints::Files
+    # include Endpoints::Files
     # include Endpoints::Sharing
     # include Endpoints::Users
 
@@ -17,12 +17,10 @@ module DropboxApiV2
       end
     end
 
-    private
-
-    def request(method, path, params, response_type)
-      response = @connection.run_request(method, path, params, {})
-
-      ResponseProcessor.new(response.body).cast_as(response_type)
+    def self.add_endpoint(name, endpoint)
+      define_method(name) do |*args|
+        endpoint.new(@connection).send(name, *args)
+      end
     end
   end
 end
