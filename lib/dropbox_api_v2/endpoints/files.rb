@@ -1,5 +1,9 @@
 module DropboxApiV2::Endpoints
   module Files
+
+    def self.register_endpoint(name, method, path, parameters, response_type)
+
+    end
     # Copy a file or folder to a different location in the user's Dropbox.
     # If the source path is a folder all its contents will be copied.
     #
@@ -7,11 +11,16 @@ module DropboxApiV2::Endpoints
     # @param to [String] Path in the user's Dropbox that is the destination.
     # @return The moved file.
     def copy(from, to)
-      request :post, "/2/files/copy", {
+      perform_request :post, {
         :from_path => from,
         :to_path => to
-      }, :file_or_folder
+      }
     end
+    register_endpoint :copy,
+      :post, "/2/files/copy", {
+        :success => :file_or_folder,
+        :error => RelocationError
+      }
 
     # Create a folder at a given path.
     #
