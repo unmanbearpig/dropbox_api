@@ -44,4 +44,26 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::FileConflictError)
     end
   end
+
+  describe "#delete" do
+    it "returns the deleted resource", :cassette => "delete/success_folder" do
+      folder = @client.delete("/arizona_baby")
+
+      expect(folder).to be_a(DropboxApiV2::Metadata::Folder)
+      expect(folder.name).to eq("arizona_baby")
+    end
+
+    it "returns the deleted resource", :cassette => "delete/success_file" do
+      file = @client.delete("/b.jpg")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::File)
+      expect(file.name).to eq("b.jpg")
+    end
+
+    it "raises an error if the name is invalid", :cassette => "delete/not_found" do
+      expect {
+        @client.delete("/unexisting folder")
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+  end
 end
