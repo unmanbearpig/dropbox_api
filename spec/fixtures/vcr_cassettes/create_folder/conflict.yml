@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/create_folder
+    body:
+      encoding: UTF-8
+      string: '{"path":"/b.jpg"}'
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 01 May 2016 00:38:01 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '130'
+      Connection:
+      - keep-alive
+      X-Dropbox-Request-Id:
+      - ffd96f24a7bda5e440097984aae65db4
+    body:
+      encoding: UTF-8
+      string: '{"error_summary": "path/conflict/file/...", "error": {".tag": "path",
+        "path": {".tag": "conflict", "conflict": {".tag": "file"}}}}'
+    http_version: 
+  recorded_at: Sun, 01 May 2016 00:38:02 GMT
+recorded_with: VCR 3.0.1

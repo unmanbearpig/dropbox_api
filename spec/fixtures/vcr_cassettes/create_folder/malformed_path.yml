@@ -1,0 +1,43 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/create_folder
+    body:
+      encoding: UTF-8
+      string: '{"path":"/arizona\\baby"}'
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 409
+      message: Conflict
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 01 May 2016 00:37:54 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '107'
+      Connection:
+      - keep-alive
+      X-Dropbox-Request-Id:
+      - a1467e8ef41c5f1c8268ea3b9b71d34d
+    body:
+      encoding: UTF-8
+      string: '{"error_summary": "path/malformed_path/...", "error": {".tag": "path",
+        "path": {".tag": "malformed_path"}}}'
+    http_version: 
+  recorded_at: Sun, 01 May 2016 00:37:54 GMT
+recorded_with: VCR 3.0.1

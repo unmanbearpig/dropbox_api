@@ -18,7 +18,8 @@ module DropboxApiV2::Metadata
     # NOTE: Further datatypes are pending, next one could be :folder
     def datatype_class
       {
-        :file => File
+        :file => File,
+        :folder => Folder
       }[datatype]
     end
 
