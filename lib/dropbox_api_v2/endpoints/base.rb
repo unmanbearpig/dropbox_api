@@ -8,7 +8,7 @@ module DropboxApiV2::Endpoints
 
     def self.add_endpoint(name, &block)
       define_method(name, block)
-      DropboxApiV2::Client.add_endpoint(name, self)
+      DropboxApiV2::Client.add_endpoint(connection_type, name, self)
     end
 
     def perform_request(params, headers = {})

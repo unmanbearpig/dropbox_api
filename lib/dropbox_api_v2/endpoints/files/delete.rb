@@ -1,5 +1,5 @@
 module DropboxApiV2::Endpoints::Files
-  class Delete < DropboxApiV2::Endpoints::Base
+  class Delete < DropboxApiV2::Endpoints::Rpc
     Method      = :post
     Path        = "/2/files/delete".freeze
     ResultType  = :file_or_folder

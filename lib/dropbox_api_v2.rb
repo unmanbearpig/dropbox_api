@@ -22,6 +22,9 @@ require "dropbox_api_v2/client"
 require "dropbox_api_v2/response"
 
 require 'dropbox_api_v2/endpoints/base'
+require 'dropbox_api_v2/endpoints/rpc'
+require 'dropbox_api_v2/endpoints/content_download'
+require 'dropbox_api_v2/endpoints/content_download'
 require 'dropbox_api_v2/endpoints/files/copy'
 require 'dropbox_api_v2/endpoints/files/create_folder'
 require 'dropbox_api_v2/endpoints/files/delete'

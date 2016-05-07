@@ -1,5 +1,5 @@
 module DropboxApiV2::Endpoints::Files
-  class Copy < DropboxApiV2::Endpoints::Base
+  class Copy < DropboxApiV2::Endpoints::Rpc
     Method      = :post
     Path        = "/2/files/copy".freeze
     ResultType  = :file_or_folder

@@ -1,7 +1,7 @@
 module DropboxApiV2::Endpoints::Files
-  class Download < DropboxApiV2::Endpoints::Base
+  class Download < DropboxApiV2::Endpoints::ContentDownload
     Method      = :post
-    Path        = "https://content.dropboxapi.com/2/files/download".freeze
+    Path        = "/2/files/download".freeze
     ResultType  = :file
     ErrorType   = DropboxApiV2::Errors::DownloadError
 
@@ -17,7 +17,3 @@ module DropboxApiV2::Endpoints::Files
     end
   end
 end
-
-
-# 2.
-# add content-download endpoint-types
