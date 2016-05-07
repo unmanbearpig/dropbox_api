@@ -11,13 +11,17 @@ module DropboxApiV2::Endpoints
       DropboxApiV2::Client.add_endpoint(name, self)
     end
 
-    def perform_request(params)
-      response = @connection.run_request(self.class::Method, self.class::Path, params, {})
+    def perform_request(params, headers = {})
+      response = @connection.run_request(self.class::Method, self.class::Path, params, headers)
       process_response response
     end
 
     def process_response(raw_response)
-      response = DropboxApiV2::Response.new(raw_response.body)
+      if raw_response.headers["Dropbox-Api-Result"].nil?
+        response = DropboxApiV2::Response.new(raw_response.body)
+      else
+        response = DropboxApiV2::Response.new(JSON.parse(raw_response.headers["Dropbox-Api-Result"]))
+      end
 
       if response.has_error?
         raise response.build_error(self.class::ErrorType)

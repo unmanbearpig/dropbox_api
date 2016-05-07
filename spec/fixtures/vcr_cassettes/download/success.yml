@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://content.dropboxapi.com/2/files/download
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Dropbox-Api-Arg:
+      - '{"path":"/file.txt"}'
+      Content-Type:
+      - ''
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 01 May 2016 01:17:54 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '33'
+      Connection:
+      - keep-alive
+      Accept-Ranges:
+      - bytes
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Original-Content-Length:
+      - '33'
+      Dropbox-Api-Result:
+      - '{"name": "file.txt", "path_lower": "/file.txt", "path_display": "/file.txt",
+        "id": "id:Oye-ybT2HJAAAAAAAAAAAQ", "client_modified": "2016-05-01T01:01:00Z",
+        "server_modified": "2016-05-01T01:01:00Z", "rev": "2ad24061bdd", "size": 33}'
+      X-Server-Response-Time:
+      - '193'
+      X-Dropbox-Request-Id:
+      - 4fd65680bd9b7bd86e3f890c3445dccb
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        wqtIZXJlJ3MgdGhlIGNvbnRlbnQgb2YgYSBmaWxlwrsK
+    http_version: 
+  recorded_at: Sun, 01 May 2016 01:17:54 GMT
+recorded_with: VCR 3.0.1

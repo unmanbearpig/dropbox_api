@@ -66,4 +66,19 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
+
+  describe "#download" do
+    it "returns the file", :cassette => "download/success" do
+      file = @client.download("/file.txt")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::File)
+      expect(file.name).to eq("file.txt")
+    end
+
+    it "raises an error if the name is invalid", :cassette => "download/not_found" do
+      expect {
+        @client.download("/c.jpg")
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+  end
 end

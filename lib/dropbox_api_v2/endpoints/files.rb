@@ -1,14 +1,5 @@
 module DropboxApiV2::Endpoints
   module Files
-    # Download a file from a user's Dropbox.
-    #
-    # @param path [String] The path of the file to download.
-    def download(path)
-      request :post, "/2/files/download", {
-        :path => path
-      }
-    end
-
     # Returns the metadata for a file or folder.
     #
     # Note: Metadata for the root folder is unsupported.

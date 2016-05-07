@@ -16,6 +16,7 @@ require "dropbox_api_v2/errors/write_error"
 require "dropbox_api_v2/errors/relocation_error"
 require "dropbox_api_v2/errors/create_folder_error"
 require "dropbox_api_v2/errors/delete_error"
+require "dropbox_api_v2/errors/download_error"
 
 require "dropbox_api_v2/client"
 require "dropbox_api_v2/response"
@@ -24,5 +25,6 @@ require 'dropbox_api_v2/endpoints/base'
 require 'dropbox_api_v2/endpoints/files/copy'
 require 'dropbox_api_v2/endpoints/files/create_folder'
 require 'dropbox_api_v2/endpoints/files/delete'
+require 'dropbox_api_v2/endpoints/files/download'
 
 require "dropbox_api_v2/version"
