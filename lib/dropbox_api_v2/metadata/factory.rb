@@ -15,7 +15,6 @@ module DropboxApiV2::Metadata
 
     private
 
-    # NOTE: Further datatypes are pending, next one could be :folder
     def datatype_class
       {
         :file => File,
