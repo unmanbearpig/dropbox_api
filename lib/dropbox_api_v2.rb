@@ -18,6 +18,7 @@ require "dropbox_api_v2/errors/create_folder_error"
 require "dropbox_api_v2/errors/delete_error"
 require "dropbox_api_v2/errors/download_error"
 
+require "dropbox_api_v2/connection_builder"
 require "dropbox_api_v2/client"
 require "dropbox_api_v2/response"
 

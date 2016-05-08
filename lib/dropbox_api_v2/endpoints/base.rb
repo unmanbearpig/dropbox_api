@@ -1,18 +1,16 @@
 module DropboxApiV2::Endpoints
   class Base
-    def initialize(connection)
-      @connection = connection
+    def self.add_endpoint(name, &block)
+      define_method(name, block)
+      DropboxApiV2::Client.add_endpoint(name, self)
     end
 
     protected
 
-    def self.add_endpoint(name, &block)
-      define_method(name, block)
-      DropboxApiV2::Client.add_endpoint(connection_type, name, self)
-    end
+    attr_reader :connection
 
     def perform_request(params, headers = {})
-      response = @connection.run_request(self.class::Method, self.class::Path, params, headers)
+      response = connection.run_request(self.class::Method, self.class::Path, params, headers)
       process_response response
     end
 
