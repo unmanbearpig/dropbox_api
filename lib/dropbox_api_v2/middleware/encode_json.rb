@@ -1,6 +1,6 @@
 module DropboxApiV2::MiddleWare
-  # If the body happens to be a `Hash`, it's encoded with JSON so it can be
-  # sent.
+  # If the body happens to be a `Hash`, we're encoding it with JSON so it can
+  # be sent.
   class EncodeJson < Faraday::Middleware
     def call(env)
       if env[:body].is_a? Hash
