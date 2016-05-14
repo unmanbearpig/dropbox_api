@@ -8,12 +8,12 @@ module DropboxApiV2::Endpoints
     protected
 
     def perform_request(params, headers = {})
-      response = @connection.run_request(self.class::Method, self.class::Path, params, headers)
-      process_response response
+      process_response(@connection
+        .run_request(self.class::Method, self.class::Path, params, headers))
     end
 
     def process_response(raw_response)
-      response = DropboxApiV2::Response.new(raw_response.body)
+      response = DropboxApiV2::Response.new(raw_response.env[:api_result])
 
       if response.has_error?
         raise response.build_error(self.class::ErrorType)
