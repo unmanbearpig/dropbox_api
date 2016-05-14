@@ -10,10 +10,7 @@ module DropboxApiV2::Endpoints::Files
     #
     # @param path [String] The path of the file to download.
     add_endpoint :download do |path|
-      perform_request(nil, {
-        "Dropbox-API-Arg" => JSON.dump({:path => path}),
-        "Content-Type" => ""
-      })
+      perform_request({:path => path})
     end
   end
 end

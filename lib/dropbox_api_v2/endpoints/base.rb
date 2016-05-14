@@ -7,19 +7,13 @@ module DropboxApiV2::Endpoints
 
     protected
 
-    attr_reader :connection
-
     def perform_request(params, headers = {})
-      response = connection.run_request(self.class::Method, self.class::Path, params, headers)
+      response = @connection.run_request(self.class::Method, self.class::Path, params, headers)
       process_response response
     end
 
     def process_response(raw_response)
-      if raw_response.headers["Dropbox-Api-Result"].nil?
-        response = DropboxApiV2::Response.new(raw_response.body)
-      else
-        response = DropboxApiV2::Response.new(JSON.parse(raw_response.headers["Dropbox-Api-Result"]))
-      end
+      response = DropboxApiV2::Response.new(raw_response.body)
 
       if response.has_error?
         raise response.build_error(self.class::ErrorType)

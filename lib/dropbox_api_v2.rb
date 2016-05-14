@@ -1,8 +1,9 @@
 require 'json'
 require 'faraday'
 
-require "dropbox_api_v2/middleware/decode_json"
-require "dropbox_api_v2/middleware/encode_json"
+require "dropbox_api_v2/middleware/decode_result"
+require "dropbox_api_v2/middleware/encode_args_in_body"
+require "dropbox_api_v2/middleware/encode_args_in_headers"
 
 require "dropbox_api_v2/metadata/base"
 require "dropbox_api_v2/metadata/file"

@@ -24,12 +24,12 @@ http_interactions:
   response:
     status:
       code: 409
-      message: path/not_found/
+      message: path/not_found/.
     headers:
       Server:
       - nginx
       Date:
-      - Sun, 01 May 2016 01:18:00 GMT
+      - Sat, 14 May 2016 09:04:23 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -37,13 +37,13 @@ http_interactions:
       Connection:
       - keep-alive
       X-Dropbox-Request-Id:
-      - 65b770ed7742f6b6cf5070b43e4a26c3
+      - 5b8b6572766b736edf64504189daf362
       X-Robots-Tag:
       - noindex, nofollow, noimageindex
     body:
       encoding: UTF-8
-      string: '{"error_summary": "path/not_found/", "error": {".tag": "path", "path":
+      string: '{"error_summary": "path/not_found/.", "error": {".tag": "path", "path":
         {".tag": "not_found"}}}'
     http_version: 
-  recorded_at: Sun, 01 May 2016 01:18:00 GMT
+  recorded_at: Sat, 14 May 2016 09:04:23 GMT
 recorded_with: VCR 3.0.1

@@ -1,7 +1,7 @@
 module DropboxApiV2::MiddleWare
   # If the body happens to be a `Hash`, we're encoding it with JSON so it can
   # be sent.
-  class EncodeJson < Faraday::Middleware
+  class EncodeArgsInBody < Faraday::Middleware
     def call(env)
       if env[:body].is_a? Hash
         env[:request_headers]['content-type'] = 'application/json'
@@ -16,5 +16,5 @@ module DropboxApiV2::MiddleWare
     end
   end
 
-  Faraday::Request.register_middleware :encode_json => EncodeJson
+  Faraday::Request.register_middleware :encode_args_in_body => EncodeArgsInBody
 end
