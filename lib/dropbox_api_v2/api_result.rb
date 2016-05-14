@@ -1,5 +1,5 @@
 module DropboxApiV2
-  class Response
+  class ApiResult
     def initialize(response_data)
       @response_data = response_data
     end
@@ -16,7 +16,7 @@ module DropboxApiV2
       !error_summary.nil?
     end
 
-    def build_result(result_type)
+    def build_metadata(result_type)
       Metadata::Factory.build @response_data, result_type
     end
 
