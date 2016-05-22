@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/get_metadata
+    body:
+      encoding: UTF-8
+      string: '{"path":"/folder"}'
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 22 May 2016 07:15:08 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '123'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - gvc=MjkwNzA5NTg5MTU4MTk3MDIxNjcxMDMwMzEyMzg1MDMxODczNzg3; expires=Fri, 21
+        May 2021 07:15:08 GMT; httponly; Path=/; secure
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '78'
+      X-Dropbox-Request-Id:
+      - 71fd6e4e32b3f5968c76600e877ba1bd
+    body:
+      encoding: UTF-8
+      string: '{".tag": "folder", "name": "folder", "path_lower": "/folder", "path_display":
+        "/folder", "id": "id:tOV8JakFasAAAAAAAAAAAQ"}'
+    http_version: 
+  recorded_at: Sun, 22 May 2016 07:15:08 GMT
+recorded_with: VCR 3.0.1

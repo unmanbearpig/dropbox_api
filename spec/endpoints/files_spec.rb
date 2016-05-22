@@ -81,4 +81,26 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
+
+  describe "#get_metadata" do
+    it "may return a `File`", :cassette => "get_metadata/success_file" do
+      file = @client.get_metadata("/file.txt")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::File)
+      expect(file.name).to eq("file.txt")
+    end
+
+    it "may return a `Folder`", :cassette => "get_metadata/success_folder" do
+      folder = @client.get_metadata("/folder")
+
+      expect(folder).to be_a(DropboxApiV2::Metadata::Folder)
+      expect(folder.name).to eq("folder")
+    end
+
+    it "raises an error if the path is wrong", :cassette => "get_metadata/not_found" do
+      expect {
+        @client.get_metadata("/unexisting_folder")
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+  end
 end
