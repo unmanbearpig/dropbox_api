@@ -17,11 +17,23 @@ module DropboxApiV2::Endpoints::Files
     #   returned for deleted file or folder, otherwise LookupError.not_found
     #   will be returned. The default for this field is False.
     add_endpoint :get_metadata do |path, options = {}|
-      params = options.merge({
-        :path => path
-      })
+      validate_options(options)
 
-      perform_request params
+      perform_request(options.merge({
+        :path => path
+      }))
+    end
+
+    private
+
+    def validate_options(options)
+      valid_option_keys = %i(include_media_info include_deleted)
+
+      options.keys.each do |key|
+        unless valid_option_keys.include? key.to_sym
+          raise ArgumentError, "Invalid option `#{key}`"
+        end
+      end
     end
   end
 end

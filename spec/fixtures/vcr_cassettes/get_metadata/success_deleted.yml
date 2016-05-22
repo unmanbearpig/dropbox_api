@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/get_metadata
+    body:
+      encoding: UTF-8
+      string: '{"include_deleted":true,"path":"/file.txt"}'
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 22 May 2016 07:59:48 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '95'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - gvc=NzM4MjEyMTM5NzIyMTc2Mjk2NDExNTkzNjA0Mjc2NjgxMTIxNzA%3D; expires=Fri, 21
+        May 2021 07:59:48 GMT; httponly; Path=/; secure
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '78'
+      X-Dropbox-Request-Id:
+      - fd4351f225138292e8adb9133b6fa97b
+    body:
+      encoding: UTF-8
+      string: '{".tag": "deleted", "name": "file.txt", "path_lower": "/file.txt",
+        "path_display": "/file.txt"}'
+    http_version: 
+  recorded_at: Sun, 22 May 2016 07:59:48 GMT
+recorded_with: VCR 3.0.1

@@ -102,5 +102,26 @@ context DropboxApiV2::Endpoints::Files do
         @client.get_metadata("/unexisting_folder")
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
+
+    it "raises an error if an invalid option is given" do
+      expect {
+        @client.get_metadata("/file.txt", :invalid_option => true)
+      }.to raise_error ArgumentError
+    end
+
+    context "on a deleted file" do
+      it "raises an error", :cassette => "get_metadata/deleted" do
+        expect {
+          @client.get_metadata("/file.txt")
+        }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+      end
+
+      it "with `:include_deleted`, returns a `File`", :cassette => "get_metadata/success_deleted" do
+        file = @client.get_metadata("/file.txt", :include_deleted => true)
+
+        expect(file).to be_a(DropboxApiV2::Metadata::Deleted)
+        expect(file.name).to eq("file.txt")
+      end
+    end
   end
 end

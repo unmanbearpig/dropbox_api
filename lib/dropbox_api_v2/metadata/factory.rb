@@ -18,7 +18,8 @@ module DropboxApiV2::Metadata
     def datatype_class
       {
         :file => File,
-        :folder => Folder
+        :folder => Folder,
+        :deleted => Deleted
       }[datatype]
     end
 
