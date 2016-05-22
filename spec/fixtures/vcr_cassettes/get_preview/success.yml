@@ -12,7 +12,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       Dropbox-Api-Arg:
-      - '{"path":"/video.mp4"}'
+      - '{"path":"/file.docx"}'
       Content-Type:
       - ''
       Content-Length:
@@ -29,11 +29,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 22 May 2016 09:31:48 GMT
+      - Sun, 22 May 2016 09:38:24 GMT
       Content-Type:
       - application/octet-stream
       Content-Length:
-      - '33'
+      - '94036'
       Connection:
       - keep-alive
       Accept-Ranges:
@@ -43,21 +43,20 @@ http_interactions:
       Cache-Control:
       - no-cache
       Original-Content-Length:
-      - '33'
+      - '94036'
       Dropbox-Api-Result:
-      - '{"name": "video.mp4", "path_lower": "/video.mp4", "path_display": "/video.mp4",
-        "id": "id:Oye-ybT2HJAAAAAAAAAAAQ", "client_modified": "2016-05-01T01:01:00Z",
-        "server_modified": "2016-05-01T01:01:00Z", "rev": "2ad24061bdd", "size": 33}'
+      - '{"name": "file.docx", "path_lower": "/file.docx", "path_display": "/file.docx",
+        "id": "id:oeWs1qkP7PAAAAAAAAAAAQ", "client_modified": "2016-05-22T09:37:23Z",
+        "server_modified": "2016-05-22T09:37:23Z", "rev": "2c924061bdd", "size": 227514}'
       X-Server-Response-Time:
-      - '296'
+      - '588'
       X-Dropbox-Request-Id:
-      - 5f9fd8de813441865e61223033aa07dd
+      - 34a31de1c27272df7d865ba2140964b1
       X-Robots-Tag:
       - noindex, nofollow, noimageindex
     body:
       encoding: ASCII-8BIT
-      string: !binary |-
-        wqtIZXJlJ3MgdGhlIGNvbnRlbnQgb2YgYSBmaWxlwrsK
+      string: deleted, too long
     http_version:
-  recorded_at: Sun, 22 May 2016 09:31:47 GMT
+  recorded_at: Sun, 22 May 2016 09:38:24 GMT
 recorded_with: VCR 3.0.1

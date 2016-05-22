@@ -127,10 +127,10 @@ context DropboxApiV2::Endpoints::Files do
 
   describe "#get_preview" do
     it "returns the file", :cassette => "get_preview/success" do
-      file = @client.get_preview("/video.mp4")
+      file = @client.get_preview("/file.docx")
 
       expect(file).to be_a(DropboxApiV2::Metadata::File)
-      expect(file.name).to eq("video.mp4")
+      expect(file.name).to eq("file.docx")
     end
 
     it "raises an error if the name is invalid", :cassette => "get_preview/not_found" do
