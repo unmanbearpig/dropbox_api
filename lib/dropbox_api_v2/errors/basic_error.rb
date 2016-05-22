@@ -37,4 +37,7 @@ module DropboxApiV2::Errors
   class NoWritePermissionError < BasicError; end
   class RestrictedContentError < BasicError; end
   class TooManyFilesError < BasicError; end
+  class InProgressError < BasicError; end
+  class UnsupportedExtensionError < BasicError; end
+  class UnsupportedContentError < BasicError; end
 end

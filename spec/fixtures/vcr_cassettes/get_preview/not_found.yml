@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://content.dropboxapi.com/2/files/get_preview
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Dropbox-Api-Arg:
+      - '{"path":"/unknown_file.jpg"}'
+      Content-Type:
+      - ''
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 409
+      message: path/not_found/..
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 22 May 2016 09:24:35 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      X-Dropbox-Request-Id:
+      - 89ce1a77cebd5a28efdf9ae1bb016256
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: UTF-8
+      string: '{"error_summary": "path/not_found/..", "error": {".tag": "path", "path":
+        {".tag": "not_found"}}}'
+    http_version: 
+  recorded_at: Sun, 22 May 2016 09:24:34 GMT
+recorded_with: VCR 3.0.1
