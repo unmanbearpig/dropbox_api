@@ -1,16 +1,5 @@
 module DropboxApiV2::Endpoints
   module Files
-    # Get a preview for a file. Currently previews are only generated for the
-    # files with the following extensions: .doc, .docx, .docm, .ppt, .pps,
-    # .ppsx, .ppsm, .pptx, .pptm, .xls, .xlsx, .xlsm, .rtf
-    #
-    # @param path [String] The path of the file to preview.
-    def get_preview(path)
-      request :post, "/2/files/get_preview", {
-        :path => path
-      }
-    end
-
     # Get a temporary link to stream content of a file. This link will expire
     # in four hours and afterwards you will get 410 Gone. Content-Type of the
     # link is determined automatically by the file's mime type.
