@@ -17,7 +17,12 @@ module DropboxApiV2
     end
 
     def build_metadata(result_type)
-      Metadata::Factory.build @response_data, result_type
+      if result_type.is_a? Class
+        puts result_type.name
+        result_type.new(@response_data)
+      else
+        Metadata::Factory.build @response_data, result_type
+      end
     end
 
     def build_error(error_type)

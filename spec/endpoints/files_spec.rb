@@ -139,4 +139,19 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
+
+  describe "#get_temporary_link", :cassette => "get_temporary_link/success" do
+    it "returns a GetTemporaryLinkResult with file and link" do
+      result = @client.get_temporary_link "/img.png"
+
+      expect(result).to be_a(DropboxApiV2::Results::GetTemporaryLinkResult)
+      expect(result.file.name).to eq("img.png")
+    end
+
+    it "raises an error if the file can't be found", :cassette => "get_temporary_link/not_found" do
+      expect {
+        @client.get_preview "/unknown_file.jpg"
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+  end
 end

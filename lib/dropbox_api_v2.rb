@@ -25,6 +25,9 @@ require 'dropbox_api_v2/errors/get_metadata_error'
 require 'dropbox_api_v2/errors/preview_error'
 
 require 'dropbox_api_v2/api_result'
+require 'dropbox_api_v2/results/base'
+require 'dropbox_api_v2/results/get_temporary_link_result'
+
 require 'dropbox_api_v2/client'
 require 'dropbox_api_v2/connection_builder'
 
@@ -38,3 +41,4 @@ require 'dropbox_api_v2/endpoints/files/delete'
 require 'dropbox_api_v2/endpoints/files/download'
 require 'dropbox_api_v2/endpoints/files/get_metadata'
 require 'dropbox_api_v2/endpoints/files/get_preview'
+require 'dropbox_api_v2/endpoints/files/get_temporary_link'
