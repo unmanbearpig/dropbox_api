@@ -24,7 +24,7 @@ require 'dropbox_api_v2/errors/download_error'
 require 'dropbox_api_v2/errors/get_metadata_error'
 require 'dropbox_api_v2/errors/preview_error'
 
-require 'dropbox_api_v2/api_result'
+require 'dropbox_api_v2/result_builder'
 require 'dropbox_api_v2/results/base'
 require 'dropbox_api_v2/results/get_temporary_link_result'
 

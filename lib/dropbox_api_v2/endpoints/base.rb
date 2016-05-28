@@ -13,12 +13,12 @@ module DropboxApiV2::Endpoints
     end
 
     def process_response(raw_response)
-      api_result = DropboxApiV2::ApiResult.new(raw_response.env[:api_result])
+      result_builder = DropboxApiV2::ResultBuilder.new(raw_response.env[:api_result])
 
-      if api_result.has_error?
-        raise api_result.build_error(self.class::ErrorType)
+      if result_builder.has_error?
+        raise result_builder.build_error(self.class::ErrorType)
       else
-        api_result.build_metadata(self.class::ResultType)
+        result_builder.build(self.class::ResultType)
       end
     end
   end

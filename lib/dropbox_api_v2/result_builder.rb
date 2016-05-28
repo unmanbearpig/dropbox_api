@@ -1,5 +1,5 @@
 module DropboxApiV2
-  class ApiResult
+  class ResultBuilder
     def initialize(response_data)
       @response_data = response_data
     end
@@ -16,9 +16,8 @@ module DropboxApiV2
       !error_summary.nil?
     end
 
-    def build_metadata(result_type)
+    def build(result_type)
       if result_type.is_a? Class
-        puts result_type.name
         result_type.new(@response_data)
       else
         Metadata::Factory.build @response_data, result_type
