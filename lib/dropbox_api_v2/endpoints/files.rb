@@ -1,29 +1,5 @@
 module DropboxApiV2::Endpoints
   module Files
-    # Returns the contents of a folder.
-    #
-    # @param path [String] The path to the folder you want to read.
-    # @option recursive [Boolean] If `true`, the list folder operation will be
-    #   applied recursively to all subfolders and the response will contain
-    #   contents of all subfolders. The default for this field is `false`.
-    # @option include_media_info [Boolean] If `true`, FileMetadata.media_info
-    #   is set for photo and video. The default for this field is `false`.
-    # @option include_deleted [Boolean] If `true`, DeletedMetadata will be
-    #   returned for deleted file or folder, otherwise LookupError.not_found
-    #   will be returned. The default for this field is False.
-    def list_folder(path, options = {})
-      options[:recursive] ||= false
-      options[:include_media_info] ||= false
-      options[:include_deleted] ||= false
-
-      request :post, "/2/files/list_folder", {
-        :path => path,
-        :recursive => options[:recursive],
-        :include_media_info => options[:include_media_info],
-        :include_deleted => options[:include_deleted]
-      }
-    end
-
     # Once a cursor has been retrieved from list_folder, use this to paginate
     # through all files and retrieve updates to the folder.
     #
