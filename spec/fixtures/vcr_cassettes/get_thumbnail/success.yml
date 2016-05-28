@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://content.dropboxapi.com/2/files/get_thumbnail
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Authorization:
+      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      User-Agent:
+      - Faraday v0.9.2
+      Dropbox-Api-Arg:
+      - '{"format":"jpeg","size":"w64h64","path":"/img.png"}'
+      Content-Type:
+      - ''
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 28 May 2016 09:32:51 GMT
+      Content-Type:
+      - application/octet-stream
+      Content-Length:
+      - '1568'
+      Connection:
+      - keep-alive
+      Accept-Ranges:
+      - bytes
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      Original-Content-Length:
+      - '1568'
+      Dropbox-Api-Result:
+      - '{"name": "img.png", "path_lower": "/img.png", "path_display": "/img.png",
+        "id": "id:jVVdzRI3CnAAAAAAAAAAAQ", "client_modified": "2016-05-22T09:29:22Z",
+        "server_modified": "2016-05-22T09:29:42Z", "rev": "2c724061bdd", "size": 77019}'
+      X-Server-Response-Time:
+      - '273'
+      X-Dropbox-Request-Id:
+      - 5b84857b90a9c6df3ab655820d2e7008
+      X-Robots-Tag:
+      - noindex, nofollow, noimageindex
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        /9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJ
+        ChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/
+        2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgo
+        KCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAA0AEADASIAAhEBAxEB/8QA
+        HwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUF
+        BAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkK
+        FhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1
+        dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXG
+        x8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEB
+        AQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAEC
+        AxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRom
+        JygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOE
+        hYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU
+        1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwDyLRt51PUB
+        vfiTHLH0rb8Ghl8Sattdzm3Q8sTzmsmzNst3dst0gMrhiVPIxVrwnNbt4gvQ
+        l+keLdUDlgNxHB6nn17150ur8i4dDqLWKSKe7KTyF5XJXcfunDYx7c17H4dM
+        q+HtPW4k3zCIB3AwGbJyfzrxeQhJYWjv7chm3dR09+T78+9e2aDtk0OzdCGV
+        owwIPBBJ5rKOp20tC5E3fJqwrnHU1DDjnip1Gc4reLLkLuOMZNKELyLnoKTG
+        PSrEQGKpq5ByVh4UsLW7uri3WVJZ2DSMJD8xAwP0FN03wDomnXJubS1eOf5v
+        m81m+9jPByOcCuoTTIkZijk892NWTEcYOSPZq5HGUjKnFJHmvjPRfDeg+HdQ
+        n1C3kaG5kyY0K75pW6BSRx0+gFUPh34h1PWJo7SERW1pFCPKg8nO1RjAZs5z
+        jPI6+lX/AI56dcXPhFbi1jkf7HN5rBRlgCpXI+hIrzn4AxTPq900IvG8kDzL
+        hSWhX5eFJONp7d6znCXI2r6djppSippM9n1/WIdDS2e9OwXEyQoT0G7ufYVh
+        eNf+Eii1S1s9CXzriUGTzG4jgUHGT2HPHcnBre1TwvY+Ir+2uNetpH+yn92p
+        lOwkHPIBwa3pcXU8kgztB2jHtRDmv+jFVpe0TTemlrFaJ38tPM2+ZgbsdM98
+        e1XIn4qH7Ng9XH51KkJA4c/jV2qLqX7vY02t1YsRjr2NV3gI6NVtlIZjkDmo
+        5UlUhScE9MnGa6bJK7OWN2Z8sb4IbBU9jXJT/ZfD0839maUI1djI7W0RRQ5H
+        BJOFPP412c0bAkMMEe9c3qkCSzSMVjdtw8thdBGQgc8NnB9wKrkfQKvwmZoO
+        onVdXmhW4hNlEoMUaSHzGUDB3KemTk598V2ESqFCouAOmK57SXWLUQZ53wFO
+        fNuI3A9DkDP9Oa6xFHTGDU0qS1dtTam24JXIlRu2atxW7EDdSjA6nH1p6XUS
+        8Al29FGa0ajFajAcs/1Nea/EmCa8ls7/APtC+t5oA4jFvL5YUk8twM5wMdel
+        FFTHexzSScdS78PtYu9UjnS5ZNsTfwjliTyxJ5yfy9q8s1X4n6/a3l/BGtgW
+        iupIEma2BkChiBz04+lFFb0Nd+6/Uyxcmoqz7nH6l488TX6NBeavNLb3CNHJ
+        EUQAqeo4AOK9T+CHiPVLlrvS7q7ee1t4VeHzDuZOcbQ3XHtRRXsYmEVhp2Rw
+        4acnXjdnsFrAtxGrTM7Z5IzxWlawRqgCjA9qKK+ahqrs+hZ//9k=
+    http_version: 
+  recorded_at: Sat, 28 May 2016 09:32:51 GMT
+recorded_with: VCR 3.0.1
