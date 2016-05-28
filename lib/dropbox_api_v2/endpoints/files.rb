@@ -1,16 +1,5 @@
 module DropboxApiV2::Endpoints
   module Files
-    # Get a temporary link to stream content of a file. This link will expire
-    # in four hours and afterwards you will get 410 Gone. Content-Type of the
-    # link is determined automatically by the file's mime type.
-    #
-    # @param path [String] The path to the file you want a temporary link to.
-    def get_temporary_link(path)
-      request :post, "/2/files/get_temporary_link", {
-        :path => path
-      }
-    end
-
     # Get a thumbnail for an image.
     #
     # This method currently supports files with the following file extensions:
