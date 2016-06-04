@@ -64,19 +64,6 @@ module DropboxApiV2::Endpoints
       }
     end
 
-    # Move a file or folder to a different location in the user's Dropbox.
-    #
-    # If the source path is a folder all its contents will be moved.
-    #
-    # @param from [String] Path in the user's Dropbox to be copied or moved.
-    # @param to [String] Path in the user's Dropbox that is the destination.
-    def move(from, to)
-      request :post, "/2/files/move", {
-        :from_path => from,
-        :to_path => to
-      }
-    end
-
     # Restore a file to a specific revision
     #
     # @param path [String] The path to the file you want to restore.
