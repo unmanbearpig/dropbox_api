@@ -1,3 +1,6 @@
+# IMPORTANT: This file is deprecated and it's not even required when the
+#            library is loaded. It's just preserved as a reference for the
+#            future implementations of its endpoints.
 module DropboxApiV2::Endpoints
   module Files
     # A way to quickly get a cursor for the folder's state. Unlike list_folder,
