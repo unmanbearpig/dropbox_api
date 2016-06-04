@@ -1,16 +1,5 @@
 module DropboxApiV2::Endpoints
   module Files
-    # Once a cursor has been retrieved from list_folder, use this to paginate
-    # through all files and retrieve updates to the folder.
-    #
-    # @param cursor [String] The cursor returned by your last call to
-    #   list_folder or list_folder_continue.
-    def list_folder_continue(cursor)
-      request :post, "/2/files/list_folder/continue", {
-        :cursor => cursor
-      }
-    end
-
     # A way to quickly get a cursor for the folder's state. Unlike list_folder,
     # list_folder_get_latest_cursor doesn't return any entries. This endpoint
     # is for app which only needs to know about new files and modifications and
