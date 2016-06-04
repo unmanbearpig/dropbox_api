@@ -4,7 +4,7 @@ context DropboxApiV2::Endpoints::Files do
   end
 
   describe "#copy" do
-    it "returns the moved file on success", :cassette => "copy/success" do
+    it "returns the copied file on success", :cassette => "copy/success" do
       file = @client.copy("/a.jpg", "/b.jpg")
 
       expect(file).to be_a(DropboxApiV2::Metadata::File)
@@ -217,6 +217,28 @@ context DropboxApiV2::Endpoints::Files do
       result = @client.list_folder_continue(@cursor)
 
       expect(result).to be_a(DropboxApiV2::Results::ListFolderResult)
+    end
+  end
+
+  describe "#move" do
+    it "returns the moved file on success", :cassette => "move/success_file" do
+      file = @client.move("/img.png", "/image.png")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::File)
+      expect(file.name).to eq("image.png")
+    end
+
+    it "returns the moved folder on success", :cassette => "move/success_folder" do
+      file = @client.move("/folder", "/test/folder")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::Folder)
+      expect(file.name).to eq("folder")
+    end
+
+    it "raises an error if the file can't be found", :cassette => "move/not_found" do
+      expect {
+        @client.move("/z.jpg", "/b.jpg")
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
 end
