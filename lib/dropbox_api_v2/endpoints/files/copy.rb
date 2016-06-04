@@ -2,7 +2,7 @@ module DropboxApiV2::Endpoints::Files
   class Copy < DropboxApiV2::Endpoints::Rpc
     Method      = :post
     Path        = "/2/files/copy".freeze
-    ResultType  = :file_or_folder
+    ResultType  = DropboxApiV2::Metadata::Resource
     ErrorType   = DropboxApiV2::Errors::RelocationError
 
     # @method copy(from, to)

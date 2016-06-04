@@ -16,12 +16,8 @@ module DropboxApiV2
       !error_summary.nil?
     end
 
-    def build(result_type)
-      if result_type.is_a? Class
-        result_type.new(@response_data)
-      else
-        Metadata::Factory.build @response_data, result_type
-      end
+    def build(result_class)
+      result_class.new(@response_data)
     end
 
     def build_error(error_type)

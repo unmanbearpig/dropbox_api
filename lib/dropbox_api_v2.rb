@@ -11,7 +11,6 @@ require 'dropbox_api_v2/metadata/base'
 require 'dropbox_api_v2/metadata/file'
 require 'dropbox_api_v2/metadata/folder'
 require 'dropbox_api_v2/metadata/deleted'
-require 'dropbox_api_v2/metadata/factory'
 require 'dropbox_api_v2/metadata/resource'
 
 require 'dropbox_api_v2/errors/basic_error'
