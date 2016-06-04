@@ -23,11 +23,17 @@ module DropboxApiV2::Metadata
 
     def cast(object, type)
       if type == String
-        object
+        object.to_s
       elsif type == Time
         Time.new(object)
       elsif type == Integer
         object.to_i
+      elsif type == Symbol
+        object[".tag"].to_sym
+      elsif type == :boolean
+        object.to_s == "true"
+      elsif type.ancestors.include? DropboxApiV2::Metadata::Base
+        type.new(object)
       else
         raise NotImplementedError, "Can't cast `#{type}`"
       end

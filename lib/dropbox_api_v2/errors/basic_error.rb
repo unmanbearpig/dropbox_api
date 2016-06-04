@@ -22,10 +22,13 @@ module DropboxApiV2::Errors
     end
   end
 
+  class BadPathError < BasicError; end
   class CantCopySharedFolderError < BasicError; end
   class CantMoveFolderIntoItselfError < BasicError; end
   class CantNestSharedFolderError < BasicError; end
   class DisallowedNameError < BasicError; end
+  class DisallowedSharedLinkPolicyError < BasicError; end
+  class EmailUnverifiedError < BasicError; end
   class FileConflictError < BasicError; end
   class FileAncestorConflictError < BasicError; end
   class FolderConflictError < BasicError; end
@@ -35,8 +38,10 @@ module DropboxApiV2::Errors
   class NotFileError < BasicError; end
   class NotFolderError < BasicError; end
   class NotFoundError < BasicError; end
+  class NoPermissionError < BasicError; end
   class NoWritePermissionError < BasicError; end
   class RestrictedContentError < BasicError; end
+  class TeamPolicyDisallowsMemberPolicyError < BasicError; end
   class TooManyFilesError < BasicError; end
   class InProgressError < BasicError; end
   class UnsupportedExtensionError < BasicError; end
