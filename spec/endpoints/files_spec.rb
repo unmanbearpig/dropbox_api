@@ -241,4 +241,20 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
+
+  describe "#search" do
+    it "returns a list of matching results", :cassette => "search/success" do
+      result = @client.search("image.png")
+
+      expect(result).to be_a(DropboxApiV2::Results::SearchResult)
+      file = result.matches.first.resource
+      expect(file.name).to eq("image.png")
+    end
+
+    it "raises an error if the file can't be found", :cassette => "search/not_found" do
+      expect {
+        @client.search("/image.png", "/bad_folder")
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+  end
 end
