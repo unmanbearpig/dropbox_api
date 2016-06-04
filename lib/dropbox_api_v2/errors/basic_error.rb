@@ -30,6 +30,7 @@ module DropboxApiV2::Errors
   class FileAncestorConflictError < BasicError; end
   class FolderConflictError < BasicError; end
   class InsufficientSpaceError < BasicError; end
+  class InvalidCursorError < BasicError; end
   class MalformedPathError < BasicError; end
   class NotFileError < BasicError; end
   class NotFolderError < BasicError; end

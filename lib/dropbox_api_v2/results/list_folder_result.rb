@@ -16,7 +16,7 @@ module DropboxApiV2::Results
     # If true, then there are more entries available. Pass the cursor to
     # `list_folder_continue` to retrieve the rest.
     def has_more?
-      @data["has_more"] == "true"
+      @data["has_more"].to_s == "true"
     end
   end
 end

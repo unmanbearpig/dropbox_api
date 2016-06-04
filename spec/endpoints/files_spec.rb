@@ -203,4 +203,20 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(ArgumentError)
     end
   end
+
+  describe "#list_folder_continue" do
+    before :each do
+      VCR.use_cassette("list_folder_continue/list_folder") do
+        result = @client.list_folder "/folder"
+        expect(result.has_more?).to be_truthy
+        @cursor = result.cursor
+      end
+    end
+
+    it "returns a ListFolderResult", :cassette => "list_folder_continue" do
+      result = @client.list_folder_continue(@cursor)
+
+      expect(result).to be_a(DropboxApiV2::Results::ListFolderResult)
+    end
+  end
 end
