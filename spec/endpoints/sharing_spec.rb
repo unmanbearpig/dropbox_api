@@ -52,4 +52,8 @@ context DropboxApiV2::Endpoints::Sharing do
       }.to raise_error(DropboxApiV2::Errors::InvalidIdError)
     end
   end
+
+  describe "#list_folder_members" do
+    it "lists folder members", :cassette => "list_folder_members/success"
+  end
 end
