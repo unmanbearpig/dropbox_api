@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/sharing/share_folder
     body:
       encoding: UTF-8
-      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/folder_b"}'
+      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/folder_k"}'
     headers:
       Authorization:
       - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 11 Jun 2016 07:30:10 GMT
+      - Sat, 11 Jun 2016 10:01:55 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -37,8 +37,8 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=MjEwMjMxNzI4MDkyMjY1Nzc5NDAzNzY1ODYxMDIxNDMwNTc4NjA2; expires=Thu, 10
-        Jun 2021 07:30:10 GMT; httponly; Path=/; secure
+      - gvc=NTk0NTQyOTE0OTM4NDI5NDQ0OTcwNjQ0ODAyMDUwNDE3MzczOTU%3D; expires=Thu, 10
+        Jun 2021 10:01:55 GMT; httponly; Path=/; secure
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
@@ -46,15 +46,15 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '1141'
+      - '1055'
       X-Dropbox-Request-Id:
-      - ccfa9187d9e259475ec1a0d2228a4de6
+      - 1ca0cc930f2dda810b3f7bc7c2f290f6
     body:
       encoding: UTF-8
       string: '{".tag": "complete", "access_type": {".tag": "owner"}, "is_team_folder":
         false, "policy": {"acl_update_policy": {".tag": "owner"}, "shared_link_policy":
-        {".tag": "anyone"}}, "path_lower": "/folder_b", "name": "folder_b", "shared_folder_id":
-        "1236358158", "time_invited": "2016-06-11T07:30:09Z"}'
+        {".tag": "anyone"}}, "path_lower": "/folder_k", "name": "folder_k", "shared_folder_id":
+        "1236414195", "time_invited": "2016-06-11T10:01:54Z"}'
     http_version: 
-  recorded_at: Sat, 11 Jun 2016 07:30:11 GMT
+  recorded_at: Sat, 11 Jun 2016 10:01:55 GMT
 recorded_with: VCR 3.0.1

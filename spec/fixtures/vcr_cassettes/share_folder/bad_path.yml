@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/sharing/share_folder
     body:
       encoding: UTF-8
-      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/folder_b"}'
+      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/test_folder"}'
     headers:
       Authorization:
       - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
@@ -25,23 +25,23 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 11 Jun 2016 07:33:38 GMT
+      - Sat, 11 Jun 2016 09:59:05 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '466'
+      - '474'
       Connection:
       - keep-alive
       X-Dropbox-Request-Id:
-      - 6c410daee34f73165d09c32cc20a93b3
+      - e9e8d675105a6183563bdb44a91ceaa5
     body:
       encoding: UTF-8
-      string: '{"error_summary": "bad_path/already_shared/", "error": {".tag": "bad_path",
+      string: '{"error_summary": "bad_path/already_shared/..", "error": {".tag": "bad_path",
         "bad_path": {".tag": "already_shared", "access_type": {".tag": "owner"}, "is_team_folder":
         false, "policy": {"acl_update_policy": {".tag": "owner"}, "shared_link_policy":
-        {".tag": "anyone"}}, "path_lower": "/folder_b", "name": "folder_b", "shared_folder_id":
-        "1236358158", "time_invited": "2016-06-11T07:30:09Z"}}, "user_message": {"locale":
-        "en", "text": "This folder is already shared."}}'
+        {".tag": "anyone"}}, "path_lower": "/test_folder", "name": "test_folder",
+        "shared_folder_id": "1236413110", "time_invited": "2016-06-11T09:59:03Z"}},
+        "user_message": {"locale": "en", "text": "This folder is already shared."}}'
     http_version: 
-  recorded_at: Sat, 11 Jun 2016 07:33:38 GMT
+  recorded_at: Sat, 11 Jun 2016 09:59:05 GMT
 recorded_with: VCR 3.0.1

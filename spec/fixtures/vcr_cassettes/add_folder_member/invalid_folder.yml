@@ -25,20 +25,20 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 11 Jun 2016 09:39:36 GMT
+      - Sat, 11 Jun 2016 09:57:47 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '194'
+      - '191'
       Connection:
       - keep-alive
       X-Dropbox-Request-Id:
-      - 912946f5616a9eb7a36b6bb090fef653
+      - 6d5c30d08bc8b6b68ec172e06567ab01
     body:
       encoding: UTF-8
-      string: '{"error_summary": "access_error/invalid_id/...", "error": {".tag":
-        "access_error", "access_error": {".tag": "invalid_id"}}, "user_message": {"locale":
-        "en", "text": "Invalid shared folder ID."}}'
+      string: '{"error_summary": "access_error/invalid_id/", "error": {".tag": "access_error",
+        "access_error": {".tag": "invalid_id"}}, "user_message": {"locale": "en",
+        "text": "Invalid shared folder ID."}}'
     http_version: 
-  recorded_at: Sat, 11 Jun 2016 09:39:35 GMT
+  recorded_at: Sat, 11 Jun 2016 09:57:47 GMT
 recorded_with: VCR 3.0.1
