@@ -2,10 +2,10 @@ module DropboxApiV2::Endpoints::Sharing
   class AddFolderMember < DropboxApiV2::Endpoints::Rpc
     Method      = :post
     Path        = "/2/sharing/add_folder_member".freeze
-    ResultType  = nil
+    ResultType  = DropboxApiV2::Results::VoidResult
     ErrorType   = DropboxApiV2::Errors::AddFolderMemberError
 
-    # @method add_folder_member(folder_id, members, options)
+    # @method add_folder_member(folder_id, *members, options)
     # Allows an owner or editor (if the ACL update policy allows) of a shared
     # folder to add another member.
     #

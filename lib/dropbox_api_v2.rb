@@ -41,6 +41,7 @@ require 'dropbox_api_v2/results/list_folder_result'
 require 'dropbox_api_v2/results/search/match'
 require 'dropbox_api_v2/results/search_result'
 require 'dropbox_api_v2/results/share_folder_launch'
+require 'dropbox_api_v2/results/void_result'
 
 require 'dropbox_api_v2/client'
 require 'dropbox_api_v2/connection_builder'
