@@ -31,12 +31,12 @@ module DropboxApiV2::Endpoints::Files
     private
 
     def validate_options(options)
-      valid_option_keys = %i(
-        recursive
-        include_media_info
-        include_deleted
-        include_has_explicit_shared_members
-      )
+      valid_option_keys = [
+        :recursive,
+        :include_media_info,
+        :include_deleted,
+        :include_has_explicit_shared_members
+      ]
 
       options.keys.each do |key|
         unless valid_option_keys.include? key.to_sym

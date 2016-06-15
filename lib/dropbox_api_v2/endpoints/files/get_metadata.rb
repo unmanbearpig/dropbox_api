@@ -27,7 +27,7 @@ module DropboxApiV2::Endpoints::Files
     private
 
     def validate_options(options)
-      valid_option_keys = %i(include_media_info include_deleted)
+      valid_option_keys = [:include_media_info, :include_deleted]
 
       options.keys.each do |key|
         unless valid_option_keys.include? key.to_sym

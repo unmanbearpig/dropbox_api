@@ -38,11 +38,11 @@ module DropboxApiV2::Endpoints::Files
     private
 
     def validate_options(options)
-      valid_option_keys = %i(
-        start
-        max_results
-        mode
-      )
+      valid_option_keys = [
+        :start,
+        :max_results,
+        :mode
+      ]
 
       options.keys.each do |key|
         unless valid_option_keys.include? key.to_sym

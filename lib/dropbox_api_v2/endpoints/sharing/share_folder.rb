@@ -47,12 +47,12 @@ module DropboxApiV2::Endpoints::Sharing
     private
 
     def validate_options(options)
-      valid_option_keys = %i(
-        member_policy
-        acl_update_policy
-        shared_link_policy
-        force_async
-      )
+      valid_option_keys = [
+        :member_policy,
+        :acl_update_policy,
+        :shared_link_policy,
+        :force_async
+      ]
 
       options.keys.each do |key|
         unless valid_option_keys.include? key.to_sym

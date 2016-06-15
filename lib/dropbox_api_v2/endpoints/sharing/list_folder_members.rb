@@ -29,9 +29,7 @@ module DropboxApiV2::Endpoints::Sharing
     private
 
     def validate_options(options)
-      valid_option_keys = %i(
-        limit
-      )
+      valid_option_keys = [:limit]
 
       options.keys.each do |key|
         unless valid_option_keys.include? key.to_sym
