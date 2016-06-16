@@ -59,6 +59,7 @@ module DropboxApiV2::Errors
   class IsOsxPackageError < BasicError; end
   class IsPublicFolderError < BasicError; end
   class MalformedPathError < BasicError; end
+  class NoAccountError < BasicError; end
   class NoPermissionError < BasicError; end
   class NoWritePermissionError < BasicError; end
   class NotAMemberError < BasicError; end
