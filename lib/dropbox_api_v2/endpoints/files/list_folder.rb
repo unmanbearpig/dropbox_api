@@ -16,7 +16,7 @@ module DropboxApiV2::Endpoints::Files
     #   is set for photo and video. The default for this field is `false`.
     # @option include_deleted [Boolean] If `true`, DeletedMetadata will be
     #   returned for deleted file or folder, otherwise LookupError.not_found
-    #   will be returned. The default for this field is False.
+    #   will be returned. The default for this field is `false`.
     add_endpoint :list_folder do |path, options = {}|
       validate_options(options)
       options[:recursive] ||= false
