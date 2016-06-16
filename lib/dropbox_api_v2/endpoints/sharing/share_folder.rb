@@ -39,9 +39,13 @@ module DropboxApiV2::Endpoints::Sharing
       options[:shared_link_policy] ||= :anyone
       options[:force_async] ||= false
 
-      perform_request options.merge({
-        :path => path
-      })
+      begin
+        perform_request options.merge({
+          :path => path
+        })
+      rescue DropboxApiV2::Errors::AlreadySharedError => error
+        error.shared_folder
+      end
     end
 
     private

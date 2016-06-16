@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/sharing/share_folder
     body:
       encoding: UTF-8
-      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/test_folder"}'
+      string: '{"member_policy":"anyone","acl_update_policy":"owner","shared_link_policy":"anyone","force_async":false,"path":"/already_shared"}'
     headers:
       Authorization:
       - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
@@ -39,9 +39,9 @@ http_interactions:
       string: '{"error_summary": "bad_path/already_shared/..", "error": {".tag": "bad_path",
         "bad_path": {".tag": "already_shared", "access_type": {".tag": "owner"}, "is_team_folder":
         false, "policy": {"acl_update_policy": {".tag": "owner"}, "shared_link_policy":
-        {".tag": "anyone"}}, "path_lower": "/test_folder", "name": "test_folder",
+        {".tag": "anyone"}}, "path_lower": "/already_shared", "name": "already_shared",
         "shared_folder_id": "1236413110", "time_invited": "2016-06-11T09:59:03Z"}},
         "user_message": {"locale": "en", "text": "This folder is already shared."}}'
-    http_version: 
+    http_version:
   recorded_at: Sat, 11 Jun 2016 09:59:05 GMT
 recorded_with: VCR 3.0.1

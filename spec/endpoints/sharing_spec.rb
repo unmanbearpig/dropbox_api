@@ -10,10 +10,10 @@ context DropboxApiV2::Endpoints::Sharing do
       expect(folder).to be_a(DropboxApiV2::Metadata::SharedFolder)
     end
 
-    it "returns the shared folder", :cassette => "share_folder/bad_path" do
-      expect {
-        @client.share_folder("/test_folder")
-      }.to raise_error(DropboxApiV2::Errors::BadPathError)
+    it "returns the shared folder, even if already shared", :cassette => "share_folder/bad_path" do
+      folder = @client.share_folder("/already_shared")
+
+      expect(folder).to be_a(DropboxApiV2::Metadata::SharedFolder)
     end
 
     it "contains a shared folder id", :cassette => "share_folder/success" do
