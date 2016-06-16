@@ -12,6 +12,6 @@ module DropboxApiV2::Metadata
     field :path_lower, String
     field :path_display, String
     field :id, String
-    field :sharing_info, DropboxApiV2::Metadata::FolderSharingInfo
+    field :sharing_info, DropboxApiV2::Metadata::FolderSharingInfo, :optional
   end
 end
