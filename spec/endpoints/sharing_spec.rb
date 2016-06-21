@@ -43,6 +43,13 @@ context DropboxApiV2::Endpoints::Sharing do
       # The endpoint doesn't have any return values, can't test the output!
     end
 
+    it "shares the folder, if the member param is a string", :cassette => "add_folder_member/success" do
+      folder_id = 1236358158
+      folder = @client.add_folder_member(folder_id, ["somebody@test.com"])
+
+      # The endpoint doesn't have any return values, can't test the output!
+    end
+
     it "fails with an invalid folder id", :cassette => "add_folder_member/invalid_folder" do
       folder_id = "xxx"
       expect {
