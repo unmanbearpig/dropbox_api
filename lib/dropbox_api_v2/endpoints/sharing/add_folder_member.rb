@@ -15,7 +15,7 @@ module DropboxApiV2::Endpoints::Sharing
     # Apps must have full Dropbox access to use this endpoint.
     #
     # @param folder_id [String] The ID for the shared folder.
-    # @param members [Array<AddMember>] The intended list of members to
+    # @param members [Array<AddMember,String>] The intended list of members to
     #   add. Added members will receive invites to join the shared folder.
     # @option quiet [Boolean] Whether added members should be notified via
     #   email and device notifications of their invite. The default for this
@@ -23,17 +23,31 @@ module DropboxApiV2::Endpoints::Sharing
     # @option custom_message [String] Optional message to display to added
     #   members in their invitation. This field is optional.
     add_endpoint :add_folder_member do |folder_id, members, options = {}|
+      # TODO: It should be possible to take an email (String) as the argument.
       validate_options(options)
       options[:quiet] ||= false
       options[:custom_message] ||= nil
 
       perform_request options.merge({
         :shared_folder_id => folder_id,
-        :members => members.map(&:to_hash)
+        :members => build_members_param(members)
       })
     end
 
     private
+
+    def build_members_param(members)
+      members.map do |member|
+        case member
+        when String
+          DropboxApiV2::Metadata::AddMember.new member
+        when DropboxApiV2::Metadata::AddMember
+          member
+        else
+          raise ArgumentError, "Invalid argument type `#{member.class.name}`"
+        end
+      end.map(&:to_hash)
+    end
 
     def validate_options(options)
       valid_option_keys = [
