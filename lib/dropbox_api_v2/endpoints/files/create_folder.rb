@@ -9,7 +9,7 @@ module DropboxApiV2::Endpoints::Files
     # Create a folder at a given path.
     #
     # @param path [String] Path in the user's Dropbox to create.
-    # @return The new folder.
+    # @return [DropboxApiV2::Metadata::Folder] The new folder.
     add_endpoint :create_folder do |path|
       perform_request({
         :path => path
