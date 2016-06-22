@@ -35,9 +35,12 @@ module DropboxApiV2::Metadata
     field :link_permissions, DropboxApiV2::Metadata::LinkPermissions
     field :client_modified, Time
     field :server_modified, Time
+    field :rev, String
     field :size, Integer
-    field :id, String
-    field :path_lower, String
-    field :team_member_info, 
+    field :id, String, :optional
+    field :expires, Time, :optional
+    field :path_lower, String, :optional
+    field :team_member_info, DropboxApiV2::Metadata::TeamMemberInfo, :optional
+    field :content_owner_team_info, DropboxApiV2::Metadata::Team, :optional
   end
 end
