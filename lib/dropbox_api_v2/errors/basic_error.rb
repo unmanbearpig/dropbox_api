@@ -54,6 +54,7 @@ module DropboxApiV2::Errors
   class InvalidEmailError < BasicError; end
   class InvalidIdError < BasicError; end
   class InvalidPathError < BasicError; end
+  class InvalidSettingsError < BasicError; end
   class IsAppFolderError < BasicError; end
   class IsFileError < BasicError; end
   class IsOsxPackageError < BasicError; end
@@ -68,6 +69,7 @@ module DropboxApiV2::Errors
   class NotFoundError < BasicError; end
   class RateLimitError < BasicError; end
   class RestrictedContentError < BasicError; end
+  class SharedLinkAlreadyExistsError < BasicError; end
   class TeamFolderError < BasicError; end
   class TeamPolicyDisallowsMemberPolicyError < BasicError; end
   class TooManyFilesError < BasicError; end
