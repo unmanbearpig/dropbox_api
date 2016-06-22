@@ -58,16 +58,5 @@ module DropboxApiV2::Metadata
         :".tag" => @acl
       }
     end
-
-    # private
-    #
-    #       @data = {
-    #         :member => build_member(member),
-    #         :access_level => build_acl(acl)
-    #       }
-    #
-    # def build_member(member)
-    #   if
-    # end
   end
 end
