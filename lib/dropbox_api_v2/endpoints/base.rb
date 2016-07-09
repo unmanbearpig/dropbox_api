@@ -15,7 +15,7 @@ module DropboxApiV2::Endpoints
     def process_response(raw_response)
       case raw_response.status
       when 200, 409
-        # Status code 409 is "Endpoint-specific error." We need to look at
+        # Status code 409 is "Endpoint-specific error". We need to look at
         # the response body to build an exception.
         build_result(raw_response.env[:api_result])
       else
