@@ -29,35 +29,39 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 14 May 2016 09:04:18 GMT
+      - Sun, 10 Jul 2016 19:20:10 GMT
       Content-Type:
       - application/octet-stream
       Content-Length:
-      - '33'
+      - '12'
       Connection:
       - keep-alive
       Accept-Ranges:
       - bytes
+      Etag:
+      - W/"1a6b24061bdd"
       Pragma:
       - no-cache
       Cache-Control:
       - no-cache
       Original-Content-Length:
-      - '33'
+      - '12'
       Dropbox-Api-Result:
       - '{"name": "file.txt", "path_lower": "/file.txt", "path_display": "/file.txt",
-        "id": "id:Oye-ybT2HJAAAAAAAAAAAQ", "client_modified": "2016-05-01T01:01:00Z",
-        "server_modified": "2016-05-01T01:01:00Z", "rev": "2ad24061bdd", "size": 33}'
+        "id": "id:XsZovXcpKaAAAAAAAAAAAQ", "client_modified": "2016-07-10T19:19:47Z",
+        "server_modified": "2016-07-10T19:19:47Z", "rev": "1a6b24061bdd", "size":
+        12}'
       X-Server-Response-Time:
-      - '296'
+      - '482'
       X-Dropbox-Request-Id:
-      - 5f9fd8de813441865e61223033aa07dd
+      - 82eb4cc8aa785d9c4ad9d6ee5fc58b0f
       X-Robots-Tag:
       - noindex, nofollow, noimageindex
     body:
-      encoding: ASCII-8BIT
-      string: !binary |-
-        wqtIZXJlJ3MgdGhlIGNvbnRlbnQgb2YgYSBmaWxlwrsK
+      encoding: UTF-8
+      string: 'Viva Rusia!
+
+'
     http_version: 
-  recorded_at: Sat, 14 May 2016 09:04:18 GMT
+  recorded_at: Sun, 10 Jul 2016 19:20:11 GMT
 recorded_with: VCR 3.0.1

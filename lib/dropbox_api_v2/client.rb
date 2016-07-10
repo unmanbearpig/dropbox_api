@@ -5,8 +5,8 @@ module DropboxApiV2
     end
 
     def self.add_endpoint(name, endpoint)
-      define_method(name) do |*args|
-        endpoint.new(@connection_builder).send(name, *args)
+      define_method(name) do |*args, &block|
+        endpoint.new(@connection_builder).send(name, *args, &block)
       end
     end
   end

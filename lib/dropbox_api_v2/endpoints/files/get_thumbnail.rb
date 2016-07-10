@@ -19,14 +19,14 @@ module DropboxApiV2::Endpoints::Files
     #   :jpeg.
     # @option size [:w32h32, :w64h64, :w128h128, :w640h480, :w1024h768] The
     #   size for the thumbnail image. The default is :w64h64
-    add_endpoint :get_thumbnail do |path, options = {}|
+    add_endpoint :get_thumbnail do |path, options = {}, &block|
       validate_options(options)
       options[:format] ||= :jpeg
       options[:size] ||= :w64h64
 
       perform_request(options.merge({
         :path => path
-      }))
+      }), &block)
     end
 
     private

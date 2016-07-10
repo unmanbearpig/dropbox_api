@@ -7,9 +7,12 @@ module DropboxApiV2::Endpoints
 
     protected
 
-    def perform_request(params, headers = {})
-      process_response(@connection
-        .run_request(self.class::Method, self.class::Path, params, headers))
+    def run_request(params)
+      @connection.run_request(self.class::Method, self.class::Path, params, {})
+    end
+
+    def perform_request(params)
+      process_response(run_request(params))
     end
 
     def process_response(raw_response)

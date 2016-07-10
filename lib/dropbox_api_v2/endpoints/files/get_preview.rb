@@ -11,8 +11,8 @@ module DropboxApiV2::Endpoints::Files
     # .ppsx, .ppsm, .pptx, .pptm, .xls, .xlsx, .xlsm, .rtf
     #
     # @param path [String] The path of the file to preview.
-    add_endpoint :get_preview do |path|
-      perform_request({:path => path})
+    add_endpoint :get_preview do |path, &block|
+      perform_request({:path => path}, &block)
     end
   end
 end

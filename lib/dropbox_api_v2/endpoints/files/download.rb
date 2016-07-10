@@ -9,8 +9,8 @@ module DropboxApiV2::Endpoints::Files
     # Download a file from a user's Dropbox.
     #
     # @param path [String] The path of the file to download.
-    add_endpoint :download do |path|
-      perform_request({:path => path})
+    add_endpoint :download do |path, &block|
+      perform_request({:path => path}, &block)
     end
   end
 end

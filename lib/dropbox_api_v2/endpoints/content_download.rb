@@ -6,5 +6,16 @@ module DropboxApiV2::Endpoints
         c.response :decode_result
       end
     end
+
+    def perform_request(params, &block)
+      response = run_request(params)
+      api_result = process_response(response)
+
+      # TODO: Stream response, current implementation will fail with very large
+      #       files.
+      block.call(response.body) unless block.nil?
+
+      api_result
+    end
   end
 end

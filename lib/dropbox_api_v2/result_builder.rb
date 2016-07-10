@@ -16,6 +16,10 @@ module DropboxApiV2
       !error_summary.nil?
     end
 
+    def success?
+      !has_error?
+    end
+
     def build(result_class)
       result_class.new(@response_data)
     end
