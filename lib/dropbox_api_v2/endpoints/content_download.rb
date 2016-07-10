@@ -7,13 +7,13 @@ module DropboxApiV2::Endpoints
       end
     end
 
-    def perform_request(params, &block)
+    def perform_request(params)
       response = run_request(params)
       api_result = process_response(response)
 
       # TODO: Stream response, current implementation will fail with very large
       #       files.
-      block.call(response.body) unless block.nil?
+      yield response.body if block_given?
 
       api_result
     end
