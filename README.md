@@ -2,6 +2,10 @@
 
 Ruby gem to interact with Dropbox API v2.
 
+**IMPORTANT: This is work in progress, no gem has been released yet. I would like
+to publish version 0.1 shortly, when that happens you'll be able to use this
+library by just following the instructions below.**
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -23,7 +27,32 @@ Or install it yourself as:
 ### Authorize your application
 
 Dropbox uses OAuth, in order to use this library from your application you'll
-have to get an authorization code:
+have to get an authorization code.
+
+Once you have it, just pass it on client initialization:
+
+    DropboxApiV2::Client.new("VofXAX8D...")
+    #=> #<DropboxApiV2::Client ...>
+
+Or set it as an ENV variable called `DROPBOX_OAUTH_BEARER`, for example:
+
+    ENV["DROPBOX_OAUTH_BEARER"] = "VofXAX8D..."
+    DropboxApiV2::Client.new
+    #=> #<DropboxApiV2::Client ...>
+
+#### Option A: Get your access token from the website
+
+The easiest way to obtain an access token is to get it from the Dropbox website.
+You just need to log in to Dropbox and refer to the *developers* section, go to
+*My apps* and select your application, you may need to create one if you
+haven't done so yet.
+
+Under your application settings, find section *OAuth 2*. You'll find a button
+to generate an access token.
+
+#### Option B: Use `DropboxApiV2::Authenticator`
+
+You can obtain an authorization code with this library:
 
 1. `require "dropbox_api_v2/authenticator"`
 1. `authenticator = DropboxApiV2::Authenticator.new(CLIENT_ID, CLIENT_SECRET)`
@@ -32,6 +61,10 @@ have to get an authorization code:
    copy your code.
 4. `auth_bearer = authenticator.get_token(CODE) #=> #<OAuth2::AccessToken ...>`
 5. `auth_bearer.token #=> "VofXAX8D..."`. Keep this token!
+
+#### Standard OAuth flow
+
+Not implemented yet. :(
 
 ## Development
 
