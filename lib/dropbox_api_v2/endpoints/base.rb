@@ -22,7 +22,7 @@ module DropboxApiV2::Endpoints
         # the response body to build an exception.
         build_result(raw_response.env[:api_result])
       else
-        raise raw_response.body
+        raise "Error #{raw_response.status}: #{raw_response.body}"
       end
     end
 
