@@ -266,4 +266,8 @@ context DropboxApiV2::Endpoints::Files do
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
   end
+
+  describe "#upload" do
+    it "uploads a file"
+  end
 end

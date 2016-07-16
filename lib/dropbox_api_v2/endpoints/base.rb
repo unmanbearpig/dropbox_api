@@ -5,14 +5,14 @@ module DropboxApiV2::Endpoints
       DropboxApiV2::Client.add_endpoint(name, self)
     end
 
-    protected
-
-    def run_request(params)
-      @connection.run_request(self.class::Method, self.class::Path, params, {})
-    end
+    private
 
     def perform_request(params)
-      process_response(run_request(params))
+      process_response(get_response(params))
+    end
+
+    def get_response(*args)
+      run_request(*build_request(*args))
     end
 
     def process_response(raw_response)
@@ -34,6 +34,10 @@ module DropboxApiV2::Endpoints
       else
         result_builder.build(self.class::ResultType)
       end
+    end
+
+    def run_request(body, headers)
+      @connection.run_request(self.class::Method, self.class::Path, body, headers)
     end
   end
 end
