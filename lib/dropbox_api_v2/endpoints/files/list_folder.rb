@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Files
     ResultType  = DropboxApiV2::Results::ListFolderResult
     ErrorType   = DropboxApiV2::Errors::ListFolderError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method list_folder(path, options = {})
     # Returns the contents of a folder.
     #
@@ -18,7 +20,12 @@ module DropboxApiV2::Endpoints::Files
     #   returned for deleted file or folder, otherwise LookupError.not_found
     #   will be returned. The default for this field is `false`.
     add_endpoint :list_folder do |path, options = {}|
-      validate_options(options)
+      validate_options([
+        :recursive,
+        :include_media_info,
+        :include_deleted,
+        :include_has_explicit_shared_members
+      ], options)
       options[:recursive] ||= false
       options[:include_media_info] ||= false
       options[:include_deleted] ||= false
@@ -26,23 +33,6 @@ module DropboxApiV2::Endpoints::Files
       perform_request options.merge({
         :path => path
       })
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [
-        :recursive,
-        :include_media_info,
-        :include_deleted,
-        :include_has_explicit_shared_members
-      ]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Files
     ResultType  = DropboxApiV2::Results::SearchResult
     ErrorType   = DropboxApiV2::Errors::SearchError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method search(query, path = "", options = {})
     # Searches for files and folders.
     #
@@ -24,7 +26,11 @@ module DropboxApiV2::Endpoints::Files
     #   search mode. Note that searching file content is only available for
     #   Dropbox Business accounts. The default is filename.
     add_endpoint :search do |query, path = "", options = {}|
-      validate_options(options)
+      validate_options([
+        :start,
+        :max_results,
+        :mode
+      ], options)
       options[:start] ||= 0
       options[:max_results] ||= 100
       options[:mode] ||= :filename
@@ -33,22 +39,6 @@ module DropboxApiV2::Endpoints::Files
         :query => query,
         :path => path
       })
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [
-        :start,
-        :max_results,
-        :mode
-      ]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

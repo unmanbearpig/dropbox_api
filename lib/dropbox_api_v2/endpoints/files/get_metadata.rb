@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Files
     ResultType  = DropboxApiV2::Metadata::Resource
     ErrorType   = DropboxApiV2::Errors::GetMetadataError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method get_metadata(path, options = {})
     # Returns the metadata for a file or folder.
     #
@@ -17,23 +19,11 @@ module DropboxApiV2::Endpoints::Files
     #   returned for deleted file or folder, otherwise LookupError.not_found
     #   will be returned. The default for this field is False.
     add_endpoint :get_metadata do |path, options = {}|
-      validate_options(options)
+      validate_options([:include_media_info, :include_deleted], options)
 
       perform_request(options.merge({
         :path => path
       }))
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [:include_media_info, :include_deleted]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

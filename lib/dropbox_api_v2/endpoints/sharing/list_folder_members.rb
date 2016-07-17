@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Sharing
     ResultType  = DropboxApiV2::Results::SharedFolderMembers
     ErrorType   = DropboxApiV2::Errors::SharedFolderAccessError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method list_folder_members(folder_id, actions, options)
     # Returns shared folder membership by its folder ID.
     #
@@ -18,24 +20,12 @@ module DropboxApiV2::Endpoints::Sharing
     add_endpoint :list_folder_members do |folder_id, options = {}|
       # NOTE: This endpoint accepts an additional option `actions` which hasn't
       #       been implemented.
-      validate_options(options)
+      validate_options([:limit], options)
       options[:limit] ||= 100
 
       perform_request options.merge({
         :shared_folder_id => folder_id
       })
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [:limit]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

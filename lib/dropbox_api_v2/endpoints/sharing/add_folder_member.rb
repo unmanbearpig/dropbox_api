@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Sharing
     ResultType  = DropboxApiV2::Results::VoidResult
     ErrorType   = DropboxApiV2::Errors::AddFolderMemberError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method add_folder_member(folder_id, members, options)
     # Allows an owner or editor (if the ACL update policy allows) of a shared
     # folder to add another member.
@@ -24,7 +26,7 @@ module DropboxApiV2::Endpoints::Sharing
     #   members in their invitation. This field is optional.
     add_endpoint :add_folder_member do |folder_id, members, options = {}|
       # TODO: It should be possible to take an email (String) as the argument.
-      validate_options(options)
+      validate_options([:quiet, :custom_message], options)
       options[:quiet] ||= false
       options[:custom_message] ||= nil
 
@@ -47,19 +49,6 @@ module DropboxApiV2::Endpoints::Sharing
           raise ArgumentError, "Invalid argument type `#{member.class.name}`"
         end
       end.map(&:to_hash)
-    end
-
-    def validate_options(options)
-      valid_option_keys = [
-        :quiet,
-        :custom_message
-      ]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

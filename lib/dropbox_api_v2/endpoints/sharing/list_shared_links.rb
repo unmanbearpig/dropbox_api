@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Sharing
     ResultType  = DropboxApiV2::Results::ListSharedLinksResult
     ErrorType   = DropboxApiV2::Errors::ListSharedLinksError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method list_shared_links(options)
     # List shared links of this user.
     #
@@ -21,25 +23,9 @@ module DropboxApiV2::Endpoints::Sharing
     # @option direct_only [Boolean]
     # @return [ListSharedLinksResult]
     add_endpoint :list_shared_links do |options = {}|
-      validate_options(options)
+      validate_options([:path, :cursor, :direct_only], options)
 
       perform_request options
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [
-        :path,
-        :cursor,
-        :direct_only
-      ]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end

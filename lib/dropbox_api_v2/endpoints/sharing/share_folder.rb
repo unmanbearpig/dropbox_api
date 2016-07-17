@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Sharing
     ResultType  = DropboxApiV2::Results::ShareFolderLaunch
     ErrorType   = DropboxApiV2::Errors::ShareFolderError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method share_folder(path, options = {})
     # Share a folder with collaborators.
     #
@@ -33,7 +35,12 @@ module DropboxApiV2::Endpoints::Sharing
     #   asynchronously. The default for this field is `false`.
     # @return [ShareFolderLaunch] Shared folder metadata.
     add_endpoint :share_folder do |path, options = {}|
-      validate_options(options)
+      validate_options([
+        :member_policy,
+        :acl_update_policy,
+        :shared_link_policy,
+        :force_async
+      ], options)
       options[:member_policy] ||= :anyone
       options[:acl_update_policy] ||= :owner
       options[:shared_link_policy] ||= :anyone
@@ -45,23 +52,6 @@ module DropboxApiV2::Endpoints::Sharing
         })
       rescue DropboxApiV2::Errors::AlreadySharedError => error
         error.shared_folder
-      end
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [
-        :member_policy,
-        :acl_update_policy,
-        :shared_link_policy,
-        :force_async
-      ]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
       end
     end
   end

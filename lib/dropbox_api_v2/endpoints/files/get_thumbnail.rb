@@ -5,6 +5,8 @@ module DropboxApiV2::Endpoints::Files
     ResultType  = DropboxApiV2::Metadata::File
     ErrorType   = DropboxApiV2::Errors::PreviewError
 
+    include DropboxApiV2::Endpoints::OptionsValidator
+
     # @method get_thumbnail(path, options = {})
     # Get a thumbnail for an image.
     #
@@ -20,25 +22,13 @@ module DropboxApiV2::Endpoints::Files
     # @option size [:w32h32, :w64h64, :w128h128, :w640h480, :w1024h768] The
     #   size for the thumbnail image. The default is :w64h64
     add_endpoint :get_thumbnail do |path, options = {}, &block|
-      validate_options(options)
+      validate_options([:format, :size], options)
       options[:format] ||= :jpeg
       options[:size] ||= :w64h64
 
       perform_request(options.merge({
         :path => path
       }), &block)
-    end
-
-    private
-
-    def validate_options(options)
-      valid_option_keys = [:format, :size]
-
-      options.keys.each do |key|
-        unless valid_option_keys.include? key.to_sym
-          raise ArgumentError, "Invalid option `#{key}`"
-        end
-      end
     end
   end
 end
