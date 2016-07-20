@@ -66,6 +66,11 @@ You can obtain an authorization code with this library:
 
 Not implemented yet. :(
 
+### Network adapter
+
+This gem uses [faraday](https://github.com/lostisland/faraday#faraday).
+So it should work on any network library.
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
