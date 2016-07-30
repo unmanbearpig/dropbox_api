@@ -229,6 +229,22 @@ context DropboxApiV2::Endpoints::Files do
     end
   end
 
+  describe "#list_folder_get_latest_cursor" do
+    before :each do
+      VCR.use_cassette "list_folder_get_latest_cursor/list_folder" do
+        result = @client.list_folder "/folder"
+        @cursor = result.cursor
+      end
+    end
+
+    it "returns a ListFolderGetLatestCursorResult", :cassette => "list_folder_get_latest_cursor/success" do
+      result = @client.list_folder_get_latest_cursor :path => "/folder"
+
+      expect(result)
+        .to be_a(DropboxApiV2::Results::ListFolderGetLatestCursorResult)
+    end
+  end
+
   describe "#move" do
     it "returns the moved file on success", :cassette => "move/success_file" do
       file = @client.move("/img.png", "/image.png")
