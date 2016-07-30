@@ -194,7 +194,7 @@ context DropboxApiV2::Endpoints::Files do
 
     it "raises an error if the file can't be found", :cassette => "list_folder/not_found" do
       expect {
-        @client.get_thumbnail "/unexisting_folder"
+        @client.list_folder "/unexisting_folder"
       }.to raise_error(DropboxApiV2::Errors::NotFoundError)
     end
 
@@ -210,6 +210,34 @@ context DropboxApiV2::Endpoints::Files do
       expect {
         @client.list_folder "/img.png", :invalid_arg => "value"
       }.to raise_error(ArgumentError)
+    end
+  end
+
+  describe "#list_revisions" do
+    it "returns a ListRevisionsResult", :cassette => "list_revisions/success" do
+      result = @client.list_revisions "/file.txt"
+
+      expect(result).to be_a(DropboxApiV2::Results::ListRevisionsResult)
+    end
+
+    it "raises an error if the file can't be found", :cassette => "list_revisions/not_found" do
+      expect {
+        @client.list_revisions "/unexisting_file"
+      }.to raise_error(DropboxApiV2::Errors::NotFoundError)
+    end
+
+    it "returns all revisions as metadata objects", :cassette => "list_revisions/success" do
+      result = @client.list_revisions "/file.txt"
+
+      result.entries.each do |resource|
+        expect(resource).to be_a(DropboxApiV2::Metadata::Base)
+      end
+    end
+
+    it "indicates if the file has been deleted", :cassette => "list_revisions/success" do
+      result = @client.list_revisions "/file.txt"
+
+      expect(result.is_deleted?).to be_truthy
     end
   end
 
