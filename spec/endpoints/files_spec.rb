@@ -222,7 +222,7 @@ context DropboxApiV2::Endpoints::Files do
       end
     end
 
-    it "returns a ListFolderResult", :cassette => "list_folder_continue" do
+    it "returns a ListFolderResult", :cassette => "list_folder_continue/success" do
       result = @client.list_folder_continue(@cursor)
 
       expect(result).to be_a(DropboxApiV2::Results::ListFolderResult)
