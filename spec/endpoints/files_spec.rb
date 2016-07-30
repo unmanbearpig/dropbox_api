@@ -321,6 +321,21 @@ context DropboxApiV2::Endpoints::Files do
     end
   end
 
+  describe "#restore" do
+    it "returns the restored file on success", :cassette => "restore/success" do
+      # "/file.txt" has two revisions: ["1a6b24061bdd", "1a6a24061bdd"]
+      file = @client.restore("/file.txt", "1a6a24061bdd")
+
+      expect(file).to be_a(DropboxApiV2::Metadata::File)
+    end
+
+    it "raises an error with an invalid revision", :cassette => "restore/invalid_revision" do
+      expect {
+        file = @client.restore("/file.txt", "1a6a24061000")
+      }.to raise_error(DropboxApiV2::Errors::InvalidRevisionError)
+    end
+  end
+
   describe "#search" do
     it "returns a list of matching results", :cassette => "search/success" do
       result = @client.search("image.png")

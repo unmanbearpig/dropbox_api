@@ -54,6 +54,7 @@ module DropboxApiV2::Errors
   class InvalidEmailError < BasicError; end
   class InvalidIdError < BasicError; end
   class InvalidPathError < BasicError; end
+  class InvalidRevisionError < BasicError; end
   class InvalidSettingsError < BasicError; end
   class IsAppFolderError < BasicError; end
   class IsFileError < BasicError; end
