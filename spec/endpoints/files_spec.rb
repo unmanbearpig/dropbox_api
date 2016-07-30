@@ -229,6 +229,32 @@ context DropboxApiV2::Endpoints::Files do
     end
   end
 
+  describe "#list_folder_longpoll" do
+    before :each do
+      VCR.use_cassette("list_folder_continue/list_folder") do
+        @cursor = @client.list_folder("").cursor
+      end
+    end
+
+    it "returns a ListFolderLongpollResult", :cassette => "list_folder_longpoll/success" do
+      result = @client.list_folder_longpoll @cursor
+
+      expect(result).to be_a(DropboxApiV2::Results::ListFolderLongpollResult)
+    end
+
+    it "indicates if there're changes", :cassette => "list_folder_longpoll/success" do
+      result = @client.list_folder_longpoll @cursor
+
+      expect(result.changes).to be_truthy
+    end
+
+    it "raises an error with an invalid cursor", :cassette => "list_folder_longpoll/reset" do
+      expect {
+        @client.list_folder_longpoll "I believe in the blerch"
+      }.to raise_error DropboxApiV2::Errors::HttpError
+    end
+  end
+
   describe "#list_folder_get_latest_cursor" do
     before :each do
       VCR.use_cassette "list_folder_get_latest_cursor/list_folder" do
