@@ -66,7 +66,27 @@ You can obtain an authorization code with this library:
 
 Not implemented yet. :(
 
-### Network adapter
+### Performing API calls
+
+Once you've initialized a client, for example:
+
+    client = DropboxApiV2::Client.new("VofXAX8D...")
+    #=> #<DropboxApiV2::Client ...>
+
+You can perform an API call like this:
+
+    result = client.list_folder "/sample_folder"
+    #=> #<DropboxApiV2::Results::ListFolderResult>
+    result.entries
+    #=> [#<DropboxApiV2::Metadata::Folder>, #<DropboxApiV2::Metadata::File>]
+    result.has_more?
+    #=> false
+
+Refer to the documentation to see the details for each endpoint.
+
+## Dependencies
+
+###Network adapter
 
 This gem uses [faraday](https://github.com/lostisland/faraday#faraday).
 So it should work on any network library.
@@ -84,7 +104,10 @@ commits and tags, and push the `.gem` file to
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/dropbox_api_v2/fork )
+Any help will be much appreciated. It should be quite easy to implement most
+of the [endpoints that are still pending](api_coverage.md).
+
+1. Fork it ( https://github.com/Jesus/dropbox_api_v2/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
