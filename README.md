@@ -31,14 +31,18 @@ have to get an authorization code.
 
 Once you have it, just pass it on client initialization:
 
-    DropboxApiV2::Client.new("VofXAX8D...")
-    #=> #<DropboxApiV2::Client ...>
+```ruby
+DropboxApiV2::Client.new("VofXAX8D...")
+#=> #<DropboxApiV2::Client ...>
+```
 
 Or set it as an ENV variable called `DROPBOX_OAUTH_BEARER`, for example:
 
-    ENV["DROPBOX_OAUTH_BEARER"] = "VofXAX8D..."
-    DropboxApiV2::Client.new
-    #=> #<DropboxApiV2::Client ...>
+```ruby
+ENV["DROPBOX_OAUTH_BEARER"] = "VofXAX8D..."
+DropboxApiV2::Client.new
+#=> #<DropboxApiV2::Client ...>
+```
 
 #### Option A: Get your access token from the website
 
@@ -70,17 +74,21 @@ Not implemented yet. :(
 
 Once you've initialized a client, for example:
 
-    client = DropboxApiV2::Client.new("VofXAX8D...")
-    #=> #<DropboxApiV2::Client ...>
+```ruby
+client = DropboxApiV2::Client.new("VofXAX8D...")
+#=> #<DropboxApiV2::Client ...>
+```
 
 You can perform an API call like this:
 
-    result = client.list_folder "/sample_folder"
-    #=> #<DropboxApiV2::Results::ListFolderResult>
-    result.entries
-    #=> [#<DropboxApiV2::Metadata::Folder>, #<DropboxApiV2::Metadata::File>]
-    result.has_more?
-    #=> false
+```ruby
+result = client.list_folder "/sample_folder"
+#=> #<DropboxApiV2::Results::ListFolderResult>
+result.entries
+#=> [#<DropboxApiV2::Metadata::Folder>, #<DropboxApiV2::Metadata::File>]
+result.has_more?
+#=> false
+```
 
 Refer to the documentation to see the details for each endpoint.
 
