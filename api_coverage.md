@@ -104,4 +104,4 @@ API call | Status
 ## Dropbox Business API
 Unfortunately, none of the Dropbox Business endpoints have been implemented.
 If this is a problem for you, please [open an
-issue](https://github.com/Jesus/dropbox_api_v2/issues/new).
+issue](https://github.com/Jesus/dropbox_api/issues/new).

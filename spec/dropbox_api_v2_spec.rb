@@ -1,5 +1,5 @@
-describe DropboxApiV2 do
+describe DropboxApi do
   it 'has a version number' do
-    expect(DropboxApiV2::VERSION).not_to be nil
+    expect(DropboxApi::VERSION).not_to be nil
   end
 end

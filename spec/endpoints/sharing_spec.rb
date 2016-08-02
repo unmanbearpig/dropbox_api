@@ -1,19 +1,19 @@
-context DropboxApiV2::Endpoints::Sharing do
+context DropboxApi::Endpoints::Sharing do
   before :each do
-    @client = DropboxApiV2::Client.new
+    @client = DropboxApi::Client.new
   end
 
   describe "#share_folder" do
     it "returns the shared folder", :cassette => "share_folder/success" do
       folder = @client.share_folder("/folder_k")
 
-      expect(folder).to be_a(DropboxApiV2::Metadata::SharedFolder)
+      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
     end
 
     it "returns the shared folder, even if already shared", :cassette => "share_folder/bad_path" do
       folder = @client.share_folder("/already_shared")
 
-      expect(folder).to be_a(DropboxApiV2::Metadata::SharedFolder)
+      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
     end
 
     it "contains a shared folder id", :cassette => "share_folder/success" do
@@ -28,7 +28,7 @@ context DropboxApiV2::Endpoints::Sharing do
     it "shares the folder", :cassette => "add_folder_member/success" do
       folder_id = "1236358158"
       folder = @client.add_folder_member(folder_id, [
-        DropboxApiV2::Metadata::AddMember.new("somebody@test.com")
+        DropboxApi::Metadata::AddMember.new("somebody@test.com")
       ])
 
       # The endpoint doesn't have any return values, can't test the output!
@@ -37,7 +37,7 @@ context DropboxApiV2::Endpoints::Sharing do
     it "shares the folder, if the param is an integer", :cassette => "add_folder_member/success" do
       folder_id = 1236358158
       folder = @client.add_folder_member(folder_id, [
-        DropboxApiV2::Metadata::AddMember.new("somebody@test.com")
+        DropboxApi::Metadata::AddMember.new("somebody@test.com")
       ])
 
       # The endpoint doesn't have any return values, can't test the output!
@@ -54,9 +54,9 @@ context DropboxApiV2::Endpoints::Sharing do
       folder_id = "xxx"
       expect {
         folder = @client.add_folder_member(folder_id, [
-          DropboxApiV2::Metadata::AddMember.new("somebody@test.com")
+          DropboxApi::Metadata::AddMember.new("somebody@test.com")
         ])
-      }.to raise_error(DropboxApiV2::Errors::InvalidIdError)
+      }.to raise_error(DropboxApi::Errors::InvalidIdError)
     end
   end
 
@@ -69,7 +69,7 @@ context DropboxApiV2::Endpoints::Sharing do
       it "returns a file link", :cassette => "list_shared_links/success_file" do
         result = @client.list_shared_links :path => "/some_folder/file.txt"
 
-        expect(result.links.last).to be_a(DropboxApiV2::Metadata::FileLink)
+        expect(result.links.last).to be_a(DropboxApi::Metadata::FileLink)
       end
 
       it "lists all shared links", :cassette => "list_shared_links/success_file" do
@@ -97,7 +97,7 @@ context DropboxApiV2::Endpoints::Sharing do
       it "returns a folder link", :cassette => "list_shared_links/success_folder" do
         result = @client.list_shared_links :path => "/some_folder/another_folder"
 
-        expect(result.links.last).to be_a(DropboxApiV2::Metadata::FolderLink)
+        expect(result.links.last).to be_a(DropboxApi::Metadata::FolderLink)
       end
 
       it "lists all shared links", :cassette => "list_shared_links/success_folder" do
@@ -116,13 +116,13 @@ context DropboxApiV2::Endpoints::Sharing do
       it "creates a shared link", :cassette => "create_shared_link_with_settings/success_file" do
         link = @client.create_shared_link_with_settings "/file_for_sharing.docx"
 
-        expect(link).to be_a(DropboxApiV2::Metadata::FileLink)
+        expect(link).to be_a(DropboxApi::Metadata::FileLink)
       end
 
       it "raises an error if already shared", :cassette => "create_shared_link_with_settings/already_shared" do
         expect {
           @client.create_shared_link_with_settings "/file_for_sharing.docx"
-        }.to raise_error(DropboxApiV2::Errors::SharedLinkAlreadyExistsError)
+        }.to raise_error(DropboxApi::Errors::SharedLinkAlreadyExistsError)
       end
     end
 
@@ -130,7 +130,7 @@ context DropboxApiV2::Endpoints::Sharing do
       it "creates a shared link", :cassette => "create_shared_link_with_settings/success_folder" do
         link = @client.create_shared_link_with_settings "/folder_for_sharing"
 
-        expect(link).to be_a(DropboxApiV2::Metadata::FolderLink)
+        expect(link).to be_a(DropboxApi::Metadata::FolderLink)
       end
     end
   end

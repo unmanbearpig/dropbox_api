@@ -1,17 +1,13 @@
-# DropboxApiV2
+# DropboxApi
 
-Ruby gem to interact with Dropbox API v2.
-
-**IMPORTANT: This is work in progress, no gem has been released yet. I would like
-to publish version 0.1 shortly, when that happens you'll be able to use this
-library by just following the instructions below.**
+Library for communicating with Dropbox API v2.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dropbox_api_v2'
+gem 'dropbox_api'
 ```
 
 And then execute:
@@ -20,7 +16,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dropbox_api_v2
+    $ gem install dropbox_api
 
 ## Usage
 
@@ -32,16 +28,16 @@ have to get an authorization code.
 Once you have it, just pass it on client initialization:
 
 ```ruby
-DropboxApiV2::Client.new("VofXAX8D...")
-#=> #<DropboxApiV2::Client ...>
+DropboxApi::Client.new("VofXAX8D...")
+#=> #<DropboxApi::Client ...>
 ```
 
 Or set it as an ENV variable called `DROPBOX_OAUTH_BEARER`, for example:
 
 ```ruby
 ENV["DROPBOX_OAUTH_BEARER"] = "VofXAX8D..."
-DropboxApiV2::Client.new
-#=> #<DropboxApiV2::Client ...>
+DropboxApi::Client.new
+#=> #<DropboxApi::Client ...>
 ```
 
 #### Option A: Get your access token from the website
@@ -54,12 +50,12 @@ haven't done so yet.
 Under your application settings, find section *OAuth 2*. You'll find a button
 to generate an access token.
 
-#### Option B: Use `DropboxApiV2::Authenticator`
+#### Option B: Use `DropboxApi::Authenticator`
 
 You can obtain an authorization code with this library:
 
-1. `require "dropbox_api_v2/authenticator"`
-1. `authenticator = DropboxApiV2::Authenticator.new(CLIENT_ID, CLIENT_SECRET)`
+1. `require "dropbox_api/authenticator"`
+1. `authenticator = DropboxApi::Authenticator.new(CLIENT_ID, CLIENT_SECRET)`
 2. `authenticator.authorize_url  #=> "https://www.dropbox.com/..."`
 3. Open the authorization URL in your browser, authorize the application and
    copy your code.
@@ -75,17 +71,17 @@ Not implemented yet. :(
 Once you've initialized a client, for example:
 
 ```ruby
-client = DropboxApiV2::Client.new("VofXAX8D...")
-#=> #<DropboxApiV2::Client ...>
+client = DropboxApi::Client.new("VofXAX8D...")
+#=> #<DropboxApi::Client ...>
 ```
 
 You can perform an API call like this:
 
 ```ruby
 result = client.list_folder "/sample_folder"
-#=> #<DropboxApiV2::Results::ListFolderResult>
+#=> #<DropboxApi::Results::ListFolderResult>
 result.entries
-#=> [#<DropboxApiV2::Metadata::Folder>, #<DropboxApiV2::Metadata::File>]
+#=> [#<DropboxApi::Metadata::Folder>, #<DropboxApi::Metadata::File>]
 result.has_more?
 #=> false
 ```
@@ -115,7 +111,7 @@ commits and tags, and push the `.gem` file to
 Any help will be much appreciated. It should be quite easy to implement most
 of the [endpoints that are still pending](api_coverage.md).
 
-1. Fork it ( https://github.com/Jesus/dropbox_api_v2/fork )
+1. Fork it ( https://github.com/Jesus/dropbox_api/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
