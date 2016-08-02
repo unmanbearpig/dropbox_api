@@ -7,10 +7,10 @@ Gem::Specification.new do |spec|
   spec.name          = "dropbox_api"
   spec.version       = DropboxApi::VERSION
   spec.authors       = ["Jesús Burgos"]
-  spec.email         = ["jesus@visrez.com"]
+  spec.email         = ["jburmac@gmail.com"]
 
   spec.summary       = "Library for communicating with Dropbox API v2"
-  spec.homepage      = "http://rubygems.org/gems/dropbox_api"
+  spec.homepage      = "https://github.com/Jesus/dropbox_api"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
