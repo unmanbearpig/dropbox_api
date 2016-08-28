@@ -17,7 +17,7 @@ module DropboxApi::Metadata
       if @type == String
         object.to_s
       elsif @type == Time
-        Time.new(object)
+        Time.parse(object)
       elsif @type == Integer
         object.to_i
       elsif @type == Symbol
