@@ -99,6 +99,13 @@ context DropboxApi::Endpoints::Files do
       expect(file.name).to eq("file.txt")
     end
 
+    it "parse time specific fields", :cassette => "get_metadata/success_file" do
+      file = @client.get_metadata("/file.txt")
+
+      expect(file.client_modified).to eq(Time.new(2016, 05, 01, 1, 1, 0, "+00:00"))
+      expect(file.server_modified).to eq(Time.new(2016, 05, 01, 1, 1, 0, "+00:00"))
+    end
+
     it "may return a `Folder`", :cassette => "get_metadata/success_folder" do
       folder = @client.get_metadata("/folder")
 
