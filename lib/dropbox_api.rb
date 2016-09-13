@@ -1,5 +1,6 @@
 require 'dropbox_api/version'
 
+require 'time'
 require 'json'
 require 'faraday'
 
