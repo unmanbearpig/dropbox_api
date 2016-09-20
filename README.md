@@ -54,13 +54,19 @@ to generate an access token.
 
 You can obtain an authorization code with this library:
 
-1. `require "dropbox_api/authenticator"`
-1. `authenticator = DropboxApi::Authenticator.new(CLIENT_ID, CLIENT_SECRET)`
-2. `authenticator.authorize_url  #=> "https://www.dropbox.com/..."`
-3. Open the authorization URL in your browser, authorize the application and
-   copy your code.
-4. `auth_bearer = authenticator.get_token(CODE) #=> #<OAuth2::AccessToken ...>`
-5. `auth_bearer.token #=> "VofXAX8D..."`. Keep this token!
+```ruby
+require "dropbox_api/authenticator"
+
+authenticator = DropboxApi::Authenticator.new(CLIENT_ID, CLIENT_SECRET)
+authenticator.authorize_url #=> "https://www.dropbox.com/..."
+
+# Now you need to open the authorization URL in your browser,
+# authorize the application and copy your code.
+
+auth_bearer = authenticator.get_token(CODE) #=> #<OAuth2::AccessToken ...>`
+auth_bearer.token #=> "VofXAX8D..."
+# Keep this token, you'll need it to initialize a `DropboxApi::Client` object
+```
 
 #### Standard OAuth flow
 
@@ -90,7 +96,7 @@ Refer to the documentation to see the details for each endpoint.
 
 ## Dependencies
 
-###Network adapter
+### Network adapter
 
 This gem uses [faraday](https://github.com/lostisland/faraday#faraday).
 So it should work on any network library.
@@ -109,7 +115,13 @@ commits and tags, and push the `.gem` file to
 ## Contributing
 
 Any help will be much appreciated. It should be quite easy to implement most
-of the [endpoints that are still pending](api_coverage.md).
+of the [endpoints that are still pending](api_coverage.md) by looking at the
+exising implementations (check out the `dropbox_api/endpoints` folder).
+
+If you want to help but you're unsure how to get started, please get in touch
+by opening an issue.
+
+Here's the standard way to submit code updates:
 
 1. Fork it ( https://github.com/Jesus/dropbox_api/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
