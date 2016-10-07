@@ -2,19 +2,15 @@ require 'oauth2'
 
 module DropboxApi
   class Authenticator < OAuth2::Client
+    extend Forwardable
+
     def initialize(client_id, client_secret)
-      @oauth_client = OAuth2::Client.new(client_id, client_secret, {
+      @auth_code = OAuth2::Client.new(client_id, client_secret, {
         :authorize_url => 'https://www.dropbox.com/1/oauth2/authorize',
         :token_url => 'https://api.dropboxapi.com/1/oauth2/token'
-      })
+      }).auth_code
     end
 
-    def authorize_url(*args)
-      @oauth_client.auth_code.authorize_url(*args)
-    end
-
-    def get_token(oauth_code)
-      @oauth_client.auth_code.get_token oauth_code
-    end
+    def_delegators :@auth_code, :authorize_url, :get_token
   end
 end
