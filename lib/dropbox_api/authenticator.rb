@@ -9,8 +9,8 @@ module DropboxApi
       })
     end
 
-    def authorize_url
-      @oauth_client.auth_code.authorize_url
+    def authorize_url(*args)
+      @oauth_client.auth_code.authorize_url(*args)
     end
 
     def get_token(oauth_code)
