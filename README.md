@@ -55,8 +55,6 @@ to generate an access token.
 You can obtain an authorization code with this library:
 
 ```ruby
-require "dropbox_api/authenticator"
-
 authenticator = DropboxApi::Authenticator.new(CLIENT_ID, CLIENT_SECRET)
 authenticator.authorize_url #=> "https://www.dropbox.com/..."
 

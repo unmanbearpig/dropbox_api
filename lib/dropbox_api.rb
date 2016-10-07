@@ -4,6 +4,8 @@ require 'time'
 require 'json'
 require 'faraday'
 
+require 'dropbox_api/authenticator'
+
 require 'dropbox_api/middleware/decode_result'
 
 require 'dropbox_api/metadata/field'
