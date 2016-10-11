@@ -43,7 +43,7 @@ class DropboxController < ApplicationController
     # At this stage you may want to persist the reusable token we've acquired.
     # Remember that it's bound to the Dropbox account of your user.
 
-    # If you persisted the token, you can use it in subsequent requests or
+    # If you persist this token, you can use it in subsequent requests or
     # background jobs to perform calls to Dropbox API such as the following.
     folders = DropboxApi::Client.new(token).list_folder "/"
   end
@@ -64,3 +64,18 @@ end
 ```
 
 ## 3. Set up redirect URI in your Dropbox app settings
+
+In the previous code, you probably noticed that we're providing a `redirect_uri`
+parameter. This is where the user will be redirected to after accepting our
+application.
+
+However, Dropbox will only redirect to a set of whitelisted URIs, so
+you'll need to add yours to the list. That's very easy:
+
+1. Log in to your Dropbox developer account at
+   [www.dropbox.com/developers](https://www.dropbox.com/developers).
+2. On the menu, click on "My Apps". Then click on your application to edit its
+   settings.
+4. On the OAuth 2 section, add the redirect URI that maps to the
+   `auth_callback` method that we've implemented above. For example,
+   `www.yourapp.com/dropbox/oauth_callback`.

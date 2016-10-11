@@ -40,6 +40,9 @@ DropboxApi::Client.new
 #=> #<DropboxApi::Client ...>
 ```
 
+Note that setting an ENV variable is only a feasible choice if you're only
+using one account.
+
 #### Option A: Get your access token from the website
 
 The easiest way to obtain an access token is to get it from the Dropbox website.
@@ -69,7 +72,7 @@ auth_bearer.token #=> "VofXAX8D..."
 #### Standard OAuth 2 flow
 
 This is what many web applications will use. The process is described in
-Dropbox's [Oauth guide](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
+Dropbox's [OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
 
 If you have a Rails application, you might be interested in this [setup
  guide](doc/rails_setup.md).
