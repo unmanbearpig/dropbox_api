@@ -6,3 +6,4 @@
 # Further on
 
 - Supporting streams would be great.
+- Add a layer to handle pagination, use `Enumerable`.
