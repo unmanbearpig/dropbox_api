@@ -98,7 +98,14 @@ result.has_more?
 #=> false
 ```
 
-Refer to the documentation to see the details for each endpoint.
+Refer to the
+[documentation](http://www.rubydoc.info/gems/dropbox_api)
+to see the details for each endpoint, you can find them all in the following
+3 modules:
+
+ - [Files](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Files)
+ - [Sharing](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Sharing)
+ - [Users](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Users)
 
 ## Dependencies
 
