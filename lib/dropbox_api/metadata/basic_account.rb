@@ -23,7 +23,7 @@ module DropboxApi::Metadata
     field :email_verified, :boolean
     field :disabled, :boolean
     field :is_teammate, :boolean
-    field :profile_photo_url, String
-    field :team_member_id, :boolean
+    field :profile_photo_url, String, :optional
+    field :team_member_id, :boolean, :optional
   end
 end
