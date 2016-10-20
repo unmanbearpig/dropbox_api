@@ -6,7 +6,8 @@ module DropboxApi::Metadata
     end
 
     def cast(object)
-      if object.nil? && @options.include?(:optional)
+      if object.nil?
+        raise ArgumentError unless @options.include? :optional
         nil
       else
         force_cast object
