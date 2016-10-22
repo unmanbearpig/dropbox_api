@@ -61,7 +61,17 @@ context DropboxApi::Endpoints::Sharing do
   end
 
   describe "#list_folder_members" do
-    it "lists folder members", :cassette => "list_folder_members/success"
+    it "lists folder members", :cassette => "list_folder_members/success" do
+      result = @client.list_folder_members "1231273663"
+
+      expect(result).to be_a(DropboxApi::Results::SharedFolderMembers)
+    end
+
+    it "lists folder members including member actions", :cassette => "list_folder_members/success_with_actions" do
+      result = @client.list_folder_members "1231273663", [:remove, :make_owner]
+
+      expect(result).to be_a(DropboxApi::Results::SharedFolderMembers)
+    end
   end
 
   describe "#list_shared_links" do
