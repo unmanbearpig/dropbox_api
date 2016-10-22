@@ -1,3 +1,5 @@
+# @title API Implementation Coverage
+
 **IMPORTANT: This document is work in progress. Information isn't accurate.**
 
 The Dropbox API changes frequently, so you may find out that the feature that
@@ -66,7 +68,7 @@ API call | Status
 `/list_file_members` | 🌑
 `/list_file_members/batch` | 🌑
 `/list_file_members/continue` | 🌑
-`/list_folder_members` | 🌓
+`/list_folder_members` | 🌕
 `/list_folder_members/continue` | 🌑
 `/list_folders` | 🌑
 `/list_folders/continue` | 🌑
