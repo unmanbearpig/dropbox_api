@@ -360,6 +360,14 @@ context DropboxApi::Endpoints::Files do
   end
 
   describe "#upload" do
-    it "uploads a file"
+    it "uploads a file", :cassette => "upload/success" do
+      file = @client.upload("/file.txt", "Hello Dropbox!")
+
+      expect(file).to be_a(DropboxApi::Metadata::File)
+      expect(file.name).to eq("file.txt")
+    end
+  end
+
+  describe "#list_folder_members" do
   end
 end
