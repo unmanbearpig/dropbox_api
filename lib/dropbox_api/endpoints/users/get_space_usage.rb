@@ -10,7 +10,7 @@ module DropboxApi::Endpoints::Users
     #
     # @return [SpaceUsage] Information about a user's space usage and quota.
     add_endpoint :get_space_usage do
-      perform_request(nil)
+      perform_request nil
     end
   end
 end
