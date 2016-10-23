@@ -17,6 +17,14 @@ context DropboxApi::Endpoints::Users do
     end
   end
 
+  describe "#get_current_account" do
+    it "returns the current account information", :cassette => "get_current_account/success" do
+      account = @client.get_current_account
+
+      expect(account).to be_a(DropboxApi::Metadata::BasicAccount)
+    end
+  end
+
   describe "#get_space_usage" do
     it "returns the account usage information", :cassette => "get_space_usage/success" do
       space_usage = @client.get_space_usage
