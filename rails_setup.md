@@ -1,10 +1,13 @@
+# @title Rails setup
+
 # Standard OAuth 2 flow set up
 
-The generic description of the process we are implementing in this guide can be
-found at Dropbox's [Oauth guide](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
+This document describes how to implement the OAuth2 flow in a Rails
+application, the process is represented in the following diagram:
 
-Precisely, we'll be doing something like the following:
 ![Oauth 2 flow](https://www.dropbox.com/static/images/developers/oauth2-web-diagram.png)
+
+Source: [https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web)
 
 ## 1. Set up some new routes
 
