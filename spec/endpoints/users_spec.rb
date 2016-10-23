@@ -16,4 +16,12 @@ context DropboxApi::Endpoints::Users do
       }.to raise_error(DropboxApi::Errors::NoAccountError)
     end
   end
+
+  describe "#get_space_usage" do
+    it "returns the account usage information", :cassette => "get_space_usage/success" do
+      space_usage = @client.get_space_usage
+
+      expect(space_usage).to be_a(DropboxApi::Metadata::SpaceUsage)
+    end
+  end
 end
