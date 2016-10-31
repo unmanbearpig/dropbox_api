@@ -371,7 +371,7 @@ context DropboxApi::Endpoints::Files do
       it "raises a DropboxApi::Errors::TooManyWriteOperations exception", :cassette => "upload/too_many_write_operations" do
         expect {
           @client.upload("/file.txt", "Hello Dropbox!")
-        }.to raise_error(DropboxApi::Errors::TooManyWriteOperations)
+        }.to raise_error(DropboxApi::Errors::TooManyWriteOperationsError)
       end
 
       it "raises an exception with info to retry", :cassette => "upload/too_many_write_operations" do
