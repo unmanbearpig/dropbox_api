@@ -366,6 +366,22 @@ context DropboxApi::Endpoints::Files do
       expect(file).to be_a(DropboxApi::Metadata::File)
       expect(file.name).to eq("file.txt")
     end
+
+    context "when too many write operations" do
+      it "raises a DropboxApi::Errors::TooManyWriteOperations exception", :cassette => "upload/too_many_write_operations" do
+        expect {
+          @client.upload("/file.txt", "Hello Dropbox!")
+        }.to raise_error(DropboxApi::Errors::TooManyWriteOperations)
+      end
+
+      it "raises an exception with info to retry", :cassette => "upload/too_many_write_operations" do
+        expect {
+          @client.upload("/file.txt", "Hello Dropbox!")
+        }.to raise_error { |error|
+          expect(error.retry_after).to eq(1)
+        }
+      end
+    end
   end
 
   describe "#list_folder_members" do

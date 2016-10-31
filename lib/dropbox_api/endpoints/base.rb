@@ -16,11 +16,22 @@ module DropboxApi::Endpoints
     end
 
     def process_response(raw_response)
+      # Official Dropbox documentation for HTTP error codes:
+      # https://www.dropbox.com/developers/documentation/http/documentation#error-handling
       case raw_response.status
       when 200, 409
         # Status code 409 is "Endpoint-specific error". We need to look at
         # the response body to build an exception.
         build_result(raw_response.env[:api_result])
+      when 429
+        error = DropboxApi::Errors::TooManyRequestsError.build(
+          raw_response.env[:api_result]["error_summary"],
+          raw_response.env[:api_result]["error"]["reason"]
+        )
+
+        error.retry_after = raw_response.headers["retry-after"].to_i
+
+        raise error
       else
         raise DropboxApi::Errors::HttpError,
           "HTTP #{raw_response.status}: #{raw_response.body}"
