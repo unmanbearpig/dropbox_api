@@ -5,7 +5,7 @@ module DropboxApi
     end
 
     def error_summary
-      @response_data["error_summary"]
+      @response_data["error_summary"] if @response_data.is_a? Hash
     end
 
     def error
