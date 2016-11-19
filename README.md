@@ -75,7 +75,7 @@ This is what many web applications will use. The process is described in
 Dropbox's [OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
 
 If you have a Rails application, you might be interested in this [setup
- guide](doc/rails_setup.md).
+ guide](rails_setup.md).
 
 
 ### Performing API calls
