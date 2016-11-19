@@ -3,27 +3,6 @@ context DropboxApi::Endpoints::Sharing do
     @client = DropboxApi::Client.new
   end
 
-  describe "#share_folder" do
-    it "returns the shared folder", :cassette => "share_folder/success" do
-      folder = @client.share_folder("/folder_k")
-
-      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
-    end
-
-    it "returns the shared folder, even if already shared", :cassette => "share_folder/bad_path" do
-      folder = @client.share_folder("/already_shared")
-
-      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
-    end
-
-    it "contains a shared folder id", :cassette => "share_folder/success" do
-      folder = @client.share_folder("/folder_k")
-
-      expect(folder.shared_folder_id.to_s)
-        .to eq("1236414195") # taken from fixture (share_folder/success.yml)
-    end
-  end
-
   describe "#add_folder_member" do
     it "shares the folder", :cassette => "add_folder_member/success" do
       folder_id = "1236358158"
@@ -57,6 +36,30 @@ context DropboxApi::Endpoints::Sharing do
           DropboxApi::Metadata::AddMember.new("somebody@test.com")
         ])
       }.to raise_error(DropboxApi::Errors::InvalidIdError)
+    end
+  end
+
+  describe "#create_shared_link_with_settings" do
+    context "on a file" do
+      it "creates a shared link", :cassette => "create_shared_link_with_settings/success_file" do
+        link = @client.create_shared_link_with_settings "/file_for_sharing.docx"
+
+        expect(link).to be_a(DropboxApi::Metadata::FileLink)
+      end
+
+      it "raises an error if already shared", :cassette => "create_shared_link_with_settings/already_shared" do
+        expect {
+          @client.create_shared_link_with_settings "/file_for_sharing.docx"
+        }.to raise_error(DropboxApi::Errors::SharedLinkAlreadyExistsError)
+      end
+    end
+
+    context "on a folder" do
+      it "creates a shared link", :cassette => "create_shared_link_with_settings/success_folder" do
+        link = @client.create_shared_link_with_settings "/folder_for_sharing"
+
+        expect(link).to be_a(DropboxApi::Metadata::FolderLink)
+      end
     end
   end
 
@@ -121,27 +124,24 @@ context DropboxApi::Endpoints::Sharing do
     end
   end
 
-  describe "#create_shared_link_with_settings" do
-    context "on a file" do
-      it "creates a shared link", :cassette => "create_shared_link_with_settings/success_file" do
-        link = @client.create_shared_link_with_settings "/file_for_sharing.docx"
+  describe "#share_folder" do
+    it "returns the shared folder", :cassette => "share_folder/success" do
+      folder = @client.share_folder("/folder_k")
 
-        expect(link).to be_a(DropboxApi::Metadata::FileLink)
-      end
-
-      it "raises an error if already shared", :cassette => "create_shared_link_with_settings/already_shared" do
-        expect {
-          @client.create_shared_link_with_settings "/file_for_sharing.docx"
-        }.to raise_error(DropboxApi::Errors::SharedLinkAlreadyExistsError)
-      end
+      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
     end
 
-    context "on a folder" do
-      it "creates a shared link", :cassette => "create_shared_link_with_settings/success_folder" do
-        link = @client.create_shared_link_with_settings "/folder_for_sharing"
+    it "returns the shared folder, even if already shared", :cassette => "share_folder/bad_path" do
+      folder = @client.share_folder("/already_shared")
 
-        expect(link).to be_a(DropboxApi::Metadata::FolderLink)
-      end
+      expect(folder).to be_a(DropboxApi::Metadata::SharedFolder)
+    end
+
+    it "contains a shared folder id", :cassette => "share_folder/success" do
+      folder = @client.share_folder("/folder_k")
+
+      expect(folder.shared_folder_id.to_s)
+        .to eq("1236414195") # taken from fixture (share_folder/success.yml)
     end
   end
 end
