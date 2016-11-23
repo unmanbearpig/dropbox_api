@@ -9,6 +9,7 @@ require 'dropbox_api/authenticator'
 require 'dropbox_api/middleware/decode_result'
 
 require 'dropbox_api/metadata/field'
+require 'dropbox_api/metadata/member'
 require 'dropbox_api/metadata/add_member'
 require 'dropbox_api/metadata/base'
 require 'dropbox_api/metadata/name'

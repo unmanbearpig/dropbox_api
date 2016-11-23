@@ -25,32 +25,18 @@ module DropboxApi::Metadata
     # @param member [String] Email address or Dropbox ID.
     # @param acl [:editor, :viewer] Access level, defaults to :editor.
     def initialize(member, acl = :editor)
-      @member = member
+      @member = Member.new(member)
       @acl = acl
     end
 
     def to_hash
       {
-        :member => member_to_hash,
+        :member => @member.to_hash,
         :access_level => acl_to_hash
       }
     end
 
     private
-
-    def member_to_hash
-      if @member.start_with? "dbid:"
-        {
-          :".tag" => :dropbox_id,
-          :dropbox_id => @member
-        }
-      else
-        {
-          :".tag" => :email,
-          :email => @member
-        }
-      end
-    end
 
     def acl_to_hash
       {
