@@ -28,6 +28,7 @@ module DropboxApi::Metadata
       elsif @type.ancestors.include? DropboxApi::Metadata::Base
         @type.new(object)
       else
+        puts @type
         raise NotImplementedError, "Can't cast `#{type}`"
       end
     end

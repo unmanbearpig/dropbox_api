@@ -7,7 +7,7 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method add_folder_member(folder_id, members, options)
+    # @method add_folder_member(folder_id, members, options = {})
     # Allows an owner or editor (if the ACL update policy allows) of a shared
     # folder to add another member.
     #
@@ -16,19 +16,18 @@ module DropboxApi::Endpoints::Sharing
     #
     # Apps must have full Dropbox access to use this endpoint.
     #
-    # The `members` parameter must be an Array. Each item in the array could
-    # be either a String or an {Metadata::AddMember} object, which allows more
-    # advanced options.
+    # The +members+ parameter must be an Array. Each item in the array could
+    # be either a String or a {Metadata::AddMember} object.
     #
     # @param folder_id [String] The ID for the shared folder.
     # @param members [Array<AddMember,String>] The intended list of members to
     #   add. Added members will receive invites to join the shared folder.
-    # @option quiet [Boolean] Whether added members should be notified via
-    #   email and device notifications of their invite. The default for this
-    #   field is False.
-    # @option custom_message [String] Optional message to display to added
-    #   members in their invitation. This field is optional.
-    # @see DropboxApi::Metadata::AddMember
+    # @option options quiet [Boolean] Whether added members should be notified
+    #   via email and device notifications of their invite. The default for
+    #   this field is False.
+    # @option options custom_message [String] Optional message to display to
+    #   added members in their invitation. This field is optional.
+    # @see DropboxApi::Metadata::Member
     add_endpoint :add_folder_member do |folder_id, members, options = {}|
       validate_options([:quiet, :custom_message], options)
       options[:quiet] ||= false

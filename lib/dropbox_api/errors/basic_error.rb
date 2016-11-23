@@ -52,12 +52,15 @@ module DropboxApi::Errors
   class InvalidCursorError < BasicError; end
   class InvalidDropboxIdError < BasicError; end
   class InvalidEmailError < BasicError; end
+  class InvalidFileError < BasicError; end
   class InvalidIdError < BasicError; end
+  class InvalidMemberError < BasicError; end
   class InvalidPathError < BasicError; end
   class InvalidRevisionError < BasicError; end
   class InvalidSettingsError < BasicError; end
   class IsAppFolderError < BasicError; end
   class IsFileError < BasicError; end
+  class IsFolderError < BasicError; end
   class IsOsxPackageError < BasicError; end
   class IsPublicFolderError < BasicError; end
   class MalformedPathError < BasicError; end

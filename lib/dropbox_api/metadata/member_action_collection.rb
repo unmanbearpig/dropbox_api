@@ -8,6 +8,9 @@ module DropboxApi::Metadata
   # - make_viewer: Make the member a viewer of the folder.
   # - make_viewer_no_comment: Make the member a viewer of the folder without commenting permissions.
   # - remove: Remove the member from the folder.
+  #
+  # TODO: Split this object in two: MemberAction & MemberActionList,
+  #       DropboxApi::Metadata::MemberPermission will use it.
   class MemberActionCollection < Array
     ValidActions = [
       :leave_a_copy,

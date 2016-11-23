@@ -25,7 +25,7 @@ module DropboxApi::Metadata
     # @param member [String] Email address or Dropbox ID.
     # @param acl [:editor, :viewer] Access level, defaults to :editor.
     def initialize(member, acl = :editor)
-      @member = Member.new(member)
+      @member = Member.build_from_email_or_dropbox_id(member)
       @acl = acl
     end
 

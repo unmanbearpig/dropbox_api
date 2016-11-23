@@ -3,6 +3,20 @@ context DropboxApi::Endpoints::Sharing do
     @client = DropboxApi::Client.new
   end
 
+  describe "#add_file_member" do
+    it "adds members to a file", :cassette => "add_file_member/success" do
+      file = "/bsd.pdf"
+      result = @client.add_file_member(file, [
+        DropboxApi::Metadata::Member.build_from_email_or_dropbox_id("somebody@test.com")
+      ])
+
+      expect(result)
+        .to be_a(DropboxApi::Results::AddFileMemberResultList)
+      expect(result.first)
+        .to be_a(DropboxApi::Metadata::AddFileMemberResult)
+    end
+  end
+
   describe "#add_folder_member" do
     it "shares the folder", :cassette => "add_folder_member/success" do
       folder_id = "1236358158"
@@ -13,7 +27,7 @@ context DropboxApi::Endpoints::Sharing do
       # The endpoint doesn't have any return values, can't test the output!
     end
 
-    it "shares the folder, if the param is an integer", :cassette => "add_folder_member/success" do
+    it "shares the folder, if the param is an AddMember object", :cassette => "add_folder_member/success" do
       folder_id = 1236358158
       folder = @client.add_folder_member(folder_id, [
         DropboxApi::Metadata::AddMember.new("somebody@test.com")
@@ -22,7 +36,7 @@ context DropboxApi::Endpoints::Sharing do
       # The endpoint doesn't have any return values, can't test the output!
     end
 
-    it "shares the folder, if the member param is a string", :cassette => "add_folder_member/success" do
+    it "shares the folder, if the member param is an email string", :cassette => "add_folder_member/success" do
       folder_id = 1236358158
       folder = @client.add_folder_member(folder_id, ["somebody@test.com"])
 
