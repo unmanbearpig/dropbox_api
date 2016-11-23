@@ -1,14 +1,13 @@
 module DropboxApi::Metadata
-  # NOTE: We should have a test to cover the initialization of this object.
-  # Sample:
-  # {
-  #   "team_info": {
-  #     "id": "dbtid:AAFdgehTzw7WlXhZJsbGCLePe8RvQGYDr-I",
-  #     "name": "Acme, Inc."
-  #   },
-  #   "display_name": "Roger Rabbit",
-  #   "member_id": "dbmid:abcd1234"
-  # }
+  # Example of a serialized {TeamMemberInfo} object:
+  #   {
+  #     "team_info": {
+  #       "id": "dbtid:AAFdgehTzw7WlXhZJsbGCLePe8RvQGYDr-I",
+  #       "name": "Acme, Inc."
+  #     },
+  #     "display_name": "Roger Rabbit",
+  #     "member_id": "dbmid:abcd1234"
+  #   }
   class TeamMemberInfo < Base
     field :team_info, DropboxApi::Metadata::Team
     field :display_name, String

@@ -16,6 +16,10 @@ module DropboxApi::Endpoints::Sharing
     #
     # Apps must have full Dropbox access to use this endpoint.
     #
+    # The `members` parameter must be an Array. Each item in the array could
+    # be either a String or an {Metadata::AddMember} object, which allows more
+    # advanced options.
+    #
     # @param folder_id [String] The ID for the shared folder.
     # @param members [Array<AddMember,String>] The intended list of members to
     #   add. Added members will receive invites to join the shared folder.
@@ -24,8 +28,8 @@ module DropboxApi::Endpoints::Sharing
     #   field is False.
     # @option custom_message [String] Optional message to display to added
     #   members in their invitation. This field is optional.
+    # @see DropboxApi::Metadata::AddMember
     add_endpoint :add_folder_member do |folder_id, members, options = {}|
-      # TODO: It should be possible to take an email (String) as the argument.
       validate_options([:quiet, :custom_message], options)
       options[:quiet] ||= false
       options[:custom_message] ||= nil

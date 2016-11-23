@@ -1,24 +1,23 @@
 module DropboxApi::Metadata
-  # Examples of serialized `AddMember` objects:
-  #
-  # {
-  #   "member": {
-  #     ".tag": "email",
-  #     "email": "justin@example.com"
+  # Examples of serialized {AddMember} objects:
+  #   {
+  #     "member": {
+  #       ".tag": "email",
+  #       "email": "justin@example.com"
+  #     },
+  #     "access_level": {
+  #       ".tag": "editor"
+  #     }
   #   },
-  #   "access_level": {
-  #     ".tag": "editor"
+  #   {
+  #     "member": {
+  #       ".tag": "dropbox_id",
+  #       "dropbox_id": "dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q"
+  #     },
+  #     "access_level": {
+  #       ".tag": "viewer"
+  #     }
   #   }
-  # },
-  # {
-  #   "member": {
-  #     ".tag": "dropbox_id",
-  #     "dropbox_id": "dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q"
-  #   },
-  #   "access_level": {
-  #     ".tag": "viewer"
-  #   }
-  # }
   class AddMember
     # Builds an AddMember object that can be used as an argument for
     # `add_folder_member`.
