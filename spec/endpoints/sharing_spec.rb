@@ -21,7 +21,7 @@ context DropboxApi::Endpoints::Sharing do
     it "shares the folder", :cassette => "add_folder_member/success" do
       folder_id = "1236358158"
       folder = @client.add_folder_member(folder_id, [
-        DropboxApi::Metadata::AddMember.new("somebody@test.com")
+        DropboxApi::Metadata::AddMember.build_from_string("somebody@test.com")
       ])
 
       # The endpoint doesn't have any return values, can't test the output!
@@ -30,7 +30,7 @@ context DropboxApi::Endpoints::Sharing do
     it "shares the folder, if the param is an AddMember object", :cassette => "add_folder_member/success" do
       folder_id = 1236358158
       folder = @client.add_folder_member(folder_id, [
-        DropboxApi::Metadata::AddMember.new("somebody@test.com")
+        DropboxApi::Metadata::AddMember.build_from_string("somebody@test.com")
       ])
 
       # The endpoint doesn't have any return values, can't test the output!
@@ -47,7 +47,7 @@ context DropboxApi::Endpoints::Sharing do
       folder_id = "xxx"
       expect {
         folder = @client.add_folder_member(folder_id, [
-          DropboxApi::Metadata::AddMember.new("somebody@test.com")
+          DropboxApi::Metadata::AddMember.build_from_string("somebody@test.com")
         ])
       }.to raise_error(DropboxApi::Errors::InvalidIdError)
     end

@@ -45,7 +45,7 @@ module DropboxApi::Endpoints::Sharing
       members.map do |member|
         case member
         when String
-          DropboxApi::Metadata::AddMember.new member
+          DropboxApi::Metadata::AddMember.build_from_string member
         when DropboxApi::Metadata::AddMember
           member
         else

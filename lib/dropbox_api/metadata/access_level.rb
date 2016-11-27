@@ -3,9 +3,16 @@ module DropboxApi::Metadata
   #   {
   #     ".tag": "viewer"
   #   }
-  class AccessLevel
+  class AccessLevel < Base
     def self.new(data)
-      data[".tag"].to_sym
+      case data
+      when Symbol
+        data
+      when Hash
+        data[".tag"].to_sym
+      else
+        raise ArgumentError, "Invalid value for AccessLevel: #{data.inspect}."
+      end
     end
   end
 end

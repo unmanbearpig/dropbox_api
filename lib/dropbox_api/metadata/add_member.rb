@@ -18,30 +18,17 @@ module DropboxApi::Metadata
   #       ".tag": "viewer"
   #     }
   #   }
-  class AddMember
-    # Builds an AddMember object that can be used as an argument for
-    # `add_folder_member`.
-    #
-    # @param member [String] Email address or Dropbox ID.
-    # @param acl [:editor, :viewer] Access level, defaults to :editor.
-    def initialize(member, acl = :editor)
-      @member = Member.build_from_email_or_dropbox_id(member)
-      @acl = acl
+  class AddMember < Base
+    class << self
+      def build_from_string(member, access_level = :editor)
+        new({
+          "member" => Member.build_from_email_or_dropbox_id(member),
+          "access_level" => access_level
+        })
+      end
     end
 
-    def to_hash
-      {
-        :member => @member.to_hash,
-        :access_level => acl_to_hash
-      }
-    end
-
-    private
-
-    def acl_to_hash
-      {
-        :".tag" => @acl
-      }
-    end
+    field :member, DropboxApi::Metadata::Member
+    field :access_level, DropboxApi::Metadata::AccessLevel
   end
 end
