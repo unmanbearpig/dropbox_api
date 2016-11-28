@@ -24,11 +24,3 @@ context DropboxApi::Metadata::File do
     expect(file.size).to eq(1136802)
   end
 end
-
-# %[{
-#   ".tag": "folder",
-#   "id": "id:evvfE6q6cK0AAAAAAAAASA"
-#   "name": "3D ordering platform (development)",
-#   "path_lower": "/3d ordering platform (development)",
-#   "path_display": "/3D ordering platform (development)",
-# }]

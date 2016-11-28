@@ -1,7 +1,5 @@
 module DropboxApi::Metadata
   class Base
-    # TODO: Add test coverage for this class.
-
     class << self
       attr_reader :fields
 
