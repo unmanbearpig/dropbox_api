@@ -40,7 +40,7 @@ API call | Status
 `/save_url` | 🌑
 `/save_url/check_job_status` | 🌑
 `/search` | 🌕
-`/upload` | 🌕
+`/upload` | 🌔
 `/upload_session/append` | 🌑
 `/upload_session/append_v2` | 🌑
 `/upload_session/finish` | 🌑
@@ -51,7 +51,7 @@ API call | Status
 ## Sharing namespace
 API call | Status
 --- | :---:
-`/add_file_member` | 🌑
+`/add_file_member` | 🌔
 `/add_folder_member` | 🌕
 `/change_file_member_access` | 🌑
 `/check_job_status` | 🌑
