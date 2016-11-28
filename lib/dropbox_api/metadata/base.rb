@@ -36,6 +36,24 @@ module DropboxApi::Metadata
       end
     end
 
+    def to_hash
+      Hash[self.class.fields.keys.map do |field_name|
+        [field_name.to_s, serialized_field(field_name)]
+      end.select { |k, v| !v.nil? }]
+    end
+
+    def serialized_field(field_name)
+      value = send field_name
+      case value
+      when Time
+        value.utc.strftime("%FT%TZ")
+      when DropboxApi::Metadata
+        value.to_hash
+      else
+        value
+      end
+    end
+
     private
 
     def []=(name, value)

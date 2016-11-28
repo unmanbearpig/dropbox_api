@@ -23,4 +23,22 @@ context DropboxApi::Metadata::File do
     expect(file.rev).to eq("2c824061bdd")
     expect(file.size).to eq(1136802)
   end
+
+  it "can be converted back to a hash" do
+    file_hash = {
+      ".tag" => "file",
+      "name" => "visrez-video.mp4",
+      "path_lower" => "/visrez-video.mp4",
+      "path_display" => "/visrez-video.mp4",
+      "id" => "id:ARSNw7QJjrAAAAAAAAAAAQ",
+      "client_modified" => "2016-05-22T09:31:26Z",
+      "server_modified" => "2016-05-22T09:31:26Z",
+      "rev" => "2c824061bdd",
+      "size" => 1136802
+    }
+
+    file = DropboxApi::Metadata::File.new file_hash
+
+    expect(file.to_hash).to eq(file_hash)
+  end
 end

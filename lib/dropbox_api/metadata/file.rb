@@ -25,5 +25,9 @@ module DropboxApi::Metadata
     field :server_modified, Time
     field :rev, String
     field :size, Integer
+
+    def to_hash
+      super.merge(".tag" => "file")
+    end
   end
 end
