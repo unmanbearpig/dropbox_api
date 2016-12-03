@@ -47,7 +47,7 @@ module DropboxApi::Metadata
       case value
       when Time
         value.utc.strftime("%FT%TZ")
-      when DropboxApi::Metadata
+      when DropboxApi::Metadata::Base
         value.to_hash
       else
         value

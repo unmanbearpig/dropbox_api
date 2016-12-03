@@ -4,16 +4,49 @@ context DropboxApi::Endpoints::Sharing do
   end
 
   describe "#add_file_member" do
-    it "adds members to a file", :cassette => "add_file_member/success" do
+    it "adds 1 member to a file", :cassette => "add_file_member/success_1" do
       file = "/bsd.pdf"
-      result = @client.add_file_member(file, [
-        DropboxApi::Metadata::Member.build_from_email_or_dropbox_id("somebody@test.com")
-      ])
+      members = @client.add_file_member(file, "a@test.com")
 
-      expect(result)
+      expect(members)
         .to be_a(DropboxApi::Results::AddFileMemberResultList)
-      expect(result.first)
+      expect(members.first)
         .to be_a(DropboxApi::Metadata::AddFileMemberResult)
+      expect(members.first.result)
+        .to eq(:viewer)
+    end
+
+    it "adds 2 members to a file", :cassette => "add_file_member/success_2" do
+      file = "/bsd.pdf"
+      members = @client.add_file_member(file, %w(a@test.com b@test.com))
+
+      expect(members)
+        .to be_a(DropboxApi::Results::AddFileMemberResultList)
+      expect(members.map(&:class).uniq)
+        .to eq([DropboxApi::Metadata::AddFileMemberResult])
+      expect(members.map(&:result).uniq)
+        .to eq([:viewer])
+    end
+
+    it "adds a member with comment", :cassette => "add_file_member/success_comment" do
+      file = "/bsd.pdf"
+      members = @client.add_file_member file,
+                                        "a@test.com",
+                                        :custom_message => "See my file down here."
+
+      expect(members)
+        .to be_a(DropboxApi::Results::AddFileMemberResultList)
+    end
+
+    it "adds a member with access level", :cassette => "add_file_member/error_no_permission" do
+      file = "/bsd.pdf"
+
+      # Using :viewer_no_comment as access level will fail with no_permission.
+      expect {
+        @client.add_file_member file,
+                                "a@test.com",
+                                :access_level => :viewer_no_comment
+      }.to raise_error(DropboxApi::Errors::NoPermissionError)
     end
   end
 

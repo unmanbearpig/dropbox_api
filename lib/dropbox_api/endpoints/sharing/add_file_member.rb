@@ -30,7 +30,7 @@ module DropboxApi::Endpoints::Sharing
     # @option options add_message_as_comment [String] Optional message to
     #   display to added members in their invitation. This field is optional.
     add_endpoint :add_file_member do |file, members, options = {}|
-      validate_options([:quiet, :custom_message], options)
+      validate_options([:quiet, :custom_message, :access_level, :add_message_as_comment], options)
       options[:quiet] ||= false
       options[:custom_message] ||= nil
       options[:access_level] ||= :viewer
@@ -45,7 +45,7 @@ module DropboxApi::Endpoints::Sharing
     private
 
     def build_members_param(members)
-      members.map do |member|
+      Array(members).map do |member|
         case member
         when String
           DropboxApi::Metadata::Member.build_from_email_or_dropbox_id member

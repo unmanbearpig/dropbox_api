@@ -51,7 +51,7 @@ API call | Status
 ## Sharing namespace
 API call | Status
 --- | :---:
-`/add_file_member` | 🌔
+`/add_file_member` | 🌕
 `/add_folder_member` | 🌕
 `/change_file_member_access` | 🌑
 `/check_job_status` | 🌑
