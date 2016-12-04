@@ -22,19 +22,18 @@ module DropboxApi::Endpoints::Sharing
     # @param actions [Array]
     #   This is an optional list of actions. The permissions for the actions
     #   requested will be included in the result.
-    # @option options
-    #   limit [Numeric] The maximum number of results that include
-    #   members, groups and invitees to return per request. The default for
-    #   this field is 1000.
+    # @option options limit [Numeric] The maximum number of results that
+    #   include members, groups and invitees to return per request. The default
+    #   for this field is 1000.
     # @return [SharedFolderMembers] Shared folder user and group membership.
-    # @see DropboxApi::Metadata::MemberActionCollection
+    # @see Metadata::MemberActionList
     add_endpoint :list_folder_members do |folder_id, actions = [], options = {}|
       validate_options([:limit], options)
       options[:limit] ||= 100
 
       perform_request options.merge({
         :shared_folder_id => folder_id,
-        :actions => DropboxApi::Metadata::MemberActionCollection.new(actions)
+        :actions => DropboxApi::Metadata::MemberActionList.new(actions)
       })
     end
   end
