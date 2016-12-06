@@ -12,13 +12,21 @@ module DropboxApi::Endpoints::Sharing
     # folder to add another member.
     #
     # For the new member to get access to all the functionality for this folder,
-    # you will need to call mount_folder on their behalf.
+    # you will need to call +mount_folder+ on their behalf.
     #
     # Apps must have full Dropbox access to use this endpoint.
     #
-    # The +members+ parameter must be an Array. Each item in the array could
-    # be either a String or a {Metadata::AddMember} object.
+    # The +members+ parameter can be an +Array+ or a single member element.
+    # Each element is represented by either a +String+ or a
+    # {Metadata::AddMember} object. This parameter can be just a string with
+    # an email.
     #
+    # You can also build a {Metadata::AddMember} object and use it in the
+    # +members+ parameter, this allows custom  options for each member.
+    #
+    # @example
+    #   client = DropboxApi::Client.new
+    #   client.add_folder_member "1363389221", "somebody@test.com"
     # @param folder_id [String] The ID for the shared folder.
     # @param members [Array<AddMember,String>] The intended list of members to
     #   add. Added members will receive invites to join the shared folder.
@@ -27,7 +35,7 @@ module DropboxApi::Endpoints::Sharing
     #   this field is False.
     # @option options custom_message [String] Optional message to display to
     #   added members in their invitation. This field is optional.
-    # @see DropboxApi::Metadata::Member
+    # @see DropboxApi::Metadata::AddMember
     add_endpoint :add_folder_member do |folder_id, members, options = {}|
       validate_options([:quiet, :custom_message], options)
       options[:quiet] ||= false
@@ -42,7 +50,7 @@ module DropboxApi::Endpoints::Sharing
     private
 
     def build_members_param(members)
-      members.map do |member|
+      Array(members).map do |member|
         case member
         when String
           DropboxApi::Metadata::AddMember.build_from_string member
