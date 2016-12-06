@@ -50,7 +50,7 @@ module DropboxApi::Endpoints::Sharing
       Array(members).map do |member|
         case member
         when String
-          DropboxApi::Metadata::Member.build_from_email_or_dropbox_id member
+          DropboxApi::Metadata::Member.new member
         when DropboxApi::Metadata::Member
           member
         else

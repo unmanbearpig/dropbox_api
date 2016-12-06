@@ -22,7 +22,7 @@ module DropboxApi::Metadata
     class << self
       def build_from_string(member, access_level = :editor)
         new({
-          "member" => Member.build_from_email_or_dropbox_id(member),
+          "member" => Member.new(member),
           "access_level" => access_level
         })
       end
