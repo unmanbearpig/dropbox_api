@@ -42,7 +42,7 @@ module DropboxApi::Endpoints::Sharing
       options[:custom_message] ||= nil
 
       perform_request options.merge({
-        :shared_folder_id => folder_id,
+        :shared_folder_id => folder_id.to_s,
         :members => build_members_param(members)
       })
     end

@@ -58,6 +58,13 @@ context DropboxApi::Endpoints::Sharing do
       # The endpoint doesn't have any return values, can't test the output!
     end
 
+    it "shares the folder, if the folder id is a number", :cassette => "add_folder_member/success_numeric" do
+      folder_id = 1236358158
+      folder = @client.add_folder_member folder_id, "somebody@test.com"
+
+      # The endpoint doesn't have any return values, can't test the output!
+    end
+
     it "shares the folder, if the param is an AddMember object", :cassette => "add_folder_member/success" do
       folder_id = 1236358158
       folder = @client.add_folder_member folder_id, "somebody@test.com"
