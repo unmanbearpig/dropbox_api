@@ -266,7 +266,7 @@ context DropboxApi::Endpoints::Files do
 
   describe "#list_folder_longpoll" do
     before :each do
-      VCR.use_cassette("list_folder_continue/list_folder") do
+      VCR.use_cassette("list_folder_longpoll/list_folder") do
         @cursor = @client.list_folder("").cursor
       end
     end

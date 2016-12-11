@@ -8,7 +8,7 @@ http_interactions:
       string: '{"recursive":false,"include_media_info":false,"include_deleted":false,"path":"/folder"}'
     headers:
       Authorization:
-      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      - Bearer MOCK_AUTHORIZATION_BEARER
       User-Agent:
       - Faraday v0.9.2
       Content-Type:
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 28 May 2016 23:10:20 GMT
+      - Sun, 11 Dec 2016 11:46:59 GMT
       Content-Type:
       - application/json
-      Transfer-Encoding:
-      - chunked
+      Content-Length:
+      - '243'
       Connection:
       - keep-alive
       Cache-Control:
@@ -37,24 +37,24 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=MTczNzY2NDE5OTQ3OTcwNTU4MjQyMTEyMTkwMzg3NDg3Nzk4MTI0; expires=Thu, 27
-        May 2021 23:10:20 GMT; httponly; Path=/; secure
+      - gvc=MTM5NDAxNzg0MTAxNzkzNzc4MjQ2OTE2MTgzNjA3NTg2ODIzOTgz; expires=Fri, 10
+        Dec 2021 11:46:59 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
       - None
+      X-Dropbox-Request-Id:
+      - 25c43f677776600bab1ba17377dd1bec
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '3456'
-      X-Dropbox-Request-Id:
-      - 5d9fd7b58878ade2c5cbe2487e7a2e74
+      - '194'
     body:
-      encoding: ASCII-8BIT
-      string: '{
-        "entries": [],
-        "cursor": "AAF1PADRc2tz8NZBgeiBDU74WXviOqayVRsxo309g9Ypay0KcijR-WNVJ93fBtXoclKqpR12u4_c4-1_7n-PvKK8qVJRZ0hW0kMjysMJQIsZebE0OvHXhd-FIKSWX_IsxDIXkBnbxQ_ifvW3IEsjd5ol",
+      encoding: UTF-8
+      string: '{"entries": [], "cursor": "AAEejeebnS9QodQgf79htIgffkUPUp58Nerj93H8epIiLSPxnd0KeW-iAydMGpRsOBHFZ6asJHX0K-ljI4hQckW-BCNgKq58T6uDxZS9x7oOZ1yXdTy_yTEPa3Z6ufPIKLQbCdlqmPrgH-fEPwt44Rc-HMJXeG0JqlLmEuQyxvK2EQQS5P5MlnrUEnprrwg-oiQ",
         "has_more": true}'
     http_version:
-  recorded_at: Sat, 28 May 2016 23:10:20 GMT
+  recorded_at: Sun, 11 Dec 2016 11:48:14 GMT
 recorded_with: VCR 3.0.1

@@ -8,7 +8,7 @@ http_interactions:
       string: '{"access_level":"viewer_no_comment","quiet":false,"custom_message":null,"add_message_as_comment":false,"file":"/bsd.pdf","members":[{".tag":"email","email":"a@test.com"}]}'
     headers:
       Authorization:
-      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      - Bearer MOCK_AUTHORIZATION_BEARER
       User-Agent:
       - Faraday v0.9.2
       Content-Type:

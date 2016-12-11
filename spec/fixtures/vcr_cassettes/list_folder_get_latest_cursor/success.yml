@@ -8,7 +8,7 @@ http_interactions:
       string: '{"path":"/folder","recursive":false,"include_media_info":false,"include_deleted":false}'
     headers:
       Authorization:
-      - Bearer VofXAX8DO1sAAAAAAAACFsM04PkG3k9OQMYjyFkvI1cJhaUYFQ1ZxEegMZeFWkVD
+      - Bearer MOCK_AUTHORIZATION_BEARER
       User-Agent:
       - Faraday v0.9.2
       Content-Type:
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 30 Jul 2016 08:17:08 GMT
+      - Sun, 11 Dec 2016 11:47:02 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -37,21 +37,23 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=MzAwNzIwODk5NTI2ODc3MjQ0MzAwNzIzODI4MjQzNDgzMTAxMzE0; expires=Thu, 29
-        Jul 2021 08:17:08 GMT; httponly; Path=/; secure
+      - gvc=NDY0NDE3ODg4ODUwNzU5NTY0NzMzMTQ3NDg0MjQ0NjAzMjU4NQ%3D%3D; expires=Fri,
+        10 Dec 2021 11:47:02 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
       - None
+      X-Dropbox-Request-Id:
+      - 8440b9c18ee63bd8d60060acafc5a14d
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '72'
-      X-Dropbox-Request-Id:
-      - 3f79977cda52a34043e8196b7e3f9efb
+      - '344'
     body:
       encoding: UTF-8
-      string: '{"cursor": "AAGtZs_SfTTSjmSM7XZOmw7sk73NZeaWgdjwI9c1Iofi6pjGGBGiXrXtp_oy5XtzzHsgoUbfo30Rlo23OYIcprdL1N0IWerQ3Hx3IARIat6UGs8ZRIbP28h1BsIACl5N4o7DDTUAUzSWGdJPO8kkRg1q4griQwXD5xXcxY7dOpymD7HZ5psSIzhMOZ69_BvsC4w"}'
-    http_version: 
-  recorded_at: Sat, 30 Jul 2016 08:17:07 GMT
+      string: '{"cursor": "AAEFGMUxkhcPBBR2yCoOrknMbaDSbDIp3WeKVvAMJY-LjQft9FK5kUzpujm2k3yeWiZq-XtuAu-1OCz4YIxmw5e3x1sbBgCRbEhKBzoXWgVQXV-Q_QUJsfbN_9E2euvsg3Xemfz04RTTJNKCOXup3sIClMF2eru_EhuR9baFboiOeNgWYW1dhQ0gGi1MWRqFXQ0"}'
+    http_version:
+  recorded_at: Sun, 11 Dec 2016 11:48:17 GMT
 recorded_with: VCR 3.0.1

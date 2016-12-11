@@ -23,7 +23,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 30 Jul 2016 09:41:48 GMT
+      - Sun, 11 Dec 2016 11:49:45 GMT
       Content-Type:
       - text/plain
       Transfer-Encoding:
@@ -37,11 +37,11 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Dropbox-Request-Id:
-      - 0a8e0ebf3e027b8a8cb58a55f447deca
+      - 285070cc5efd743730eeda72e6db9edd
     body:
       encoding: UTF-8
       string: 'Error in call to API function "files/list_folder/longpoll": request
         body: cursor: unsupported cursor type'
     http_version: 
-  recorded_at: Sat, 30 Jul 2016 09:41:48 GMT
+  recorded_at: Sun, 11 Dec 2016 11:51:01 GMT
 recorded_with: VCR 3.0.1

@@ -8,7 +8,7 @@ http_interactions:
       string: '{"account_ids":["dbid:AACiYqkuK0t_wIvlr9BduHKdhzk_H28Dg0U","dbid:AAAKVPLEKkkccsZMFkkZNXFeyXrPPhrtFxs"]}'
     headers:
       Authorization:
-      - Bearer VofXAX8DO1sAAAAAAAADcDz8wrpT0FKdMgkOwvtCswOdbeAdm52ytwpXuhuzqOIc
+      - Bearer MOCK_AUTHORIZATION_BEARER
       User-Agent:
       - Faraday v0.9.2
       Content-Type:
