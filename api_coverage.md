@@ -36,7 +36,7 @@ API call | Status
 `/properties/template/get` | 🌑
 `/properties/template/list` | 🌑
 `/properties/update` | 🌑
-`/restore` | 🌑
+`/restore` | 🌕
 `/save_url` | 🌑
 `/save_url/check_job_status` | 🌑
 `/search` | 🌕
