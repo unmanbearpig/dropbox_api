@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/sharing/add_folder_member
     body:
       encoding: UTF-8
-      string: '{"quiet":false,"custom_message":null,"shared_folder_id":"1236358158","members":[{"member":{".tag":"email","email":"somebody@test.com"},"access_level":{".tag":"editor"}}]}'
+      string: '{"quiet":false,"custom_message":null,"shared_folder_id":"1236358158","members":[{"member":{".tag":"email","email":"somebody@test.com"},"access_level":"editor"}]}'
     headers:
       Authorization:
       - Bearer MOCK_AUTHORIZATION_BEARER
@@ -25,7 +25,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 11 Jun 2016 09:31:00 GMT
+      - Tue, 13 Dec 2016 16:32:52 GMT
       Content-Type:
       - application/json
       Content-Length:
@@ -37,21 +37,23 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=MzI4ODM3MDcwMTk5OTE5NzY4NzkyNTk2MDIzNjMyNzA5ODMxMjk5; expires=Thu, 10
-        Jun 2021 09:31:00 GMT; httponly; Path=/; secure
+      - gvc=Mjk5MjMzNzM3ODI2MDc0OTQ0NzU0MzE4MjI3ODIxODgzNTY0NTY1; expires=Sun, 12
+        Dec 2021 16:32:52 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
       - None
+      X-Dropbox-Request-Id:
+      - a1eb6c8b3198179deb1324d39d536325
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '511'
-      X-Dropbox-Request-Id:
-      - 2558230857ec92971cf67421717d155d
+      - '932'
     body:
       encoding: UTF-8
       string: 'null'
-    http_version: 
-  recorded_at: Sat, 11 Jun 2016 09:30:59 GMT
+    http_version:
+  recorded_at: Tue, 13 Dec 2016 16:34:13 GMT
 recorded_with: VCR 3.0.1
