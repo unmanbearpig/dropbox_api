@@ -17,7 +17,7 @@ module DropboxApi::Metadata
       if valid_values.include? value
         value
       else
-        raise ArgumentError, "invalid value for #{name}: #{value.inspect}"
+        raise ArgumentError, "Invalid value for #{name}: #{value.inspect}"
       end
     end
   end

@@ -50,6 +50,7 @@ module DropboxApi::Errors
   class InsideSharedFolderError < BasicError; end
   class InsufficientPlanError < BasicError; end
   class InsufficientSpaceError < BasicError; end
+  class InternalError < BasicError; end
   class InvalidCommentError < BasicError; end
   class InvalidCursorError < BasicError; end
   class InvalidDropboxIdError < BasicError; end

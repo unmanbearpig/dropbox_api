@@ -1,5 +1,5 @@
 module DropboxApi::Results
-  class ShareFolderLaunch < DropboxApi::Results::Base
+  class ShareFolderLaunch
     def self.new(result_data)
       case result_data[".tag"]
       when "complete"

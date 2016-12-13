@@ -1,0 +1,115 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/save_url
+    body:
+      encoding: UTF-8
+      string: '{"path":"/missing_file.zip","url":"http://ipv4.download.thinkbroadband.com/not_found.zip"}'
+    headers:
+      Authorization:
+      - Bearer MOCK_AUTHORIZATION_BEARER
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 18:26:28 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '66'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - gvc=MzE4NzI3Mjg5OTg5ODAzNTY1OTAzMTAxNTYxODk0ODAxMzg1MzE1; expires=Sun, 12
+        Dec 2021 18:26:28 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - 70b0d2c141dfe57ca36d7c1797f2a1c2
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '483'
+    body:
+      encoding: UTF-8
+      string: '{".tag": "async_job_id", "async_job_id": "VofXAX8DO1sAAAAAAAAEDg"}'
+    http_version:
+  recorded_at: Tue, 13 Dec 2016 18:27:49 GMT
+- request:
+    method: post
+    uri: https://api.dropboxapi.com/2/files/save_url/check_job_status
+    body:
+      encoding: UTF-8
+      string: '{"async_job_id":"VofXAX8DO1sAAAAAAAAEDg"}'
+    headers:
+      Authorization:
+      - Bearer MOCK_AUTHORIZATION_BEARER
+      User-Agent:
+      - Faraday v0.9.2
+      Content-Type:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 13 Dec 2016 18:27:00 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '57'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Pragma:
+      - no-cache
+      Set-Cookie:
+      - gvc=MTcyMzMzOTMzMTc3NzA0MjM1MTU1MDM3NzQxMTI0MDE5NDA5Mjc3; expires=Sun, 12
+        Dec 2021 18:27:00 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
+      X-Content-Type-Options:
+      - nosniff
+      X-Dropbox-Http-Protocol:
+      - None
+      X-Dropbox-Request-Id:
+      - a41416f79cc99a9e4224afa72d285575
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Server-Response-Time:
+      - '96'
+    body:
+      encoding: UTF-8
+      string: '{".tag": "failed", "failed": {".tag": "download_failed"}}'
+    http_version:
+  recorded_at: Tue, 13 Dec 2016 18:28:21 GMT
+recorded_with: VCR 3.0.1
