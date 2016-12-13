@@ -36,6 +36,7 @@ module DropboxApi::Errors
   class ContainsSharedFolderError < BasicError; end
   class DisallowedNameError < BasicError; end
   class DisallowedSharedLinkPolicyError < BasicError; end
+  class DownloadFailedError < BasicError; end
   class EmailUnverifiedError < BasicError; end
   class FileAncestorConflictError < BasicError; end
   class FileConflictError < BasicError; end
@@ -59,6 +60,7 @@ module DropboxApi::Errors
   class InvalidPathError < BasicError; end
   class InvalidRevisionError < BasicError; end
   class InvalidSettingsError < BasicError; end
+  class InvalidUrlError < BasicError; end
   class IsAppFolderError < BasicError; end
   class IsFileError < BasicError; end
   class IsFolderError < BasicError; end
