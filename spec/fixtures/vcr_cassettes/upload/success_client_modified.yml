@@ -12,7 +12,7 @@ http_interactions:
       User-Agent:
       - Faraday v0.9.2
       Dropbox-Api-Arg:
-      - '{"client_modified":"2016-12-25T11:00:00Z","path":"/another_file.txt"}'
+      - '{"client_modified":"2016-12-25T12:00:00Z","path":"/another_file.txt"}'
       Content-Type:
       - application/octet-stream
       Accept-Encoding:
@@ -27,7 +27,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Mon, 26 Dec 2016 15:25:08 GMT
+      - Mon, 26 Dec 2016 15:38:09 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -39,17 +39,17 @@ http_interactions:
       Cache-Control:
       - no-cache
       X-Server-Response-Time:
-      - '623'
+      - '794'
       X-Dropbox-Request-Id:
-      - c1c0c50b37cc34e3ec58caa45bc2e8ee
+      - 7dd24e238c3dd6d4d0973f00549a3d50
       X-Robots-Tag:
       - noindex, nofollow, noimageindex
     body:
       encoding: ASCII-8BIT
       string: '{"name": "another_file.txt", "path_lower": "/another_file.txt", "path_display":
-        "/another_file.txt", "id": "id:evvfE6q6cK0AAAAAAAAFJQ", "client_modified":
-        "2016-12-25T11:00:00Z", "server_modified": "2016-12-26T15:25:08Z", "rev":
-        "2a6724061bdd", "size": 22}'
+        "/another_file.txt", "id": "id:evvfE6q6cK0AAAAAAAAFJg", "client_modified":
+        "2016-12-25T12:00:00Z", "server_modified": "2016-12-26T15:38:09Z", "rev":
+        "2a6924061bdd", "size": 22}'
     http_version:
-  recorded_at: Mon, 26 Dec 2016 15:25:08 GMT
+  recorded_at: Mon, 26 Dec 2016 15:38:09 GMT
 recorded_with: VCR 3.0.1

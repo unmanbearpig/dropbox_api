@@ -448,7 +448,7 @@ context DropboxApi::Endpoints::Files do
     end
 
     it "uploads a file with `overwrite` write mode", :cassette => "upload/success_client_modified" do
-      modified_at = Time.new 2016, 12, 25, 12, 0
+      modified_at = Time.utc 2016, 12, 25, 12, 0
 
       file = @client.upload("/another_file.txt", "Our country is a mess!", {
         :client_modified => modified_at
