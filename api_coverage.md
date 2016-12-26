@@ -39,8 +39,8 @@ API call | Status
 `/restore` | 🌕
 `/save_url` | 🌕
 `/save_url/check_job_status` | 🌕
-`/search` | 🌕
-`/upload` | 🌔
+`/search` | 🌔
+`/upload` | 🌕
 `/upload_session/append` | 🌑
 `/upload_session/append_v2` | 🌑
 `/upload_session/finish` | 🌑
