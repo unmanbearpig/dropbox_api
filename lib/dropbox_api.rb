@@ -40,6 +40,7 @@ require 'dropbox_api/metadata/folder_link'
 require 'dropbox_api/metadata/shared_link'
 require 'dropbox_api/metadata/space_allocation'
 require 'dropbox_api/metadata/space_usage'
+require 'dropbox_api/metadata/write_mode'
 
 require 'dropbox_api/errors/http_error'
 require 'dropbox_api/errors/basic_error'
