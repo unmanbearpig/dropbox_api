@@ -4,6 +4,7 @@ module DropboxApi
       @connection_builder = ConnectionBuilder.new(oauth_bearer)
     end
 
+    # @!visibility private
     def self.add_endpoint(name, endpoint)
       define_method(name) do |*args, &block|
         endpoint.new(@connection_builder).send(name, *args, &block)

@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method share_folder(path, options = {})
     # Share a folder with collaborators.
     #
     # Most sharing will be completed synchronously. Large folders will be

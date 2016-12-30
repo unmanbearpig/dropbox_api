@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_revisions(path, options = {})
     # Return revisions of a file
     #
     # @param path [String] The path to file you want to see the revisions of.

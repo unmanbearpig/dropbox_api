@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method get_thumbnail(path, options = {})
     # Get a thumbnail for an image.
     #
     # This method currently supports files with the following file extensions:

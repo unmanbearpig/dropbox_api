@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Users
     ResultType  = DropboxApi::Metadata::SpaceUsage
     ErrorType   = nil
 
-    # @method get_space_usage
     # Get the space usage information for the current user's account.
     #
     # @return [SpaceUsage] Information about a user's space usage and quota.

@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method add_folder_member(folder_id, members, options = {})
     # Allows an owner or editor (if the ACL update policy allows) of a shared
     # folder to add another member.
     #

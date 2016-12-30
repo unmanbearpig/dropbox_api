@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Results::GetTemporaryLinkResult
     ErrorType   = DropboxApi::Errors::GetMetadataError
 
-    # @method get_temporary_link(path)
     # Get a temporary link to stream content of a file. This link will expire
     # in four hours and afterwards you will get 410 Gone. Content-Type of the
     # link is determined automatically by the file's mime type.

@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_folder_get_latest_cursor(options)
     # A way to quickly get a cursor for the folder's state. Unlike
     # {DropboxApi::API#list_folder}, this doesn't return any entries. This
     # endpoint is for app which only needs to know about new files and

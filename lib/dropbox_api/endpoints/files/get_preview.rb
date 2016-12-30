@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::File
     ErrorType   = DropboxApi::Errors::PreviewError
 
-    # @method get_preview(path)
     # Get a preview for a file. Currently previews are only generated for the
     # files with the following extensions: .doc, .docx, .docm, .ppt, .pps,
     # .ppsx, .ppsm, .pptx, .pptm, .xls, .xlsx, .xlsm, .rtf

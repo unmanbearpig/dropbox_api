@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method upload(path, content, options = {})
     # Creates a new file.
     #
     # Do not use this to upload a file larger than 150 MB. Instead, create an

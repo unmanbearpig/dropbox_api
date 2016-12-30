@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::Folder
     ErrorType   = DropboxApi::Errors::CreateFolderError
 
-    # @method create_folder(path)
     # Create a folder at a given path.
     #
     # @param path [String] Path in the user's Dropbox to create.

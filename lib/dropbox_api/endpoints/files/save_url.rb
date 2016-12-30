@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Results::SaveUrlResult
     ErrorType   = DropboxApi::Errors::SaveUrlError
 
-    # @method save_url(path, url)
     # Save a specified URL into a file in user's Dropbox. If the given path
     # already exists, the file will be renamed to avoid the conflict (e.g.
     # myfile (1).txt).

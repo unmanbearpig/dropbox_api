@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_folder_members(folder_id, actions = [], options = {})
     # Returns shared folder membership by its folder ID.
     #
     # Apps must have full Dropbox access to use this endpoint.

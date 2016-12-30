@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method search(query, path = "", options = {})
     # Searches for files and folders.
     #
     # Note: Recent changes may not immediately be reflected in search results

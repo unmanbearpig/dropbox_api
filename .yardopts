@@ -1,3 +1,4 @@
+--load docs/plugin.rb
 -
 api_coverage.md
 rails_setup.md

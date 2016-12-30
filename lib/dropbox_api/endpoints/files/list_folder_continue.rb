@@ -8,7 +8,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Results::ListFolderResult
     ErrorType   = DropboxApi::Errors::ListFolderContinueError
 
-    # @method list_folder_continue(cursor)
     # Once a cursor has been retrieved from `list_folder`, use this to paginate
     # through all files and retrieve updates to the folder.
     #

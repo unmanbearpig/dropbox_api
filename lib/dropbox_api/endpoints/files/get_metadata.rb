@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method get_metadata(path, options = {})
     # Returns the metadata for a file or folder.
     #
     # Note: Metadata for the root folder is unsupported.

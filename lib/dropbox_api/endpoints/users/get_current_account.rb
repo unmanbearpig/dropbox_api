@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Users
     ResultType  = DropboxApi::Metadata::BasicAccount
     ErrorType   = nil
 
-    # @method get_current_account
     # Get information about the current user's account.
     #
     # @return [BasicAccount] Detailed information about the current user's account.

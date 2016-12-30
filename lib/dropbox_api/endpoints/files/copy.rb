@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::Resource
     ErrorType   = DropboxApi::Errors::RelocationError
 
-    # @method copy(from, to)
     # Copy a file or folder to a different location in the user's Dropbox.
     # If the source path is a folder all its contents will be copied.
     #

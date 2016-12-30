@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Sharing
     ResultType  = DropboxApi::Metadata::SharedLink
     ErrorType   = DropboxApi::Errors::CreateSharedLinkWithSettingsError
 
-    # @method create_shared_link_with_settings(path, settings = {})
     # Create a shared link with custom settings. If no settings are given then
     # the default visibility is :public. (The resolved
     # visibility, though, may depend on other aspects such as team and shared

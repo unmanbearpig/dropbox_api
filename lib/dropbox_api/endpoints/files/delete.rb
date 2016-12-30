@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::Resource
     ErrorType   = DropboxApi::Errors::DeleteError
 
-    # @method delete(path)
     # Delete the file or folder at a given path.
     #
     # If the path is a folder, all its contents will be deleted too.

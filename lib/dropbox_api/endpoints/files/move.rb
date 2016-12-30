@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method move(from, to, options)
     # Move a file or folder to a different location in the user's Dropbox.
     #
     # If the source path is a folder all its contents will be moved.

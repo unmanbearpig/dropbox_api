@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method add_file_member(file, members, options = {})
     # Adds specified members to a file.
     #
     # The +members+ parameter can be an +Array+ or a single member element. Each

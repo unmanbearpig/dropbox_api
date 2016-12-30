@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::File
     ErrorType   = DropboxApi::Errors::RestoreError
 
-    # @method restore(path, rev)
     # Restore a file to a specific revision
     #
     # @param path [String] The path to the file you want to restore.

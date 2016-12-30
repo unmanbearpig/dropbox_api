@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Files
     ResultType  = DropboxApi::Metadata::File
     ErrorType   = DropboxApi::Errors::DownloadError
 
-    # @method download(path)
     # Download a file from a user's Dropbox.
     #
     # @param path [String] The path of the file to download.

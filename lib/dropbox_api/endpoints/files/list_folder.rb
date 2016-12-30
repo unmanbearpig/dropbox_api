@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_folder(path, options = {})
     # Returns the contents of a folder.
     #
     # @param path [String] The path to the folder you want to read.

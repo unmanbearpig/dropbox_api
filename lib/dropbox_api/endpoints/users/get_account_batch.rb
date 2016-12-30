@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Users
     ResultType  = DropboxApi::Results::BasicAccountBatch
     ErrorType   = DropboxApi::Errors::GetAccountError
 
-    # @method get_account_batch(account_ids)
     # Get information about multiple user accounts. At most 300 accounts may
     # be queried per request.
     #

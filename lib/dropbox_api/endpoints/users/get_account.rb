@@ -5,7 +5,6 @@ module DropboxApi::Endpoints::Users
     ResultType  = DropboxApi::Metadata::BasicAccount
     ErrorType   = DropboxApi::Errors::GetAccountError
 
-    # @method get_account(account_id)
     # Get information about a user's account.
     #
     # @param account_id [String] A user's account identifier.

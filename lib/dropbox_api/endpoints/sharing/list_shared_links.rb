@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Sharing
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_shared_links(options)
     # List shared links of this user.
     #
     # If no path is given or the path is empty, returns a list of all shared

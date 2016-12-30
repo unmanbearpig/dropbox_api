@@ -7,7 +7,6 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_folder_longpoll(cursor, options = {})
     # A longpoll endpoint to wait for changes on an account. In conjunction
     # with list_folder, this call gives you a low-latency way to monitor an
     # account for file changes. The connection will block until there are
