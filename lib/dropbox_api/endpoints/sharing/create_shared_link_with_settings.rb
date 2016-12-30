@@ -11,8 +11,9 @@ module DropboxApi::Endpoints::Sharing
     # visibility, though, may depend on other aspects such as team and shared
     # folder settings).
     #
-    # @param path [String]
-    # @option settings [SharedLinkSettings]
+    # @param path [String] The path to be shared by the shared link.
+    # @param settings [SharedLinkSettings] The requested settings for the newly
+    #   created shared link This field is optional.
     # @return [DropboxApi::Metadata::SharedLink]
     add_endpoint :create_shared_link_with_settings do |path, settings = {}|
       # NOTE: This endpoint accepts an additional option `settings` which

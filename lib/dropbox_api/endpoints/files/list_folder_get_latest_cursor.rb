@@ -8,20 +8,24 @@ module DropboxApi::Endpoints::Files
     include DropboxApi::Endpoints::OptionsValidator
 
     # @method list_folder_get_latest_cursor(options)
-    # A way to quickly get a cursor for the folder's state. Unlike list_folder,
-    # list_folder_get_latest_cursor doesn't return any entries. This endpoint
-    # is for app which only needs to know about new files and modifications and
-    # doesn't need to know about files that already exist in Dropbox.
+    # A way to quickly get a cursor for the folder's state. Unlike
+    # {DropboxApi::API#list_folder}, this doesn't return any entries. This
+    # endpoint is for app which only needs to know about new files and
+    # modifications and doesn't need to know about files that already exist in
+    # Dropbox.
     #
-    # @param path [String] The path to the folder you want to read.
-    # @option recursive [Boolean] If `true`, the list folder operation will be
-    #   applied recursively to all subfolders and the response will contain
-    #   contents of all subfolders. The default for this field is `false`.
-    # @option include_media_info [Boolean] If `true`, FileMetadata.media_info
-    #   is set for photo and video. The default for this field is `false`.
-    # @option include_deleted [Boolean] If `true`, DeletedMetadata will be
-    #   returned for deleted file or folder, otherwise LookupError.not_found
-    #   will be returned. The default for this field is False.
+    # @option options path [String] The path to the folder you want to read.
+    # @option options recursive [Boolean] If +true+, the list folder operation
+    #   will be applied recursively to all subfolders and the response will
+    #   contain contents of all subfolders. The default for this field is
+    #   +false+.
+    # @option options include_media_info [Boolean] If +true+,
+    #   +FileMetadata.media_info+ is set for photo and video. The default for
+    #   this field is +false+.
+    # @option options include_deleted [Boolean] If +true+,
+    #   {DropboxApi::Metadata::DeletedMetadata} will be returned for deleted
+    #   file or folder, otherwise {DropboxApi::Errors::LookupError} will be
+    #   returned. The default for this field is +false+.
     add_endpoint :list_folder_get_latest_cursor do |options = {}|
       validate_options([
         :path,

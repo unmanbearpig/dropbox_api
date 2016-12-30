@@ -7,7 +7,7 @@ module DropboxApi::Endpoints::Files
 
     include DropboxApi::Endpoints::OptionsValidator
 
-    # @method list_folder_longpoll(path, options = {})
+    # @method list_folder_longpoll(cursor, options = {})
     # A longpoll endpoint to wait for changes on an account. In conjunction
     # with list_folder, this call gives you a low-latency way to monitor an
     # account for file changes. The connection will block until there are
@@ -17,11 +17,11 @@ module DropboxApi::Endpoints::Files
     #
     # @param cursor [String] A cursor as returned by list_folder or
     #   list_folder_continue.
-    # @option timeout [Numeric] A timeout in seconds. The request will block
-    # for at most this length of time, plus up to 90 seconds of random jitter
-    # added to avoid the thundering herd problem. Care should be taken when
-    # using this parameter, as some network infrastructure does not support
-    # long timeouts. The default for this field is 30.
+    # @option options timeout [Numeric] A timeout in seconds. The request will
+    #   block for at most this length of time, plus up to 90 seconds of random
+    #   jitter added to avoid the thundering herd problem. Care should be taken
+    #   when using this parameter, as some network infrastructure does not
+    #   support long timeouts. The default for this field is 30.
     add_endpoint :list_folder_longpoll do |cursor, options = {}|
       validate_options([
         :timeout
