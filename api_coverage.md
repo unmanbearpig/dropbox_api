@@ -7,7 +7,8 @@ you need is missing. This document indicates what endpoints have been
 implemented.
 
 Full moon means fully implemented. Half moon means that the basic functionality
-of the endpoint has been implemented but some options may be missing.
+of the endpoint has been implemented but some options may be missing. Guess
+what new moon means.
 
 ## Files namespace
 

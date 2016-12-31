@@ -125,7 +125,7 @@ commits and tags, and push the `.gem` file to
 
 Any help will be much appreciated. The easiest way to help is to implement one
 or more of the [endpoints that are still pending]
-(http://www.rubydoc.info/gems/dropbox_api/file/rails_setup.md). To see how the
+(http://www.rubydoc.info/gems/dropbox_api/file/api_coverage.md). To see how the
 endpoints are implemented, check out the `lib/dropbox_api/endpoints` folder.
 
 If you want to help but you're unsure how to get started, please get in touch
