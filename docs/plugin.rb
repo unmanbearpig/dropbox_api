@@ -1,26 +1,25 @@
 module YARD
   class EndpointHandler < Handlers::Ruby::MethodHandler
-    API_WRAPPER = P("DropboxApi::Client")
-
     handles method_call(:add_endpoint)
     namespace_only
 
     process do
-      register CodeObjects::MethodObject.new(namespace, method_name) do |m|
-        m.parameters = method_parameters
-      end
-
-      register CodeObjects::MethodObject.new(API_WRAPPER, method_name) do |m|
-        m.parameters = method_parameters
-        m.group = namespace.namespace.name.downcase
-      end
+      register(
+        CodeObjects::MethodObject.new(namespace, name) do |m|
+          m.parameters = parameters
+        end,
+        CodeObjects::MethodObject.new(P("DropboxApi::Client"), name) do |m|
+          m.parameters = parameters
+          m.group = namespace.namespace.name.downcase
+        end
+      )
     end
 
-    def method_name
+    def name
       statement.parameters.first.jump(:tstring_content, :ident).source
     end
 
-    def method_parameters
+    def parameters
       # This method is taken from YARD, ideally we would just use it but I
       # couldn't find a way to invoke it from here, so I had to copy it over.
       # It would be nice to get rid of this method and use YARD's
