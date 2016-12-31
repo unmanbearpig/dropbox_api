@@ -72,11 +72,11 @@ auth_bearer.token #=> "VofXAX8D..."
 #### Standard OAuth 2 flow
 
 This is what many web applications will use. The process is described in
-Dropbox's [OAuth guide](https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
+Dropbox's [OAuth guide]
+(https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
 
 If you have a Rails application, you might be interested in this [setup
- guide](rails_setup.md).
-
+guide](http://www.rubydoc.info/gems/dropbox_api/file/rails_setup.md).
 
 ### Performing API calls
 
@@ -98,14 +98,10 @@ result.has_more?
 #=> false
 ```
 
-Refer to the
-[documentation](http://www.rubydoc.info/gems/dropbox_api)
-to see the details for each endpoint, you can find them all in the following
-3 modules:
-
- - [Files](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Files)
- - [Sharing](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Sharing)
- - [Users](http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Endpoints/Users)
+The instance of `Client` we've initialized is the one you'll be using to
+perform API calls. You can check the class' documentation to find
+[all available endpoints]
+(http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Client)
 
 ## Dependencies
 
@@ -127,9 +123,10 @@ commits and tags, and push the `.gem` file to
 
 ## Contributing
 
-Any help will be much appreciated. It should be quite easy to implement most
-of the [endpoints that are still pending](api_coverage.md) by looking at the
-exising implementations (check out the `dropbox_api/endpoints` folder).
+Any help will be much appreciated. The easiest way to help is to implement one
+or more of the [endpoints that are still pending]
+(http://www.rubydoc.info/gems/dropbox_api/file/rails_setup.md). To see how the
+endpoints are implemented, check out the `lib/dropbox_api/endpoints` folder.
 
 If you want to help but you're unsure how to get started, please get in touch
 by opening an issue.
