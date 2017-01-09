@@ -33,42 +33,48 @@ module DropboxApi::Metadata
 
     # @example
     #   DropboxApi::Metadata::WriteMode.new :add
-    #
     # @example
     #   DropboxApi::Metadata::WriteMode.new :overwrite
-    #
     # @example
     #   DropboxApi::Metadata::WriteMode.new :update, "a1c10ce0dd78"
-    def initialize(write_mode, rev = nil)
-      @write_mode = write_mode.to_sym
-      @rev = rev
+    # @example
+    #   DropboxApi::Metadata::WriteMode.new({
+    #     ".tag"=>"update",
+    #     "update"=>"a1c10ce0dd78"
+    #   })
+    def initialize(write_mode, options = nil)
+      case write_mode
+      when Hash
+        @write_mode = write_mode
+      when String, ::Symbol
+        @write_mode = {
+          ".tag" => write_mode
+        }
+        @write_mode[write_mode.to_s] = options unless options.nil?
+      end
+      @write_mode[".tag"] = @write_mode[".tag"].to_sym
 
       check_validity
     end
 
     def check_validity
-      unless valid_mode? @write_mode
-        raise ArgumentError, "Invalid write mode: #{value}"
+      unless valid_mode? @write_mode[".tag"]
+        raise ArgumentError, "Invalid write mode: #{@write_mode[".tag"]}"
       end
 
-      if @write_mode == :update && @rev.nil?
+      if @write_mode[".tag"] == :update && @write_mode["update"].nil?
         raise ArgumentError, "Mode `:update` expects a `rev` number"
       end
     end
 
     def to_hash
-      hash = {
-        ".tag" => @write_mode
-      }
-      hash["update"] = @rev if @write_mode == :update
-
-      hash
+      @write_mode
     end
 
     private
 
     def valid_mode?(value)
-      VALID_WRITE_MODES.include? value.to_sym
+      VALID_WRITE_MODES.include? value
     end
   end
 end

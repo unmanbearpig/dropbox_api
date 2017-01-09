@@ -85,6 +85,7 @@ module DropboxApi::Errors
   class TooManyFilesError < BasicError; end
   class TooManyMembersError < BasicError; end
   class TooManyPendingInvitesError < BasicError; end
+  class TooManySharedFolderTargetsError < BasicError; end
   class UnmountedError < BasicError; end
   class UnsupportedContentError < BasicError; end
   class UnsupportedExtensionError < BasicError; end
