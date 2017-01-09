@@ -34,6 +34,8 @@ module DropboxApi::Errors
   class CantNestSharedFolderError < BasicError; end
   class CantShareOutsideTeamError < BasicError; end
   class ContainsSharedFolderError < BasicError; end
+  class CursorClosedError < BasicError; end
+  class CursorNotClosedError < BasicError; end
   class DisallowedNameError < BasicError; end
   class DisallowedSharedLinkPolicyError < BasicError; end
   class DownloadFailedError < BasicError; end

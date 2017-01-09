@@ -4,9 +4,9 @@ describe DropboxApi::Client, "#upload_session_start" do
   end
 
   it "returns a session", :cassette => "upload_session_start/success" do
-    session = @client.upload_session_start("Hello Dropbox!")
+    cursor = @client.upload_session_start("Hello Dropbox!")
 
-    expect(session).to be_a(DropboxApi::Results::UploadSessionStart)
-    expect(session.session_id).to eq("AAAAAAAMOCK_SESSION_ID")
+    expect(cursor).to be_a(DropboxApi::Metadata::UploadSessionCursor)
+    expect(cursor.session_id).to eq("AAAAAAAMOCK_SESSION_ID")
   end
 end

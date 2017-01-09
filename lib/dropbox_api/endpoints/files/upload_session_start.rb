@@ -20,14 +20,19 @@ module DropboxApi::Endpoints::Files
     #   closed, at which point you won't be able to call
     #   {Client#upload_session_append_v2} anymore with the current session.
     #   The default for this field is +false+.
-    # @return [DropboxApi::Results::UploadSessionStart] The session identifier
+    # @return [DropboxApi::Metadata::UploadSessionCursor] The session cursor
     #   that you can use to continue the upload afterwards.
     add_endpoint :upload_session_start do |content, options = {}|
       validate_options([
         :close
       ], options)
 
-      perform_request(options, content)
+      session = perform_request(options, content)
+
+      DropboxApi::Metadata::UploadSessionCursor.new({
+        "session_id" => session.session_id,
+        "offset" => content.size
+      })
     end
   end
 end
