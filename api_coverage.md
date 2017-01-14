@@ -43,11 +43,11 @@ API call | Status
 `/search` | 🌔
 `/upload` | 🌕
 `/upload_session/append` | 🌑
-`/upload_session/append_v2` | 🌑
-`/upload_session/finish` | 🌑
+`/upload_session/append_v2` | 🌕
+`/upload_session/finish` | 🌕
 `/upload_session/finish_batch` | 🌑
 `/upload_session/finish_batch/check` | 🌑
-`/upload_session/start` | 🌑
+`/upload_session/start` | 🌕
 
 ## Sharing namespace
 API call | Status
