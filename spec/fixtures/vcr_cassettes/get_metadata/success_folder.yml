@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/files/get_metadata
     body:
       encoding: UTF-8
-      string: '{"path":"/folder"}'
+      string: '{"path":"/dropbox_api_fixtures/get_metadata/folder"}'
     headers:
       Authorization:
       - Bearer MOCK_AUTHORIZATION_BEARER
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 22 May 2016 07:15:08 GMT
+      - Wed, 25 Jan 2017 20:10:44 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '123'
+      - '191'
       Connection:
       - keep-alive
       Cache-Control:
@@ -37,22 +37,24 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=MjkwNzA5NTg5MTU4MTk3MDIxNjcxMDMwMzEyMzg1MDMxODczNzg3; expires=Fri, 21
-        May 2021 07:15:08 GMT; httponly; Path=/; secure
+      - gvc=MzIzOTY0NDc2OTEzMjM2NzE5MTgyMDYyMDE0NDQxNjgwMjU1NDQ3; expires=Mon, 24
+        Jan 2022 20:10:44 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
       - None
+      X-Dropbox-Request-Id:
+      - f74c733e51b04e6e29b0c2cff8d80451
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '78'
-      X-Dropbox-Request-Id:
-      - 71fd6e4e32b3f5968c76600e877ba1bd
+      - '129'
     body:
       encoding: UTF-8
-      string: '{".tag": "folder", "name": "folder", "path_lower": "/folder", "path_display":
-        "/folder", "id": "id:tOV8JakFasAAAAAAAAAAAQ"}'
+      string: '{".tag": "folder", "name": "folder", "path_lower": "/dropbox_api_fixtures/get_metadata/folder",
+        "path_display": "/dropbox_api_fixtures/get_metadata/folder", "id": "id:evvfE6q6cK0AAAAAAAAFSA"}'
     http_version: 
-  recorded_at: Sun, 22 May 2016 07:15:08 GMT
+  recorded_at: Wed, 25 Jan 2017 20:10:44 GMT
 recorded_with: VCR 3.0.1

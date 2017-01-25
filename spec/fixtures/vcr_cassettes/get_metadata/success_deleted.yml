@@ -5,7 +5,7 @@ http_interactions:
     uri: https://api.dropboxapi.com/2/files/get_metadata
     body:
       encoding: UTF-8
-      string: '{"include_deleted":true,"path":"/file.txt"}'
+      string: '{"include_deleted":true,"path":"/dropbox_api_fixtures/get_metadata/deleted_file.txt"}'
     headers:
       Authorization:
       - Bearer MOCK_AUTHORIZATION_BEARER
@@ -25,11 +25,11 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sun, 22 May 2016 07:59:48 GMT
+      - Wed, 25 Jan 2017 20:10:46 GMT
       Content-Type:
       - application/json
       Content-Length:
-      - '95'
+      - '187'
       Connection:
       - keep-alive
       Cache-Control:
@@ -37,22 +37,24 @@ http_interactions:
       Pragma:
       - no-cache
       Set-Cookie:
-      - gvc=NzM4MjEyMTM5NzIyMTc2Mjk2NDExNTkzNjA0Mjc2NjgxMTIxNzA%3D; expires=Fri, 21
-        May 2021 07:59:48 GMT; httponly; Path=/; secure
+      - gvc=MTkxMzI3NjMzOTY5NzE4MjAxMjY3ODYxMTk1OTI4MjUxMTM3ODMy; expires=Mon, 24
+        Jan 2022 20:10:46 GMT; httponly; Path=/; secure
+      User-Agent:
+      - ''
       X-Content-Type-Options:
       - nosniff
       X-Dropbox-Http-Protocol:
       - None
+      X-Dropbox-Request-Id:
+      - b970c92e3b49efb5cc4bf0ab5b923ae2
       X-Frame-Options:
       - SAMEORIGIN
       X-Server-Response-Time:
-      - '78'
-      X-Dropbox-Request-Id:
-      - fd4351f225138292e8adb9133b6fa97b
+      - '91'
     body:
       encoding: UTF-8
-      string: '{".tag": "deleted", "name": "file.txt", "path_lower": "/file.txt",
-        "path_display": "/file.txt"}'
+      string: '{".tag": "deleted", "name": "deleted_file.txt", "path_lower": "/dropbox_api_fixtures/get_metadata/deleted_file.txt",
+        "path_display": "/dropbox_api_fixtures/get_metadata/deleted_file.txt"}'
     http_version: 
-  recorded_at: Sun, 22 May 2016 07:59:48 GMT
+  recorded_at: Wed, 25 Jan 2017 20:10:46 GMT
 recorded_with: VCR 3.0.1
