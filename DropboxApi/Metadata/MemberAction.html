@@ -105,30 +105,23 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An action will be one of the following:</p>
-<ul><li>
-<p><code>:leave_a_copy</code>: Allow the member to keep a copy of the folder
-when removing.</p>
-</li><li>
-<p><code>:make_editor</code>: Make the member an editor of the folder.</p>
-</li><li>
-<p><code>:make_owner</code>: Make the member an owner of the folder.</p>
-</li><li>
-<p><code>:make_viewer</code>: Make the member a viewer of the folder.</p>
-</li><li>
-<p><code>:make_viewer_no_comment</code>: Make the member a viewer of the
-folder without commenting permissions.</p>
-</li><li>
-<p><code>:remove</code>: Remove the member from the folder.</p>
-</li></ul>
+    <p>An action will be one of the following:</p>
 
-<p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MemberAction (class)">MemberAction</a></span> object:</p>
+<ul>
+<li>+:leave_a_copy+: Allow the member to keep a copy of the folder when
+removing.</li>
+<li>+:make_editor+: Make the member an editor of the folder.</li>
+<li>+:make_owner+: Make the member an owner of the folder.</li>
+<li>+:make_viewer+: Make the member a viewer of the folder.</li>
+<li>+:make_viewer_no_comment+: Make the member a viewer of the folder without
+commenting permissions.</li>
+<li>+:remove+: Remove the member from the folder.</li>
+</ul>
 
-<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tag</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>leave_a_copy</span><span class='tstring_end'>&quot;</span></span>
-<span class='rbrace'>}</span>
-</code></pre>
+<p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MemberAction (class)">MemberAction</a></span> object:
+  {
+    &quot;.tag&quot;: &quot;leave_a_copy&quot;
+  }</p>
 
 
   </div>
@@ -263,7 +256,7 @@ folder without commenting permissions.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 18 18:49:30 2017 by
+  Generated on Sat Mar 18 19:15:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>

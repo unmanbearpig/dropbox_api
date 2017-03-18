@@ -103,19 +103,16 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::LinkPermissions (class)">LinkPermissions</a></span> object:</p>
-
-<pre class="code ruby"><code class="ruby"><span class='lbrace'>{</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can_revoke</span><span class='label_end'>&quot;:</span> <span class='kw'>false</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>resolved_visibility</span><span class='label_end'>&quot;:</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tag</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>public</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbrace'>}</span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>revoke_failure_reason</span><span class='label_end'>&quot;:</span> <span class='lbrace'>{</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tag</span><span class='label_end'>&quot;:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>owner_only</span><span class='tstring_end'>&quot;</span></span>
-  <span class='rbrace'>}</span>
-<span class='rbrace'>}</span>
-</code></pre>
+    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::LinkPermissions (class)">LinkPermissions</a></span> object:
+  {
+    &quot;can_revoke&quot;: false,
+    &quot;resolved_visibility&quot;: {
+      &quot;.tag&quot;: &quot;public&quot;
+    },
+    &quot;revoke_failure_reason&quot;: {
+      &quot;.tag&quot;: &quot;owner_only&quot;
+    }
+  }</p>
 
 
   </div>
@@ -152,7 +149,7 @@
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 18 18:49:30 2017 by
+  Generated on Sat Mar 18 19:15:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>

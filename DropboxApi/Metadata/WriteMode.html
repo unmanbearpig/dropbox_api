@@ -103,35 +103,35 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Your intent when writing a file to some path. This is used to determine
+    <p>Your intent when writing a file to some path. This is used to determine
 what constitutes a conflict and what the autorename strategy is.</p>
 
 <p>In some situations, the conflict behavior is identical:</p>
 
-<pre class="code ruby"><code class="ruby">- If the target path doesn&#39;t contain anything, the file is always
-  written; no conflict.
-- If the target path contains a folder, it&#39;s always a conflict.
-- If the target path contains a file with identical contents, nothing
-  gets written; no conflict.</code></pre>
+<ul>
+<li>If the target path doesn&#39;t contain anything, the file is always
+written; no conflict.</li>
+<li>If the target path contains a folder, it&#39;s always a conflict.</li>
+<li>If the target path contains a file with identical contents, nothing
+gets written; no conflict.</li>
+</ul>
 
 <p>The conflict checking differs in the case where there&#39;s a file at the
 target path with contents different from the contents you&#39;re trying to
 write. The value will be one of the following datatypes:</p>
-<ul><li>
-<p><code>:add</code>: Do not overwrite an existing file if there is a
-conflict. The autorename strategy is to append a number to the file name.
-For example, “document.txt” might become “document (2).txt”.</p>
-</li><li>
-<p><code>:overwrite</code>: Always overwrite the existing file. The autorename
-strategy is the same as it is for add.</p>
-</li><li>
-<p><code>:update</code>: Overwrite if the given “rev” matches the existing
-file&#39;s “rev”. The autorename strategy is to append the string
-“conflicted copy” to the file name. For example, “document.txt” might
-become “document (conflicted copy).txt” or “document (Panda&#39;s
-conflicted copy).txt”.</p>
-</li></ul>
+
+<ul>
+<li>+:add+: Do not overwrite an existing file if there is a conflict. The
+autorename strategy is to append a number to the file name. For example,
+&quot;document.txt&quot; might become &quot;document (2).txt&quot;.</li>
+<li>+:overwrite+: Always overwrite the existing file. The autorename strategy
+is the same as it is for add.</li>
+<li>+:update+: Overwrite if the given &quot;rev&quot; matches the existing file&#39;s
+&quot;rev&quot;. The autorename strategy is to append the string &quot;conflicted copy&quot;
+to the file name. For example, &quot;document.txt&quot; might become
+&quot;document (conflicted copy).txt&quot; or
+&quot;document (Panda&#39;s conflicted copy).txt&quot;.</li>
+</ul>
 
 
   </div>
@@ -209,8 +209,7 @@ conflicted copy).txt”.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of WriteMode.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of WriteMode.</p>
 </div></span>
   
 </li>
@@ -266,8 +265,7 @@ conflicted copy).txt”.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of WriteMode</p>
+    <p>Returns a new instance of WriteMode</p>
 
 
   </div>
@@ -425,7 +423,7 @@ conflicted copy).txt”.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 18 18:49:29 2017 by
+  Generated on Sat Mar 18 19:15:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>

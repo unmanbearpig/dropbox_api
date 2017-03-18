@@ -165,8 +165,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Share a folder with collaborators.</p>
+    <span class="summary_desc"><div class='inline'><p>Share a folder with collaborators.</p>
 </div></span>
   
 </li>
@@ -231,16 +230,15 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Share a folder with collaborators.</p>
+    <p>Share a folder with collaborators.</p>
 
 <p>Most sharing will be completed synchronously. Large folders will be
 completed asynchronously. To make testing the async case repeatable, set
-`ShareFolderArg.force_async`.</p>
+<code>ShareFolderArg.force_async</code>.</p>
 
 <p>If a ShareFolderLaunch.async_job_id is returned, you&#39;ll need to call
-check_share_job_status until the action completes to get the metadata for
-the folder.</p>
+check_share_job_status until the action completes to get the metadata
+for the folder.</p>
 
 <p>Apps must have full Dropbox access to use this endpoint.</p>
 
@@ -261,9 +259,8 @@ the folder.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The path to the folder to share. If it does not exist, then a new one is
-created.</p>
+        <div class='inline'><p>The path to the folder to share. If it does not
+exist, then a new one is created.</p>
 </div>
       
     </li>
@@ -287,8 +284,7 @@ created.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Shared folder metadata.</p>
+        <div class='inline'><p>Shared folder metadata.</p>
 </div>
       
     </li>
@@ -356,7 +352,7 @@ created.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 18 18:49:31 2017 by
+  Generated on Sat Mar 18 19:15:29 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>
