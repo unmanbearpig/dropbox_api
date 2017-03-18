@@ -57,16 +57,19 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1>Standard OAuth 2 flow set up</h1>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Standard+OAuth+2+flow+set+up">Standard OAuth 2 flow set up</h1>
 
 <p>This document describes how to implement the OAuth2 flow in a Rails
 application, the process is represented in the following diagram:</p>
 
-<p><img src="https://www.dropbox.com/static/images/developers/oauth2-web-diagram.png" alt="Oauth 2 flow"></p>
+<p><img
+src="https://www.dropbox.com/static/images/developers/oauth2-web-diagram.png"></p>
 
-<p>Source: <a href="https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web">https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web</a></p>
+<p>Source: <a
+href="https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web">www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web</a></p>
 
-<h2>1. Set up some new routes</h2>
+<h2 id="label-1.+Set+up+some+new+routes">1. Set up some new routes</h2>
 
 <p>You&#39;ll have to create a couple of new routes:</p>
 
@@ -74,13 +77,13 @@ application, the process is represented in the following diagram:</p>
 <span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dropbox/auth_callback</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>dropbox#auth_callback</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
 
-<p>We&#39;ll use <code>dropbox/auth</code> to perform the step 2 in the diagram, i.e. this route
-will redirect to Dropbox.</p>
+<p>We&#39;ll use <code>dropbox/auth</code> to perform the step 2 in the
+diagram, i.e. this route will redirect to Dropbox.</p>
 
-<p>The other route, <code>dropbox/auth_callback</code>, will process the authentication token
-that we&#39;ll receive from Dropbox. Steps 4 &amp; 5.</p>
+<p>The other route, <code>dropbox/auth_callback</code>, will process the
+authentication token that we&#39;ll receive from Dropbox. Steps 4 &amp; 5.</p>
 
-<h2>2. Set up a Dropbox controller</h2>
+<h2 id="label-2.+Set+up+a+Dropbox+controller">2. Set up a Dropbox controller</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>DropboxController</span> <span class='op'>&lt;</span> <span class='const'>ApplicationController</span>
   <span class='comment'># Example call:
@@ -121,28 +124,29 @@ that we&#39;ll receive from Dropbox. Steps 4 &amp; 5.</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<h2>3. Set up redirect URI in your Dropbox app settings</h2>
+<h2 id="label-3.+Set+up+redirect+URI+in+your+Dropbox+app+settings">3. Set up redirect URI in your Dropbox app settings</h2>
 
-<p>In the previous code, you probably noticed that we&#39;re providing a <code>redirect_uri</code>
-parameter. This is where the user will be redirected to after accepting our
-application.</p>
+<p>In the previous code, you probably noticed that we&#39;re providing a
+<code>redirect_uri</code> parameter. This is where the user will be
+redirected to after accepting our application.</p>
 
 <p>However, Dropbox will only redirect to a set of whitelisted URIs, so
 you&#39;ll need to add yours to the list. That&#39;s very easy:</p>
-
-<ol>
-<li>Log in to your Dropbox developer account at
-<a href="https://www.dropbox.com/developers">www.dropbox.com/developers</a>.</li>
-<li>On the menu, click on &quot;My Apps&quot;. Then click on your application to edit its
-settings.</li>
-<li>On the OAuth 2 section, add the redirect URI that maps to the
-<code>auth_callback</code> method that we&#39;ve implemented above. For example,
-<code>www.yourapp.com/dropbox/oauth_callback</code>.</li>
-</ol>
+<ol><li>
+<p>Log in to your Dropbox developer account at  <a
+href="https://www.dropbox.com/developers">www.dropbox.com/developers</a>.</p>
+</li><li>
+<p>On the menu, click on “My Apps”. Then click on your application to edit its
+settings.</p>
+</li><li>
+<p>On the OAuth 2 section, add the redirect URI that maps to the 
+<code>auth_callback</code> method that we&#39;ve implemented above. For
+example,  <code>www.yourapp.com/dropbox/oauth_callback</code>.</p>
+</li></ol>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Mar 18 16:49:04 2017 by
+  Generated on Sat Mar 18 18:49:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>

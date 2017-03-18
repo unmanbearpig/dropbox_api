@@ -57,371 +57,90 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><p><strong>IMPORTANT: This document is work in progress. Information isn&#39;t accurate.</strong></p>
+      <div id="content"><div id='filecontents'>
+<p><strong>IMPORTANT: This document is work in progress. Information isn&#39;t
+accurate.</strong></p>
 
-<p>The Dropbox API changes frequently, so you may find out that the feature that
-you need is missing. This document indicates what endpoints have been
+<p>The Dropbox API changes frequently, so you may find out that the feature
+that you need is missing. This document indicates what endpoints have been
 implemented.</p>
 
-<p>Full moon means fully implemented. Half moon means that the basic functionality
-of the endpoint has been implemented but some options may be missing. Guess
-what new moon means.</p>
+<p>Full moon means fully implemented. Half moon means that the basic
+functionality of the endpoint has been implemented but some options may be
+missing. Guess what new moon means.</p>
 
-<h2>Files namespace</h2>
+<h2 id="label-Files+namespace">Files namespace</h2>
 
-<table><thead>
-<tr>
-<th>API call</th>
-<th align="center">Status</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>/copy</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/copy_reference/get</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/copy_reference/save</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/create_folder</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/delete</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/download</code></td>
-<td align="center">🌔</td>
-</tr>
-<tr>
-<td><code>/get_metadata</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_preview</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_temporary_link</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_thumbnail</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_folder</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_folder/continue</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_folder/get_latest_cursor</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_folder/longpoll</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_revisions</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/move</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/permanently_delete</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/add</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/overwrite</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/remove</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/template/get</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/template/list</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/properties/update</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/restore</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/save_url</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/save_url/check_job_status</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/search</code></td>
-<td align="center">🌔</td>
-</tr>
-<tr>
-<td><code>/upload</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/upload_session/append</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/upload_session/append_v2</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/upload_session/finish</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/upload_session/finish_batch</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/upload_session/finish_batch/check</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/upload_session/start</code></td>
-<td align="center">🌕</td>
-</tr>
-</tbody></table>
+<p>API call | Status — | :—: <code>/copy</code> | 🌕
+<code>/copy_reference/get</code> | 🌑 <code>/copy_reference/save</code> | 🌑
+<code>/create_folder</code> | 🌕 <code>/delete</code> | 🌕
+<code>/download</code> | 🌔 <code>/get_metadata</code> | 🌕
+<code>/get_preview</code> | 🌕 <code>/get_temporary_link</code> | 🌕
+<code>/get_thumbnail</code> | 🌕 <code>/list_folder</code> | 🌕
+<code>/list_folder/continue</code> | 🌕
+<code>/list_folder/get_latest_cursor</code> | 🌕
+<code>/list_folder/longpoll</code> | 🌕 <code>/list_revisions</code> | 🌕
+<code>/move</code> | 🌕 <code>/permanently_delete</code> | 🌑
+<code>/properties/add</code> | 🌑 <code>/properties/overwrite</code> | 🌑
+<code>/properties/remove</code> | 🌑 <code>/properties/template/get</code> |
+🌑 <code>/properties/template/list</code> | 🌑
+<code>/properties/update</code> | 🌑 <code>/restore</code> | 🌕
+<code>/save_url</code> | 🌕 <code>/save_url/check_job_status</code> | 🌕
+<code>/search</code> | 🌔 <code>/upload</code> | 🌕
+<code>/upload_session/append</code> | 🌑
+<code>/upload_session/append_v2</code> | 🌕
+<code>/upload_session/finish</code> | 🌕
+<code>/upload_session/finish_batch</code> | 🌑
+<code>/upload_session/finish_batch/check</code> | 🌑
+<code>/upload_session/start</code> | 🌕</p>
 
-<h2>Sharing namespace</h2>
+<h2 id="label-Sharing+namespace">Sharing namespace</h2>
 
-<table><thead>
-<tr>
-<th>API call</th>
-<th align="center">Status</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>/add_file_member</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/add_folder_member</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/change_file_member_access</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/check_job_status</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/check_remove_member_job_status</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/check_share_job_status</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/create_shared_link</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/create_shared_link_with_settings</code></td>
-<td align="center">🌓</td>
-</tr>
-<tr>
-<td><code>/get_file_metadata</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/get_file_metadata/batch</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/get_folder_metadata</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/get_shared_link_file</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/get_shared_link_metadata</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/get_shared_links</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_file_members</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_file_members/batch</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_file_members/continue</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_folder_members</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/list_folder_members/continue</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_folders</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_folders/continue</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_mountable_folders</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_mountable_folders/continue</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_received_files</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_received_files/continue</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/list_shared_links</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/modify_shared_link_settings</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/mount_folder</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/relinquish_file_membership</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/relinquish_folder_membership</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/remove_file_member</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/remove_file_member_2</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/remove_folder_member</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/revoke_shared_link</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/share_folder</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/transfer_folder</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/unmount_folder</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/unshare_file</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/unshare_folder</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/update_folder_member</code></td>
-<td align="center">🌑</td>
-</tr>
-<tr>
-<td><code>/update_folder_policy</code></td>
-<td align="center">🌑</td>
-</tr>
-</tbody></table>
+<p>API call | Status — | :—: <code>/add_file_member</code> | 🌕
+<code>/add_folder_member</code> | 🌕 <code>/change_file_member_access</code>
+| 🌑 <code>/check_job_status</code> | 🌑
+<code>/check_remove_member_job_status</code> | 🌑
+<code>/check_share_job_status</code> | 🌑 <code>/create_shared_link</code> |
+🌑 <code>/create_shared_link_with_settings</code> | 🌓
+<code>/get_file_metadata</code> | 🌑 <code>/get_file_metadata/batch</code> |
+🌑 <code>/get_folder_metadata</code> | 🌑 <code>/get_shared_link_file</code>
+| 🌑 <code>/get_shared_link_metadata</code> | 🌑
+<code>/get_shared_links</code> | 🌑 <code>/list_file_members</code> | 🌑
+<code>/list_file_members/batch</code> | 🌑
+<code>/list_file_members/continue</code> | 🌑
+<code>/list_folder_members</code> | 🌕
+<code>/list_folder_members/continue</code> | 🌑 <code>/list_folders</code> |
+🌑 <code>/list_folders/continue</code> | 🌑
+<code>/list_mountable_folders</code> | 🌑
+<code>/list_mountable_folders/continue</code> | 🌑
+<code>/list_received_files</code> | 🌑
+<code>/list_received_files/continue</code> | 🌑
+<code>/list_shared_links</code> | 🌕
+<code>/modify_shared_link_settings</code> | 🌑 <code>/mount_folder</code> |
+🌑 <code>/relinquish_file_membership</code> | 🌑
+<code>/relinquish_folder_membership</code> | 🌑
+<code>/remove_file_member</code> | 🌑 <code>/remove_file_member_2</code> | 🌑
+<code>/remove_folder_member</code> | 🌑 <code>/revoke_shared_link</code> | 🌑
+<code>/share_folder</code> | 🌕 <code>/transfer_folder</code> | 🌑
+<code>/unmount_folder</code> | 🌑 <code>/unshare_file</code> | 🌑
+<code>/unshare_folder</code> | 🌑 <code>/update_folder_member</code> | 🌑
+<code>/update_folder_policy</code> | 🌑</p>
 
-<h2>Users namespace</h2>
+<h2 id="label-Users+namespace">Users namespace</h2>
 
-<table><thead>
-<tr>
-<th>API call</th>
-<th align="center">Status</th>
-</tr>
-</thead><tbody>
-<tr>
-<td><code>/get_account</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_account_batch</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_current_account</code></td>
-<td align="center">🌕</td>
-</tr>
-<tr>
-<td><code>/get_space_usage</code></td>
-<td align="center">🌕</td>
-</tr>
-</tbody></table>
+<p>API call | Status — | :—: <code>/get_account</code> | 🌕
+<code>/get_account_batch</code> | 🌕 <code>/get_current_account</code> | 🌕
+<code>/get_space_usage</code> | 🌕</p>
 
-<h2>Dropbox Business API</h2>
+<h2 id="label-Dropbox+Business+API">Dropbox Business API</h2>
 
-<p>Unfortunately, none of the Dropbox Business endpoints have been implemented.
-If this is a problem for you, please <a href="https://github.com/Jesus/dropbox_api/issues/new">open an
-issue</a>.</p>
+<p>Unfortunately, none of the Dropbox Business endpoints have been
+implemented. If this is a problem for you, please <a
+href="https://github.com/Jesus/dropbox_api/issues/new">open an issue</a>.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Mar 18 16:49:04 2017 by
+  Generated on Sat Mar 18 18:49:27 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.8 (ruby-2.3.0).
 </div>
