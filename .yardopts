@@ -2,6 +2,8 @@
 --plugin rspec
 lib/**/*.rb
 spec/endpoints/**/*_spec.rb
+--markup=markdown
+--markup-provider=redcarpet
 -
 api_coverage.md
 rails_setup.md
