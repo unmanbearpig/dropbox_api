@@ -1,6 +1,5 @@
 --load ./yardoc/endpoint_handler.rb
---load ./yardoc/rspec.rb
---load ./yardoc/helpers/html_helper.rb
+--plugin rspec
 lib/**/*.rb
 spec/endpoints/**/*_spec.rb
 -
