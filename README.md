@@ -76,7 +76,7 @@ Dropbox's [OAuth guide]
 (https://www.dropbox.com/developers/reference/oauth-guide#oauth-2-on-the-web).
 
 If you have a Rails application, you might be interested in this [setup
-guide](http://www.rubydoc.info/gems/dropbox_api/file/rails_setup.md).
+guide](http://jesus.github.io/dropbox_api/file.rails_setup.html).
 
 ### Performing API calls
 
@@ -101,7 +101,11 @@ result.has_more?
 The instance of `Client` we've initialized is the one you'll be using to
 perform API calls. You can check the class' documentation to find
 [all available endpoints]
-(http://www.rubydoc.info/gems/dropbox_api/DropboxApi/Client)
+(http://jesus.github.io/dropbox_api/DropboxApi/Client.html)
+
+## Documentation
+
+The library is documented at: http://jesus.github.io/dropbox_api/
 
 ## Dependencies
 
@@ -125,7 +129,7 @@ commits and tags, and push the `.gem` file to
 
 Any help will be much appreciated. The easiest way to help is to implement one
 or more of the [endpoints that are still pending]
-(http://www.rubydoc.info/gems/dropbox_api/file/api_coverage.md). To see how the
+(http://jesus.github.io/dropbox_api/file.api_coverage.html). To see how the
 endpoints are implemented, check out the `lib/dropbox_api/endpoints` folder.
 
 If you want to help but you're unsure how to get started, please get in touch
