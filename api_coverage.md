@@ -89,7 +89,7 @@ API call | Status
 `/share_folder` | 🌕
 `/transfer_folder` | 🌑
 `/unmount_folder` | 🌑
-`/unshare_file` | 🌑
+`/unshare_file` | 🌕
 `/unshare_folder` | 🌑
 `/update_folder_member` | 🌑
 `/update_folder_policy` | 🌑

@@ -54,7 +54,7 @@ http_interactions:
     uri: https://content.dropboxapi.com/2/files/upload_session/append_v2
     body:
       encoding: UTF-8
-      string: Hello Dropbox!
+      string: 'new'
     headers:
       Authorization:
       - Bearer MOCK_AUTHORIZATION_BEARER
