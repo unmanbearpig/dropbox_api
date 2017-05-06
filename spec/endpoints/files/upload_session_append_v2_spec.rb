@@ -26,9 +26,11 @@ describe DropboxApi::Client, "#upload_session_append_v2" do
 
   it "will raise error if the offset is wrong", :cassette => "upload_session_append_v2/offset_error" do
     chunk = "123456789"
-    allow(chunk).to receive(:size) { 42 }
 
     cursor = @client.upload_session_start(chunk)
+
+    # Set an incorrect offset deliberately so Dropbox will return an error
+    cursor.instance_variable_set :@offset, 42
 
     expect {
       @client.upload_session_append_v2(cursor, "Hello Dropbox!")
