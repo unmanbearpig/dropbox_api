@@ -6,7 +6,7 @@
 <title>
   Class: DropboxApi::Client
   
-    &mdash; Documentation by YARD 0.9.8
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -247,6 +247,29 @@
 
   
     <span class="summary_desc"><div class='inline'><p>Share a folder with collaborators.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unshare_file-instance_method" title="#unshare_file (instance method)">#<strong>unshare_file</strong>(file)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Remove all members from this file.</p>
 </div></span>
   
 </li>
@@ -5578,6 +5601,144 @@ exist, then a new one is created.</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="unshare_file-instance_method">
+  
+    #<strong>unshare_file</strong>(file)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Remove all members from this file. Does not remove inherited members.</p>
+
+<p>A successful response indicates that the file was unshared.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>file</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Path or ID of the file in the user&#39;s Dropbox to unshare.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+<div class="tags">
+  <p class="tag_title">Specifications:</p>
+  <ul class="specs">
+    
+      <li>
+        unshares the file
+        <table class="source_code test_code">
+          <tr>
+            <td>
+              <pre class="lines">
+
+
+6</pre>
+            </td>
+            <td>
+              <pre class="code"><span class="info file"># File 'spec/endpoints/sharing/unshare_file_spec.rb', line 13</span>
+
+<span class='id identifier rubyid_file'>file</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_unshare_file'>unshare_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id:xyz123</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
+            </td>
+          </tr>
+        </table>
+      </li>
+    
+      <li>
+        returns file access permission error
+        <table class="source_code test_code">
+          <tr>
+            <td>
+              <pre class="lines">
+
+
+12
+13
+14</pre>
+            </td>
+            <td>
+              <pre class="code"><span class="info file"># File 'spec/endpoints/sharing/unshare_file_spec.rb', line 13</span>
+
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_unshare_file'>unshare_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id:xyz123</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../DropboxApi.html" title="DropboxApi (module)">DropboxApi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors.html" title="DropboxApi::Errors (module)">Errors</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors/NoPermissionError.html" title="DropboxApi::Errors::NoPermissionError (class)">NoPermissionError</a></span></span><span class='rparen'>)</span></pre>
+            </td>
+          </tr>
+        </table>
+      </li>
+    
+      <li>
+        returns email unverified error
+        <table class="source_code test_code">
+          <tr>
+            <td>
+              <pre class="lines">
+
+
+18
+19
+20</pre>
+            </td>
+            <td>
+              <pre class="code"><span class="info file"># File 'spec/endpoints/sharing/unshare_file_spec.rb', line 13</span>
+
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
+  <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_unshare_file'>unshare_file</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>id:xyz123</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="../DropboxApi.html" title="DropboxApi (module)">DropboxApi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors.html" title="DropboxApi::Errors (module)">Errors</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Errors/EmailUnverifiedError.html" title="DropboxApi::Errors::EmailUnverifiedError (class)">EmailUnverifiedError</a></span></span><span class='rparen'>)</span></pre>
+            </td>
+          </tr>
+        </table>
+      </li>
+    
+  </ul>
+</div>
+
+<table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/sharing/unshare_file.rb', line 13</span>
+
+<span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:unshare_file</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_file'>file</span><span class='op'>|</span>
+  <span class='id identifier rubyid_perform_request'>perform_request</span><span class='lparen'>(</span><span class='lbrace'>{</span>
+    <span class='symbol'>:file</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_file'>file</span>
+  <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="upload-instance_method">
   
     #<strong>upload</strong>(path, content, options = {})  &#x21d2; <tt>Object</tt> 
@@ -6083,15 +6244,19 @@ The default for this field is +false+.</p>
 31
 32
 33
-34</pre>
+34
+35
+36</pre>
             </td>
             <td>
               <pre class="code"><span class="info file"># File 'spec/endpoints/files/upload_session_append_v2_spec.rb', line 23</span>
 
 <span class='id identifier rubyid_chunk'>chunk</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>123456789</span><span class='tstring_end'>&quot;</span></span>
-<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk'>chunk</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='int'>42</span> <span class='rbrace'>}</span>
 
 <span class='id identifier rubyid_cursor'>cursor</span> <span class='op'>=</span> <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_upload_session_start'>upload_session_start</span><span class='lparen'>(</span><span class='id identifier rubyid_chunk'>chunk</span><span class='rparen'>)</span>
+
+<span class='comment'># Set an incorrect offset deliberately so Dropbox will return an error
+</span><span class='id identifier rubyid_cursor'>cursor</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span> <span class='symbol'>:@offset</span><span class='comma'>,</span> <span class='int'>42</span>
 
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='ivar'>@client</span><span class='period'>.</span><span class='id identifier rubyid_upload_session_append_v2'>upload_session_append_v2</span><span class='lparen'>(</span><span class='id identifier rubyid_cursor'>cursor</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello Dropbox!</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -6402,7 +6567,7 @@ that you can use to continue the upload afterwards.</p>
 
   <span class='const'><span class='object_link'><a href="../DropboxApi.html" title="DropboxApi (module)">DropboxApi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Metadata.html" title="DropboxApi::Metadata (module)">Metadata</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Metadata/UploadSessionCursor.html" title="DropboxApi::Metadata::UploadSessionCursor (class)">UploadSessionCursor</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Metadata/Base.html#initialize-instance_method" title="DropboxApi::Metadata::Base#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='lbrace'>{</span>
     <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>session_id</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_session'>session</span><span class='period'>.</span><span class='id identifier rubyid_session_id'>session_id</span><span class='comma'>,</span>
-    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>offset</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>offset</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_bytesize'>bytesize</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -6415,9 +6580,9 @@ that you can use to continue the upload afterwards.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Mar 18 19:15:26 2017 by
+  Generated on Sat May  6 11:00:07 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.8 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.0).
 </div>
 
     </div>

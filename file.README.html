@@ -6,7 +6,7 @@
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.9.8
+    &mdash; Documentation by YARD 0.9.9
   
 </title>
 
@@ -78,7 +78,25 @@
 <pre class="code ruby"><code class="ruby">$ gem install dropbox_api
 </code></pre>
 
-<h2>Usage</h2>
+<h2>Documentation</h2>
+
+<p>Please, refer to this gem&#39;s custom <a href="http://jesus.github.io/dropbox_api">Dropbox API
+documentation</a>.
+Most of the time you&#39;ll be checking the <a href="http://jesus.github.io/dropbox_api/DropboxApi/Client.html">available
+endpoints</a>.</p>
+
+<p>Unfortunately, the documentation at <a href="http://www.rubydoc.info">RubyDoc.info</a> is
+disrecommended because it lacks some nice features that have been added with
+YARD plugins:</p>
+
+<ul>
+<li>Each endpoint includes its tests right below the description, this works as
+an example of its usage.</li>
+<li>All endpoints are shown as methods of the <code>Client</code> class, just as you will
+use them.</li>
+</ul>
+
+<h2>Basic set up</h2>
 
 <h3>Authorize your application</h3>
 
@@ -156,28 +174,15 @@ guide</a>.</p>
 perform API calls. You can check the class&#39; documentation to find
 <a href="http://jesus.github.io/dropbox_api/DropboxApi/Client.html">all available endpoints</a></p>
 
-<h2>Dependencies</h2>
-
-<h3>Network adapter</h3>
-
-<p>This gem uses <a href="https://github.com/lostisland/faraday#faraday">faraday</a>.
-So it should work on any network library.</p>
-
 <h2>Development</h2>
 
 <p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run
 <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
 
-<p>To install this gem onto your local machine, run <code>bundle exec rake install</code>. To
-release a new version, update the version number in <code>version.rb</code>, and then run
-<code>bundle exec rake release</code> to create a git tag for the version, push git
-commits and tags, and push the <code>.gem</code> file to
-<a href="https://rubygems.org">rubygems.org</a>.</p>
-
 <h2>Contributing</h2>
 
 <p>Any help will be much appreciated. The easiest way to help is to implement one
-or more of the <a href="http://www.rubydoc.info/gems/dropbox_api/file/api_coverage.md">endpoints that are still pending</a>. To see how the
+or more of the <a href="http://jesus.github.io/dropbox_api/file.api_coverage.html">endpoints that are still pending</a>. To see how the
 endpoints are implemented, check out the <code>lib/dropbox_api/endpoints</code> folder.</p>
 
 <p>If you want to help but you&#39;re unsure how to get started, please get in touch
@@ -195,9 +200,9 @@ by opening an issue.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sat Mar 18 19:15:25 2017 by
+  Generated on Sat May  6 11:00:06 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.8 (ruby-2.3.0).
+  0.9.9 (ruby-2.3.0).
 </div>
 
     </div>
