@@ -18,7 +18,23 @@ Or install it yourself as:
 
     $ gem install dropbox_api
 
-## Usage
+## Documentation
+
+Please, refer to this gem's custom [Dropbox API
+documentation](http://jesus.github.io/dropbox_api).
+Most of the time you'll be checking the [available
+endpoints](http://jesus.github.io/dropbox_api/DropboxApi/Client.html).
+
+Unfortunately, the documentation at [RubyDoc.info](http://www.rubydoc.info) is
+disrecommended because it lacks some nice features that have been added with
+YARD plugins:
+
+- Each endpoint includes its tests right below the description, this works as
+  an example of its usage.
+- All endpoints are shown as methods of the `Client` class, just as you will
+  use them.
+
+## Basic set up
 
 ### Authorize your application
 
@@ -102,33 +118,15 @@ The instance of `Client` we've initialized is the one you'll be using to
 perform API calls. You can check the class' documentation to find
 [all available endpoints](http://jesus.github.io/dropbox_api/DropboxApi/Client.html)
 
-## Documentation
-
-The library is documented at: http://jesus.github.io/dropbox_api/
-
-## Dependencies
-
-### Network adapter
-
-This gem uses [faraday](https://github.com/lostisland/faraday#faraday).
-So it should work on any network library.
-
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run
 `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To
-release a new version, update the version number in `version.rb`, and then run
-`bundle exec rake release` to create a git tag for the version, push git
-commits and tags, and push the `.gem` file to
-[rubygems.org](https://rubygems.org).
-
 ## Contributing
 
 Any help will be much appreciated. The easiest way to help is to implement one
-or more of the [endpoints that are still pending]
-(http://jesus.github.io/dropbox_api/file.api_coverage.html). To see how the
+or more of the [endpoints that are still pending](http://jesus.github.io/dropbox_api/file.api_coverage.html). To see how the
 endpoints are implemented, check out the `lib/dropbox_api/endpoints` folder.
 
 If you want to help but you're unsure how to get started, please get in touch
