@@ -100,8 +100,7 @@ result.has_more?
 
 The instance of `Client` we've initialized is the one you'll be using to
 perform API calls. You can check the class' documentation to find
-[all available endpoints]
-(http://jesus.github.io/dropbox_api/DropboxApi/Client.html)
+[all available endpoints](http://jesus.github.io/dropbox_api/DropboxApi/Client.html)
 
 ## Documentation
 
