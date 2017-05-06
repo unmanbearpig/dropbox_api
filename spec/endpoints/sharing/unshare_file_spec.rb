@@ -1,4 +1,4 @@
-describe DropboxApi::Client, "#unshare" do
+describe DropboxApi::Client, "#unshare_file" do
   before :each do
     @client = DropboxApi::Client.new
   end
