@@ -28,6 +28,8 @@ module DropboxApi::Endpoints::Files
       perform_request(options.merge({
         :cursor => cursor.to_hash
       }), content)
+
+      cursor.offset += content.bytesize
     end
   end
 end
