@@ -18,6 +18,13 @@ VCR.configure do |config|
       }
     ]
   }
+
+  # If the environment variable DROPBOX_OAUTH_BEARER is present, its value
+  # appearing inside any cassette will automatically be replaced with the
+  # string "MOCK_AUTHORIZATION_BEARER".
+  config.filter_sensitive_data('MOCK_AUTHORIZATION_BEARER') do
+    ENV['DROPBOX_OAUTH_BEARER']
+  end
 end
 
 RSpec.configure do |c|
