@@ -7,5 +7,9 @@ module DropboxApi::Metadata
   class UploadSessionCursor < Base
     field :session_id, String
     field :offset, Integer
+
+    def offset=(n)
+      self[:offset] = n
+    end
   end
 end
