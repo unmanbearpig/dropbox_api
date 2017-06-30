@@ -13,8 +13,21 @@ module DropboxApi::Endpoints::Files
     #
     # A single request should not upload more than 150 MB of file contents.
     #
+    # Calling this method may update the cursor received. In particular, the
+    # offset variable will be increased to match the new position. This allows
+    # you to make subsequent calls to the endpoint using the same `cursor`, as
+    # you can see in the example.
+    #
+    # @example
+    #   # Rely on the offset position updated by `upload_session_append_v2`
+    #   client = DropboxApi::Client.new
+    #   cursor = client.upload_session_start('abc')      # cursor.offset => 3
+    #   client.upload_session_append_v2(cursor, 'def')   # cursor.offset => 6
+    #   client.upload_session_append_v2(cursor, 'ghi')   # cursor.offset => 9
+    #   client.upload_session_finish(...)
     # @param cursor [DropboxApi::Metadata::UploadSessionCursor] Contains the
-    #   upload session ID and the offset.
+    #   upload session ID and the offset. This cursor will have its offset
+    #   updated after a successful call.
     # @option options close [Boolean] If +true+, the current session will be
     #   closed, at which point you won't be able to call
     #   {Client#upload_session_append_v2} anymore with the current session.
