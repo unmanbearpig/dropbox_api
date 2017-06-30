@@ -3,14 +3,19 @@ describe DropboxApi::Client, "#upload_session_append_v2" do
     @client = DropboxApi::Client.new
   end
 
-  it "can use the cursor returned by #upload_session_start", :cassette => "upload_session_append_v2/success" do
-    chunks = ["123456789", "Hello Dropbox!"]
+  it 'can be used to append an upload', cassette: 'upload_session_append_v2/success' do
+    chunks = ['123456789', 'Olá Dropbox!']
 
     cursor = @client.upload_session_start(chunks.first)
 
     @client.upload_session_append_v2(cursor, chunks.last)
 
-    # The endpoint doesn't have any return values, can't test the output!
+    commit = DropboxApi::Metadata::CommitInfo.new(
+      'path' => '/target.txt',
+      'mode' => :add
+    )
+
+    expect { @client.upload_session_finish(cursor, commit) }.not_to raise_error
   end
 
   it "will raise error if the cursor can't be found", :cassette => "upload_session_append_v2/not_found" do
