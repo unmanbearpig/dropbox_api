@@ -128,18 +128,23 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run
 I recommend you to use a test account other than your main one.
 
 We use VCR to record the HTTP calls to Dropbox, however we sometimes need to
-regenerate the cassettes. There's an automated procedure to do so, let's do
-the `list_folder` as an example:
+regenerate the cassettes. Let's take `list_folder` as an example to show what
+would be the procedure to do so:
 
  1. Manually delete the existing cassettes in
     `spec/fixtures/vcr_cassettes/list_folder/*.yml`.
+
  2. Run the task to build the scaffolding in your Dropbox account so the tests
-    will pass. If it doesn't exist, you may need to write it.
-    ```
+    will pass. If it doesn't exist you may need to write it yourself, check
+    the `DropboxScaffoldBuilder` class to find all existing scaffold builders.
+
+    ```text
     DROPBOX_OAUTH_BEARER=YOUR_AUTH_BEARER rake test:build_scaffold[list_folder]
     ```
+
  3. Run the tests and the cassettes will be written:
-    ```
+
+    ```text
     DROPBOX_OAUTH_BEARER=YOUR_AUTH_BEARER rspec spec/endpoints/files/list_folder_spec.rb
     ```
 
