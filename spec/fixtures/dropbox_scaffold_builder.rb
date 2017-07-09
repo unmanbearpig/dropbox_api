@@ -53,6 +53,10 @@ class DropboxScaffoldBuilder
     client.delete("#{prefix}/deleted_file.txt")
   end
 
+  def list_folder
+    # No need to set up anything
+  end
+
   private
 
   # We have a prefix for each endpoint to avoid conflicts across them
