@@ -2,6 +2,7 @@
 --plugin rspec
 lib/**/*.rb
 spec/endpoints/**/*_spec.rb
+spec/fixtures/dropbox_scaffold_builder.rb
 --markup=markdown
 --markup-provider=redcarpet
 -

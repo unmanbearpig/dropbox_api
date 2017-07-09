@@ -2,20 +2,17 @@ require 'dropbox_api'
 require File.expand_path('../../fixtures/dropbox_scaffold_builder', __FILE__)
 
 namespace :test do
-  namespace :build_scaffold do
-    # TODO: Rather than adding a task for each endpoint, we should have a
-    #       generic task that would take the endpoint name as a parameter.
-    task :get_metadata => :show_account_warning do
-      builder = DropboxScaffoldBuilder.new
-      builder.clobber :get_metadata
-      builder.generate :get_metadata
-    end
+  # Example: `rake test:build_scaffold[get_metadata]`
+  desc "Regenerates the scaffolding required to test the given endpoint"
+  task :build_scaffold, [:endpoint] => [:show_account_warning] do |t, args|
+    puts "Regenerating #{args[:endpoint].inspect}"
+    DropboxScaffoldBuilder.regenerate args[:endpoint]
+  end
 
-    task :show_account_warning do
-      print "NOTE: This task will make changes on a real Dropbox account..."
-      sleep 5
-      puts " ok, going ahead!"
-    end
+  task :show_account_warning do
+    print "NOTE: This task will make changes on a real Dropbox account..."
+    sleep 5
+    puts " ok, going ahead!"
   end
 
   namespace :vcr do
