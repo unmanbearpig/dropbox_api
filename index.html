@@ -179,6 +179,37 @@ perform API calls. You can check the class&#39; documentation to find
 <p>After checking out the repo, run <code>bin/setup</code> to install dependencies. Then, run
 <code>bin/console</code> for an interactive prompt that will allow you to experiment.</p>
 
+<h3>Testing</h3>
+
+<p>I recommend you to use a test account other than your main one.</p>
+
+<p>We use VCR to record the HTTP calls to Dropbox, however we sometimes need to
+regenerate the cassettes. Let&#39;s take <code>list_folder</code> as an example to show what
+would be the procedure to do so:</p>
+
+<ol>
+<li><p>Manually delete the existing cassettes in
+<code>spec/fixtures/vcr_cassettes/list_folder/*.yml</code>.</p></li>
+<li><p>Run the task to build the scaffolding in your Dropbox account so the tests
+will pass. If it doesn&#39;t exist you may need to write it yourself, check
+the <code>DropboxScaffoldBuilder</code> class to find all existing scaffold builders.</p>
+
+<pre class="code text"><code class="text">DROPBOX_OAUTH_BEARER=YOUR_AUTH_BEARER rake test:build_scaffold[list_folder]
+</code></pre></li>
+<li><p>Run the tests and the cassettes will be written:</p>
+
+<pre class="code text"><code class="text">DROPBOX_OAUTH_BEARER=YOUR_AUTH_BEARER rspec spec/endpoints/files/list_folder_spec.rb
+</code></pre></li>
+</ol>
+
+<p>The OAuth bearer shouldn&#39;t have been recorded in the cassette and it should&#39;ve
+been filtered. However, you may want to double check before pushing your
+updates to Github.</p>
+
+<p>Tip: You can simply run <code>export DROPBOX_OAUTH_BEARER=YOUR_AUTH_BEARER</code> at
+the beginning of your work session so you don&#39;t need to prefix it in every
+command line.</p>
+
 <h2>Contributing</h2>
 
 <p>Any help will be much appreciated. The easiest way to help is to implement one
@@ -200,9 +231,9 @@ by opening an issue.</p>
 </div></div>
 
       <div id="footer">
-  Generated on Sun Jun 11 01:53:08 2017 by
+  Generated on Sun Jul  9 12:54:47 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.0).
+  0.9.9 (ruby-2.4.1).
 </div>
 
     </div>

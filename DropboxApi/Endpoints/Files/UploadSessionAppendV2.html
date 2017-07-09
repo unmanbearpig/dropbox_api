@@ -236,11 +236,29 @@
 
 <p>A single request should not upload more than 150 MB of file contents.</p>
 
+<p>Calling this method may update the cursor received. In particular, the
+offset variable will be increased to match the new position. This allows
+you to make subsequent calls to the endpoint using the same <code>cursor</code>, as
+you can see in the example.</p>
+
 
   </div>
 </div>
 <div class="tags">
-  <p class="tag_title">Parameters:</p>
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code># Rely on the offset position updated by `upload_session_append_v2`
+client = DropboxApi::Client.new
+cursor = client.upload_session_start(&#39;abc&#39;)      # cursor.offset =&gt; 3
+client.upload_session_append_v2(cursor, &#39;def&#39;)   # cursor.offset =&gt; 6
+client.upload_session_append_v2(cursor, &#39;ghi&#39;)   # cursor.offset =&gt; 9
+client.upload_session_finish(...)</code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
 <ul class="param">
   
     <li>
@@ -254,7 +272,8 @@
       
         &mdash;
         <div class='inline'><p>Contains the
-upload session ID and the offset.</p>
+upload session ID and the offset. This cursor will have its offset
+updated after a successful call.</p>
 </div>
       
     </li>
@@ -304,18 +323,20 @@ The default for this field is +false+.</p>
       <pre class="lines">
 
 
-23
-24
-25
-26
-27
-28
-29
-30
-31</pre>
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_append_v2.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_append_v2.rb', line 36</span>
 
 <span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:upload_session_append_v2</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cursor'>cursor</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='op'>|</span>
   <span class='id identifier rubyid_validate_options'>validate_options</span><span class='lparen'>(</span><span class='lbracket'>[</span>
@@ -325,6 +346,8 @@ The default for this field is +false+.</p>
   <span class='id identifier rubyid_perform_request'>perform_request</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
     <span class='symbol'>:cursor</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_cursor'>cursor</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span>
   <span class='rbrace'>}</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_cursor'>cursor</span><span class='period'>.</span><span class='id identifier rubyid_offset'>offset</span> <span class='op'>+=</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_bytesize'>bytesize</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -336,9 +359,9 @@ The default for this field is +false+.</p>
 </div>
 
       <div id="footer">
-  Generated on Sun Jun 11 01:53:13 2017 by
+  Generated on Sun Jul  9 12:54:51 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.3.0).
+  0.9.9 (ruby-2.4.1).
 </div>
 
     </div>
