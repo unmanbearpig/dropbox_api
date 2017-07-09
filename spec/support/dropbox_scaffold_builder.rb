@@ -63,6 +63,10 @@ class DropboxScaffoldBuilder
     # No need to set up anything
   end
 
+  def upload
+    # No need to set up anything
+  end
+
   # We have a prefix for each endpoint to avoid conflicts across them
   def path_prefix
     File.join PREFIX, @endpoint_name

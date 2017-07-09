@@ -10,9 +10,9 @@ http_interactions:
       Authorization:
       - Bearer MOCK_AUTHORIZATION_BEARER
       User-Agent:
-      - Faraday v0.9.2
+      - Faraday v0.11.0
       Dropbox-Api-Arg:
-      - '{"path":"/file.txt"}'
+      - '{"path":"/dropbox_api_fixtures/upload/file.txt"}'
       Content-Type:
       - application/octet-stream
       Accept-Encoding:
@@ -27,29 +27,31 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Sat, 22 Oct 2016 08:41:34 GMT
+      - Sun, 09 Jul 2017 10:23:12 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
       - chunked
       Connection:
       - keep-alive
+      Vary:
+      - Accept-Encoding
       Pragma:
       - no-cache
       Cache-Control:
       - no-cache
       X-Server-Response-Time:
-      - '652'
+      - '677'
       X-Dropbox-Request-Id:
-      - eaf3c26854f8e5ca3be6035372e41636
+      - '01548fea329c129a4bba701fdb809bab'
       X-Robots-Tag:
       - noindex, nofollow, noimageindex
     body:
       encoding: ASCII-8BIT
-      string: '{"name": "file.txt", "path_lower": "/file.txt", "path_display": "/file.txt",
-        "id": "id:evvfE6q6cK0AAAAAAAACKQ", "client_modified": "2016-10-22T08:41:34Z",
-        "server_modified": "2016-10-22T08:41:34Z", "rev": "1ab624061bdd", "size":
-        14}'
+      string: '{"name": "file.txt", "path_lower": "/dropbox_api_fixtures/upload/file.txt",
+        "path_display": "/dropbox_api_fixtures/upload/file.txt", "id": "id:iWFsGCmi1sAAAAAAAAAADQ",
+        "client_modified": "2017-07-09T10:23:12Z", "server_modified": "2017-07-09T10:23:12Z",
+        "rev": "11576c68d6", "size": 14, "content_hash": "16dff8700700b9aa627e24bbf832940c084b41ade5c5d6fe5417963a547ed9c2"}'
     http_version: 
-  recorded_at: Sat, 22 Oct 2016 08:41:34 GMT
-recorded_with: VCR 3.0.1
+  recorded_at: Sun, 09 Jul 2017 10:23:12 GMT
+recorded_with: VCR 3.0.3

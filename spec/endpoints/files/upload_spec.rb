@@ -1,17 +1,18 @@
 describe DropboxApi::Client, "#upload" do
+  let(:path_prefix) { DropboxScaffoldBuilder.prefix_for :upload }
   before :each do
     @client = DropboxApi::Client.new
   end
 
   it "uploads a file", :cassette => "upload/success" do
-    file = @client.upload("/file.txt", "Hello Dropbox!")
+    file = @client.upload("#{path_prefix}/file.txt", "Hello Dropbox!")
 
     expect(file).to be_a(DropboxApi::Metadata::File)
     expect(file.name).to eq("file.txt")
   end
 
   it "uploads a file with `add` write mode", :cassette => "upload/success_add" do
-    file = @client.upload("/file.txt", "Hola Dropbox!", {
+    file = @client.upload("#{path_prefix}/file.txt", "Hola Dropbox!", {
       :autorename => true,
       :mode => :add
     })
@@ -21,7 +22,7 @@ describe DropboxApi::Client, "#upload" do
   end
 
   it "uploads a file with `overwrite` write mode", :cassette => "upload/success_overwrite" do
-    file = @client.upload("/file.txt", "Hola Dropbox!", {
+    file = @client.upload("#{path_prefix}/file.txt", "Hola Dropbox!", {
       :autorename => true,
       :mode => :overwrite
     })
@@ -30,10 +31,11 @@ describe DropboxApi::Client, "#upload" do
     expect(file.name).to eq("file.txt")
   end
 
-  it "uploads a file with `overwrite` write mode", :cassette => "upload/success_update" do
-    file = @client.upload("/file.txt", "Hallo Dropbox!", {
+  it "uploads a file with `update` write mode", :cassette => "upload/success_update" do
+    rev = @client.get_metadata("#{path_prefix}/file.txt").rev
+    file = @client.upload("#{path_prefix}/file.txt", "Hallo Dropbox!", {
       :autorename => true,
-      :mode => DropboxApi::Metadata::WriteMode.new(:update, "2a6124061bdd")
+      :mode => DropboxApi::Metadata::WriteMode.new(:update, rev)
     })
 
     expect(file).to be_a(DropboxApi::Metadata::File)
@@ -43,7 +45,7 @@ describe DropboxApi::Client, "#upload" do
   it "uploads a file with `overwrite` write mode", :cassette => "upload/success_client_modified" do
     modified_at = Time.utc 2016, 12, 25, 12, 0
 
-    file = @client.upload("/another_file.txt", "Our country is a mess!", {
+    file = @client.upload("#{path_prefix}/another_file.txt", "Our country is a mess!", {
       :client_modified => modified_at
     })
 
@@ -55,13 +57,22 @@ describe DropboxApi::Client, "#upload" do
   context "when too many write operations" do
     it "raises a DropboxApi::Errors::TooManyWriteOperations exception", :cassette => "upload/too_many_write_operations" do
       expect {
-        @client.upload("/file.txt", "Hello Dropbox!")
+        100.times.map do |n|
+          Thread.new do
+            @client.upload("#{path_prefix}/file_#{n}.txt", "Hello Dropbox!")
+          end
+        end.each(&:join)
+
       }.to raise_error(DropboxApi::Errors::TooManyWriteOperationsError)
     end
 
     it "raises an exception with info to retry", :cassette => "upload/too_many_write_operations" do
       expect {
-        @client.upload("/file.txt", "Hello Dropbox!")
+        100.times.map do |n|
+          Thread.new do
+            @client.upload("#{path_prefix}/file_#{n}.txt", "Hello Dropbox!")
+          end
+        end.each(&:join)
       }.to raise_error { |error|
         expect(error.retry_after).to eq(1)
       }
