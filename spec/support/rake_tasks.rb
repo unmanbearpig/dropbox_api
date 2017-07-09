@@ -1,5 +1,5 @@
 require 'dropbox_api'
-require File.expand_path('../../fixtures/dropbox_scaffold_builder', __FILE__)
+require File.expand_path('../dropbox_scaffold_builder', __FILE__)
 
 namespace :test do
   # Example: `rake test:build_scaffold[get_metadata]`

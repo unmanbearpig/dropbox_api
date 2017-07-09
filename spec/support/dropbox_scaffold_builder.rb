@@ -26,6 +26,10 @@ class DropboxScaffoldBuilder
     builder.generate
   end
 
+  def self.prefix_for(endpoint_name)
+    new(endpoint_name).path_prefix
+  end
+
   PREFIX = "/dropbox_api_fixtures"
 
   def initialize(endpoint_name)
