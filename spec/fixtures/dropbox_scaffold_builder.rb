@@ -20,47 +20,47 @@
 # regenerate the cassettes every now and then, but we don't need to do it in
 # every execution of the test suite.
 class DropboxScaffoldBuilder
-  def self.regenerate(endpoint)
-    builder = new
-    builder.clobber endpoint
-    builder.generate endpoint
+  def self.regenerate(endpoint_name)
+    builder = new(endpoint_name)
+    builder.clobber
+    builder.generate
   end
 
   PREFIX = "/dropbox_api_fixtures"
 
-  def clobber(endpoint_name)
-    client.delete(endpoint_prefix endpoint_name)
-  rescue DropboxApi::Errors::NotFoundError
-    false
+  def initialize(endpoint_name)
+    @endpoint_name = endpoint_name.to_s
   end
 
-  def generate(endpoint_name)
-    send endpoint_name
+  def clobber
+    client.delete path_prefix
+  rescue DropboxApi::Errors::NotFoundError
+    false # It's ok if it doesn't exist
+  end
+
+  def generate
+    send "build_#{@endpoint_name}"
   end
 
   def client
     @client ||= DropboxApi::Client.new
   end
 
-  def get_metadata
-    prefix = endpoint_prefix :get_metadata
-
-    client.upload("#{prefix}/file.txt", "This is a test file.", {
+  def build_get_metadata
+    client.upload("#{path_prefix}/file.txt", "This is a test file.", {
       :client_modified => Time.new(1988, 12, 8, 1, 1, 0, "+00:00")
     })
-    client.create_folder("#{prefix}/folder")
-    client.upload("#{prefix}/deleted_file.txt", "This is a test file.")
-    client.delete("#{prefix}/deleted_file.txt")
+    client.create_folder("#{path_prefix}/folder")
+    client.upload("#{path_prefix}/deleted_file.txt", "This is a test file.")
+    client.delete("#{path_prefix}/deleted_file.txt")
   end
 
-  def list_folder
+  def build_list_folder
     # No need to set up anything
   end
 
-  private
-
   # We have a prefix for each endpoint to avoid conflicts across them
-  def endpoint_prefix(endpoint_name)
-    File.join PREFIX, endpoint_name.to_s
+  def path_prefix
+    File.join PREFIX, @endpoint_name
   end
 end
