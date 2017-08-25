@@ -63,7 +63,7 @@ class DropboxScaffoldBuilder
     # No need to set up anything
   end
 
-  def upload
+  def build_upload
     # No need to set up anything
   end
 
