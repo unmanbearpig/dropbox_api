@@ -45,12 +45,35 @@ context DropboxApi::Metadata::File do
 
     context "includes the media_info field" do
       let(:media_info) do
-        {".tag"=>"photo", "dimensions"=>{"height"=>1500, "width"=>1500}, "time_taken"=>"2016-09-04T17:00:27Z"}
+        {
+          ".tag" => "metadata",
+          "metadata" => {
+            ".tag" => type,
+            "dimensions" => { "height" => 700, "width" => 1050 },
+            "time_taken" => "2013-01-10T22:10:13Z",
+            "location" => { "latitude" => 10.1234, "longitude" => 5.1234 }
+          }
+        }
       end
 
-      it 'works' do
-        expect(subject).to be_a(DropboxApi::Metadata::File)
-        expect(subject.media_info).to eq({".tag"=>"photo", "dimensions"=>{"height"=>1500, "width"=>1500}, "time_taken"=>"2016-09-04T17:00:27Z"})
+      context 'photo' do
+        let(:type) { 'photo' }
+        it 'works' do
+          expect(subject).to be_a(DropboxApi::Metadata::File)
+          expect(subject.media_info).to be_a(DropboxApi::Metadata::PhotoMetadata)
+          expect(subject.media_info.dimensions).to be_a(DropboxApi::Metadata::Dimensions)
+          expect(subject.media_info.location).to be_a(DropboxApi::Metadata::Location)
+        end
+      end
+
+      context 'video' do
+        let(:type) { 'video' }
+        it 'works' do
+          expect(subject).to be_a(DropboxApi::Metadata::File)
+          expect(subject.media_info).to be_a(DropboxApi::Metadata::VideoMetadata)
+          expect(subject.media_info.dimensions).to be_a(DropboxApi::Metadata::Dimensions)
+          expect(subject.media_info.location).to be_a(DropboxApi::Metadata::Location)
+        end
       end
     end
   end
