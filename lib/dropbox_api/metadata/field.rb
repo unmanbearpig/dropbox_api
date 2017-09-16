@@ -21,6 +21,8 @@ module DropboxApi::Metadata
         Time.parse(object)
       elsif @type == Integer
         object.to_i
+      elsif @type == Float
+        object.to_f
       elsif @type == Symbol
         object[".tag"].to_sym
       elsif @type == :boolean
