@@ -26,6 +26,7 @@ module DropboxApi::Metadata
     field :rev, String
     field :size, Integer
     field :content_hash, String, :optional
+    field :media_info, DropboxApi::Metadata::MediaInfo, :optional
 
     def to_hash
       super.merge(".tag" => "file")
