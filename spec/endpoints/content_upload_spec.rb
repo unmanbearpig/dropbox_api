@@ -1,40 +1,40 @@
 describe DropboxApi::Endpoints::ContentUpload do
-  shared_examples_for "is calculated and appended to headers" do
-    it "is calculated and appended to headers" do
-      _, headers = subject.build_request({}, body)
-      expect(headers['Content-Length']).to eq(content_length)
-    end
-  end
-
-  let(:builder) { DropboxApi::ConnectionBuilder.new("bearer") }
-  let(:content) { "tested content" }
-  let(:content_length) { content.length.to_s }
-  subject { described_class.new(builder) }
+  subject { described_class.new(DropboxApi::ConnectionBuilder.new("bearer")) }
 
   context 'Content-Length header' do
     context 'for string body' do
-      let(:body) { content }
+      it "is calculated and appended to headers" do
+        body = "tested content"
 
-      include_examples "is calculated and appended to headers"
+        _, headers = subject.build_request({}, body)
+
+        expect(headers['Content-Length']).to eq(body.length.to_s)
+      end
     end
 
     context 'for File body' do
-      let(:body) { Tempfile.new('dropbox_api') }
-      around(:each) do |example|
-        body << content
-        example.run
-        body.close
-      end
+      it "is calculated and appended to headers" do
+        begin
+          content = "tested content"
+          file = Tempfile.new('dropbox_api')
+          file << content
 
-      include_examples "is calculated and appended to headers"
+          _, headers = subject.build_request({}, file)
+
+          expect(headers['Content-Length']).to eq(content.length.to_s)
+        ensure
+          file.close
+        end
+      end
     end
 
     context 'for nil' do
-      let(:body) { nil }
-
       it 'is not in headers' do
+        body = nil
+
         _, headers = subject.build_request({}, body)
-        expect(headers).to_not have_key("Content_length")
+
+        expect(headers).to_not have_key("Content-Length")
       end
     end
   end
