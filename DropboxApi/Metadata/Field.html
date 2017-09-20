@@ -312,7 +312,9 @@
 30
 31
 32
-33</pre>
+33
+34
+35</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/field.rb', line 17</span>
@@ -324,6 +326,8 @@
     <span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span>
   <span class='kw'>elsif</span> <span class='ivar'>@type</span> <span class='op'>==</span> <span class='const'>Integer</span>
     <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span>
+  <span class='kw'>elsif</span> <span class='ivar'>@type</span> <span class='op'>==</span> <span class='const'>Float</span>
+    <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
   <span class='kw'>elsif</span> <span class='ivar'>@type</span> <span class='op'>==</span> <span class='const'><span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></span>
     <span class='id identifier rubyid_object'>object</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tag</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
   <span class='kw'>elsif</span> <span class='ivar'>@type</span> <span class='op'>==</span> <span class='symbol'>:boolean</span>
@@ -344,9 +348,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun Jul  9 12:54:48 2017 by
+  Generated on Wed Sep 20 17:59:06 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.9 (ruby-2.4.1).
+  0.9.9 (ruby-2.3.3).
 </div>
 
     </div>
