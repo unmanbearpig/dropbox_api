@@ -7,6 +7,7 @@ require 'faraday'
 require 'dropbox_api/authenticator'
 
 require 'dropbox_api/middleware/decode_result'
+require 'dropbox_api/middleware/stack'
 
 require 'dropbox_api/metadata/field'
 require 'dropbox_api/metadata/base'
