@@ -25,7 +25,7 @@ module DropboxApi
     # be called again to resume the upload.
     #
     # @param chunk_size [Integer] The chunk size for each individual upload.  Defaults to 4MB.
-    def upload(chunk_size = 500)
+    def upload(chunk_size = 4*1024*1024)
       chunk = file_object.read(chunk_size)
       @cursor = client.upload_session_start(chunk)
 
