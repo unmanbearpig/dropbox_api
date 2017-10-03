@@ -161,6 +161,28 @@
 </li>
 
       
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#middleware-instance_method" title="#middleware (instance method)">#<strong>middleware</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
     </ul>
   
 
@@ -231,27 +253,58 @@
       <pre class="lines">
 
 
-7
-8
-9
-10
 11
 12
 13
 14
-15</pre>
+15
+16
+17
+18
+19</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/connection_builder.rb', line 11</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
+  <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_connection'>connection</span><span class='op'>|</span>
+    <span class='id identifier rubyid_middleware'>middleware</span><span class='period'>.</span><span class='id identifier rubyid_apply'>apply</span><span class='lparen'>(</span><span class='id identifier rubyid_connection'>connection</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_connection'>connection</span><span class='period'>.</span><span class='id identifier rubyid_authorization'>authorization</span> <span class='symbol'>:Bearer</span><span class='comma'>,</span> <span class='ivar'>@oauth_bearer</span>
+
+      <span class='kw'>yield</span> <span class='id identifier rubyid_connection'>connection</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="middleware-instance_method">
+  
+    #<strong>middleware</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3>
+<table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+7
+8
+9</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/dropbox_api/connection_builder.rb', line 7</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_build'>build</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span>
-  <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_url'>url</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
-    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_authorization'>authorization</span> <span class='symbol'>:Bearer</span><span class='comma'>,</span> <span class='ivar'>@oauth_bearer</span>
-
-    <span class='kw'>yield</span> <span class='id identifier rubyid_c'>c</span>
-
-    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_adapter'>adapter</span> <span class='const'>Faraday</span><span class='period'>.</span><span class='id identifier rubyid_default_adapter'>default_adapter</span>
-  <span class='kw'>end</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_middleware'>middleware</span>
+  <span class='ivar'>@middleware</span> <span class='op'>||=</span> <span class='const'><span class='object_link'><a href="MiddleWare.html" title="DropboxApi::MiddleWare (module)">MiddleWare</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="MiddleWare/Stack.html" title="DropboxApi::MiddleWare::Stack (class)">Stack</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="MiddleWare/Stack.html#initialize-instance_method" title="DropboxApi::MiddleWare::Stack#initialize (method)">new</a></span></span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -263,7 +316,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Sep 20 17:59:06 2017 by
+  Generated on Tue Oct  3 09:27:00 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>
