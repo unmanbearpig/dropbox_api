@@ -1,14 +1,17 @@
 module DropboxApi::Metadata
   # This is an example of a serialized {MemberPermission}:
-  #   {
-  #     "action": {
-  #       ".tag": "remove"
-  #     },
-  #     "allow": false,
-  #     "reason": {
-  #       ".tag": "target_is_self"
-  #     }
+  # 
+  # ```json
+  # {
+  #   "action": {
+  #     ".tag": "remove"
+  #   },
+  #   "allow": false,
+  #   "reason": {
+  #     ".tag": "target_is_self"
   #   }
+  # }
+  # ```
   #
   # This is normally contained in a {MemberPermissionList} object.
   class MemberPermission < Base

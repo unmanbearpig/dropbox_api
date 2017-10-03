@@ -1,13 +1,20 @@
 module DropboxApi::Metadata
   # Example of a serialized {MediaInfo} object:
-  #   {
-  #     ".tag": "metadata",
-  #     "metadata": {...}
-  #   }
+  #
+  # ```json
+  # {
+  #   ".tag": "metadata",
+  #   "metadata": {...}
+  # }
+  # ```
+  #
   # or:
-  #   {
-  #     ".tag": "pending"
-  #   }
+  #
+  # ```json
+  # {
+  #   ".tag": "pending"
+  # }
+  # ```
   class MediaInfo < Base
     class << self
       def new(data)

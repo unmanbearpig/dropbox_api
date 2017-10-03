@@ -1,8 +1,11 @@
 module DropboxApi::Metadata
   # Example of a serialized {AccessLevel} object:
-  #   {
-  #     ".tag": "viewer"
-  #   }
+  #
+  # ```json
+  # {
+  #   ".tag": "viewer"
+  # }
+  # ```
   class AccessLevel < DropboxApi::Metadata::Symbol
     VALID_ACCESS_LEVELS = [
       :owner,

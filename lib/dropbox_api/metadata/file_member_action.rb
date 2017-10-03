@@ -1,11 +1,14 @@
 module DropboxApi::Metadata
   # Example of a serialized FileMemberAction:
-  #   {
-  #     ".tag": "success",
-  #     "success": {
-  #       ".tag": "viewer"
-  #     }
+  #
+  # ```json
+  # {
+  #   ".tag": "success",
+  #   "success": {
+  #     ".tag": "viewer"
   #   }
+  # }
+  # ```
   class FileMemberAction < Base
     class << self
       def new(data)

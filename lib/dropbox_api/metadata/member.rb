@@ -1,14 +1,17 @@
 module DropboxApi::Metadata
   # Examples of serialized {AddMember} objects:
-  #   [
-  #     {
-  #       ".tag": "email",
-  #       "email": "justin@example.com"
-  #     },  {
-  #       ".tag": "dropbox_id",
-  #       "dropbox_id": "dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q"
-  #     }
-  #   ]
+  #
+  # ```json
+  # [
+  #   {
+  #     ".tag": "email",
+  #     "email": "justin@example.com"
+  #   },  {
+  #     ".tag": "dropbox_id",
+  #     "dropbox_id": "dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q"
+  #   }
+  # ]
+  # ```
   class Member < Base
     def initialize(member)
       @member_hash = case member

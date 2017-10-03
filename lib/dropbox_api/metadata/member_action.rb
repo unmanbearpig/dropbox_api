@@ -11,9 +11,12 @@ module DropboxApi::Metadata
   # - +:remove+: Remove the member from the folder.
   #
   # Example of a serialized {MemberAction} object:
-  #   {
-  #     ".tag": "leave_a_copy"
-  #   }
+  #
+  # ```json
+  # {
+  #   ".tag": "leave_a_copy"
+  # }
+  # ```
   class MemberAction < DropboxApi::Metadata::Symbol
     VALID_MEMBER_ACTIONS = [
       :leave_a_copy,

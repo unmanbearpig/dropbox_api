@@ -1,11 +1,14 @@
 module DropboxApi::Metadata
   # Example of a serialized {Name} object:
-  #   {
-  #       "given_name": "Franz",
-  #       "surname": "Ferdinand",
-  #       "familiar_name": "Franz",
-  #       "display_name": "Franz Ferdinand (Personal)"
-  #   }
+  #
+  # ```json
+  # {
+  #   "given_name": "Franz",
+  #   "surname": "Ferdinand",
+  #   "familiar_name": "Franz",
+  #   "display_name": "Franz Ferdinand (Personal)"
+  # }
+  # ```
   class Name < Base
     field :given_name, String
     field :surname, String

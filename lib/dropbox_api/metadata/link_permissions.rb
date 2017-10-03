@@ -1,14 +1,17 @@
 module DropboxApi::Metadata
   # Example of a serialized {LinkPermissions} object:
-  #   {
-  #     "can_revoke": false,
-  #     "resolved_visibility": {
-  #       ".tag": "public"
-  #     },
-  #     "revoke_failure_reason": {
-  #       ".tag": "owner_only"
-  #     }
+  #
+  # ```json
+  # {
+  #   "can_revoke": false,
+  #   "resolved_visibility": {
+  #     ".tag": "public"
+  #   },
+  #   "revoke_failure_reason": {
+  #     ".tag": "owner_only"
   #   }
+  # }
+  # ```
   class LinkPermissions < Base
     field :can_revoke, :boolean
     field :resolved_visibility, Symbol, :optional
