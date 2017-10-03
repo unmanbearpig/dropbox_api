@@ -39,6 +39,21 @@ context DropboxApi::Metadata::File do
     expect(file.content_hash).to eq("2a846fa617c3361fc117e1c5c1e1838c336b6a5cef982c1a2d9bdf68f2f1992a")
   end
 
+  it "works if metadata is pending" do
+    file_hash = build_file_hash({
+      "media_info" => {
+        ".tag" => "pending"
+      }
+    })
+
+    file = DropboxApi::Metadata::File.new file_hash
+
+    expect(file)
+      .to be_a(DropboxApi::Metadata::File)
+    expect(file.media_info)
+      .to eq(:pending)
+  end
+
   context "with photo" do
     it "includes the media_info field" do
       file_hash = build_file_hash({

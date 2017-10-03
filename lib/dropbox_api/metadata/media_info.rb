@@ -2,37 +2,34 @@ module DropboxApi::Metadata
   # Example of a serialized {MediaInfo} object:
   #   {
   #     ".tag": "metadata",
-  #     "metadata": {
-  #       ".tag": "video",
-  #       "dimensions": {
-  #         "height": 1500,
-  #         "width": 1500
-  #       },
-  #       "location": {
-  #         "latitude": 10.123456,
-  #         "longitude": 5.123456
-  #       }
-  #       "time_taken": "2016-09-04T17:00:27Z",
-  #       "duration": 6000
-  #     }
+  #     "metadata": {...}
+  #   }
+  # or:
+  #   {
+  #     ".tag": "pending"
   #   }
   class MediaInfo < Base
     class << self
       def new(data)
-        tag = data['metadata']['.tag']
-        class_for(tag.to_sym).new(data['metadata'])
+        klass = class_for(data['.tag'].to_sym)
+
+        if klass == :pending
+          :pending
+        else
+          klass.new(data['metadata'])
+        end
       end
 
       private
 
       def class_for(tag)
         case tag
-        when :photo
-          DropboxApi::Metadata::PhotoMetadata
-        when :video
-          DropboxApi::Metadata::VideoMetadata
+        when :pending
+          :pending
+        when :metadata
+          DropboxApi::Metadata::MediaMetadata
         else
-          raise ArgumentError, "Unable to build individual result with `#{tag}`"
+          raise ArgumentError, "Unable to build individual result with `#{tag.inspect}`"
         end
       end
     end
