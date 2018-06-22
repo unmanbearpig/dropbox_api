@@ -69,14 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="Base.html" title="DropboxApi::Metadata::Base (class)">Base</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></li>
+            <li class="next"><span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></li>
           
             <li class="next">DropboxApi::Metadata::MemberAction</li>
           
@@ -108,20 +108,22 @@
     <p>An action will be one of the following:</p>
 
 <ul>
-<li>+:leave_a_copy+: Allow the member to keep a copy of the folder when
+<li><code>:leave_a_copy</code>: Allow the member to keep a copy of the folder when
 removing.</li>
-<li>+:make_editor+: Make the member an editor of the folder.</li>
-<li>+:make_owner+: Make the member an owner of the folder.</li>
-<li>+:make_viewer+: Make the member a viewer of the folder.</li>
-<li>+:make_viewer_no_comment+: Make the member a viewer of the folder without
+<li><code>:make_editor</code>: Make the member an editor of the folder.</li>
+<li><code>:make_owner</code>: Make the member an owner of the folder.</li>
+<li><code>:make_viewer</code>: Make the member a viewer of the folder.</li>
+<li><code>:make_viewer_no_comment</code>: Make the member a viewer of the folder without
 commenting permissions.</li>
-<li>+:remove+: Remove the member from the folder.</li>
+<li><code>:remove</code>: Remove the member from the folder.</li>
 </ul>
 
-<p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MemberAction (class)">MemberAction</a></span> object:
-  {
-    &quot;.tag&quot;: &quot;leave_a_copy&quot;
-  }</p>
+<p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MemberAction (class)">MemberAction</a></span> object:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;leave_a_copy&quot;
+}
+</code></pre>
 
 
   </div>
@@ -195,8 +197,8 @@ commenting permissions.</li>
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Symbol.html#new-class_method" title="DropboxApi::Metadata::Symbol.new (method)">new</a></span>, <span class='object_link'><a href="Symbol.html#validate-class_method" title="DropboxApi::Metadata::Symbol.validate (method)">validate</a></span></p>
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Tag.html#new-class_method" title="DropboxApi::Metadata::Tag.new (method)">new</a></span>, <span class='object_link'><a href="Tag.html#validate-class_method" title="DropboxApi::Metadata::Tag.validate (method)">validate</a></span></p>
 
   
   
@@ -236,12 +238,12 @@ commenting permissions.</li>
       <pre class="lines">
 
 
-27
-28
-29</pre>
+30
+31
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member_action.rb', line 27</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member_action.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_valid_values'>valid_values</span>
   <span class='const'><span class='object_link'><a href="#VALID_MEMBER_ACTIONS-constant" title="DropboxApi::Metadata::MemberAction::VALID_MEMBER_ACTIONS (constant)">VALID_MEMBER_ACTIONS</a></span></span>
@@ -256,7 +258,7 @@ commenting permissions.</li>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:02 2017 by
+  Generated on Fri Jun 22 17:38:42 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

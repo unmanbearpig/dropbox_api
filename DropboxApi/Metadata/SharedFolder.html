@@ -103,20 +103,22 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::SharedFolder (class)">SharedFolder</a></span> object:
-  {
-    &quot;.tag&quot; =&gt; &quot;complete&quot;,
-    &quot;access_type&quot; =&gt; &quot;&quot;.tag&quot;=&gt;&quot;owner&quot;,
-    &quot;is_team_folder&quot; =&gt; false,
-    &quot;policy&quot; =&gt; {
-      &quot;acl_update_policy&quot; =&gt; { &quot;.tag&quot; =&gt; &quot;owner&quot; },
-      &quot;shared_link_policy&quot; =&gt; { &quot;.tag&quot; =&gt; &quot;anyone&quot; }
-    },
-    &quot;path_lower&quot; =&gt; &quot;/folder_a&quot;,
-    &quot;name&quot; =&gt; &quot;folder_a&quot;,
-    &quot;shared_folder_id&quot; =&gt; &quot;1231266557&quot;,
-    &quot;time_invited&quot; =&gt; &quot;2016-06-04T10:00:35Z&quot;
-  }</p>
+    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::SharedFolder (class)">SharedFolder</a></span> object:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot; =&gt; &quot;complete&quot;,
+  &quot;access_type&quot; =&gt; {&quot;.tag&quot;=&gt;&quot;owner&quot;},
+  &quot;is_team_folder&quot; =&gt; false,
+  &quot;policy&quot; =&gt; {
+    &quot;acl_update_policy&quot; =&gt; { &quot;.tag&quot; =&gt; &quot;owner&quot; },
+    &quot;shared_link_policy&quot; =&gt; { &quot;.tag&quot; =&gt; &quot;anyone&quot; }
+  },
+  &quot;path_lower&quot; =&gt; &quot;/folder_a&quot;,
+  &quot;name&quot; =&gt; &quot;folder_a&quot;,
+  &quot;shared_folder_id&quot; =&gt; &quot;1231266557&quot;,
+  &quot;time_invited&quot; =&gt; &quot;2016-06-04T10:00:35Z&quot;
+}
+</code></pre>
 
 
   </div>
@@ -153,7 +155,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:02 2017 by
+  Generated on Fri Jun 22 17:38:42 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

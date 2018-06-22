@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></dd>
+      <dd><span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></dd>
   </dl>
   
   
@@ -183,8 +183,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::Endpoints::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
 
   
   
@@ -266,10 +266,10 @@ Dropbox.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>If +true+, the list folder operation
+            &mdash; <div class='inline'><p>If <code>true</code>, the list folder operation
 will be applied recursively to all subfolders and the response will
 contain contents of all subfolders. The default for this field is
-+false+.</p>
+<code>false</code>.</p>
 </div>
           
         </li>
@@ -281,9 +281,8 @@ contain contents of all subfolders. The default for this field is
             
           </span>
           
-            &mdash; <div class='inline'><p>If +true+,
-+FileMetadata.media_info+ is set for photo and video. The default for
-this field is +false+.</p>
+            &mdash; <div class='inline'><p>If <code>true</code>, <code>media_info</code> is
+set for photo and video. The default for this field is <code>false</code>.</p>
 </div>
           
         </li>
@@ -295,10 +294,10 @@ this field is +false+.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>If +true+,
-Metadata::DeletedMetadata will be returned for deleted
+            &mdash; <div class='inline'><p>If <code>true</code>,
+<span class='object_link'><a href="../../Metadata/Deleted.html" title="DropboxApi::Metadata::Deleted (class)">Metadata::Deleted</a></span> will be returned for deleted
 file or folder, otherwise <span class='object_link'><a href="../../Errors/LookupError.html" title="DropboxApi::Errors::LookupError (class)">DropboxApi::Errors::LookupError</a></span> will be
-returned. The default for this field is +false+.</p>
+returned. The default for this field is <code>false</code>.</p>
 </div>
           
         </li>
@@ -314,6 +313,7 @@ returned. The default for this field is +false+.</p>
       <pre class="lines">
 
 
+27
 28
 29
 30
@@ -326,11 +326,10 @@ returned. The default for this field is +false+.</p>
 37
 38
 39
-40
-41</pre>
+40</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/list_folder_get_latest_cursor.rb', line 28</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/list_folder_get_latest_cursor.rb', line 27</span>
 
 <span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:list_folder_get_latest_cursor</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='op'>|</span>
   <span class='id identifier rubyid_validate_options'>validate_options</span><span class='lparen'>(</span><span class='lbracket'>[</span>
@@ -356,7 +355,7 @@ returned. The default for this field is +false+.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:04 2017 by
+  Generated on Fri Jun 22 17:38:44 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

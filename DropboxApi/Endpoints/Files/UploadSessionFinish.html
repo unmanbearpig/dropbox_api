@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></dd>
+      <dd><span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></dd>
   </dl>
   
   
@@ -183,8 +183,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::Endpoints::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
 
   
   
@@ -233,9 +233,9 @@
     <p>Finish an upload session and save the uploaded data to the given file
 path.</p>
 
-<p>A single request should not upload more than 150 MB of file contents.</p>
+<p>A single request should not upload more than 150 MB.</p>
 
-<p>other optional modifiers for the commit.</p>
+<p>The maximum size of a file one can upload to an upload session is 350 GB.</p>
 
 
   </div>
@@ -270,7 +270,8 @@ upload session ID and the offset.</p>
       
       
         &mdash;
-        <div class='inline'><p>Contains the path and</p>
+        <div class='inline'><p>Contains the path and
+other optional modifiers for the commit.</p>
 </div>
       
     </li>
@@ -285,15 +286,15 @@ upload session ID and the offset.</p>
       <pre class="lines">
 
 
-19
-20
 21
 22
 23
-24</pre>
+24
+25
+26</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_finish.rb', line 19</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_finish.rb', line 21</span>
 
 <span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:upload_session_finish</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cursor'>cursor</span><span class='comma'>,</span> <span class='id identifier rubyid_commit'>commit</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='op'>|</span>
   <span class='id identifier rubyid_perform_request'>perform_request</span><span class='lparen'>(</span><span class='lbrace'>{</span>
@@ -311,7 +312,7 @@ upload session ID and the offset.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:04 2017 by
+  Generated on Fri Jun 22 17:38:44 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

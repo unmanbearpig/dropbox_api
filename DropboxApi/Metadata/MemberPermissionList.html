@@ -106,24 +106,26 @@
     <p>This represents a collection of permissions on allowed on a
 shared file or folder.</p>
 
-<p>This is an example of a serialized <span class='object_link'><a href="MemberActionList.html" title="DropboxApi::Metadata::MemberActionList (class)">MemberActionList</a></span>:
-  [{
-    &quot;action&quot;: {
-      &quot;.tag&quot;: &quot;remove&quot;
-    },
-    &quot;allow&quot;: false,
-    &quot;reason&quot;: {
-      &quot;.tag&quot;: &quot;target_is_self&quot;
-    }
-  }, {
-    &quot;action&quot;: {
-      &quot;.tag&quot;: &quot;make_owner&quot;
-    },
-    &quot;allow&quot;: false,
-    &quot;reason&quot;: {
-      &quot;.tag&quot;: &quot;target_is_self&quot;
-    }
-  }]</p>
+<p>This is an example of a serialized <span class='object_link'><a href="MemberActionList.html" title="DropboxApi::Metadata::MemberActionList (class)">MemberActionList</a></span>:</p>
+
+<pre class="code json"><code class="json">[{
+  &quot;action&quot;: {
+    &quot;.tag&quot;: &quot;remove&quot;
+  },
+  &quot;allow&quot;: false,
+  &quot;reason&quot;: {
+    &quot;.tag&quot;: &quot;target_is_self&quot;
+  }
+}, {
+  &quot;action&quot;: {
+    &quot;.tag&quot;: &quot;make_owner&quot;
+  },
+  &quot;allow&quot;: false,
+  &quot;reason&quot;: {
+    &quot;.tag&quot;: &quot;target_is_self&quot;
+  }
+}]
+</code></pre>
 
 
   </div>
@@ -204,12 +206,12 @@ shared file or folder.</p>
       <pre class="lines">
 
 
-24
-25
-26</pre>
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member_permission_list.rb', line 24</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member_permission_list.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_list'>list</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_list'>list</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_i'>i</span><span class='op'>|</span> <span class='const'><span class='object_link'><a href="../../DropboxApi.html" title="DropboxApi (module)">DropboxApi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Metadata.html" title="DropboxApi::Metadata (module)">Metadata</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="MemberPermission.html" title="DropboxApi::Metadata::MemberPermission (class)">MemberPermission</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Base.html#initialize-instance_method" title="DropboxApi::Metadata::Base#initialize (method)">new</a></span></span> <span class='id identifier rubyid_i'>i</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -225,7 +227,7 @@ shared file or folder.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:03 2017 by
+  Generated on Fri Jun 22 17:38:43 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

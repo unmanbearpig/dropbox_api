@@ -69,14 +69,14 @@
   <dl>
     <dt>Inherits:</dt>
     <dd>
-      <span class="inheritName"><span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></span>
+      <span class="inheritName"><span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></span>
       
         <ul class="fullTree">
           <li>Object</li>
           
             <li class="next"><span class='object_link'><a href="Base.html" title="DropboxApi::Metadata::Base (class)">Base</a></span></li>
           
-            <li class="next"><span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></li>
+            <li class="next"><span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></li>
           
             <li class="next">DropboxApi::Metadata::AccessLevel</li>
           
@@ -105,10 +105,12 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::AccessLevel (class)">AccessLevel</a></span> object:
-  {
-    &quot;.tag&quot;: &quot;viewer&quot;
-  }</p>
+    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::AccessLevel (class)">AccessLevel</a></span> object:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;viewer&quot;
+}
+</code></pre>
 
 
   </div>
@@ -180,8 +182,8 @@
   
   
   
-  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Symbol.html" title="DropboxApi::Metadata::Symbol (class)">Symbol</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="Symbol.html#new-class_method" title="DropboxApi::Metadata::Symbol.new (method)">new</a></span>, <span class='object_link'><a href="Symbol.html#validate-class_method" title="DropboxApi::Metadata::Symbol.validate (method)">validate</a></span></p>
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Tag.html" title="DropboxApi::Metadata::Tag (class)">Tag</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Tag.html#new-class_method" title="DropboxApi::Metadata::Tag.new (method)">new</a></span>, <span class='object_link'><a href="Tag.html#validate-class_method" title="DropboxApi::Metadata::Tag.validate (method)">validate</a></span></p>
 
   
   
@@ -221,12 +223,12 @@
       <pre class="lines">
 
 
-14
-15
-16</pre>
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/access_level.rb', line 14</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/access_level.rb', line 17</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_valid_values'>valid_values</span>
   <span class='const'><span class='object_link'><a href="#VALID_ACCESS_LEVELS-constant" title="DropboxApi::Metadata::AccessLevel::VALID_ACCESS_LEVELS (constant)">VALID_ACCESS_LEVELS</a></span></span>
@@ -241,7 +243,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:01 2017 by
+  Generated on Fri Jun 22 17:38:42 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

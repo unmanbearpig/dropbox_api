@@ -103,15 +103,20 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MediaInfo (class)">MediaInfo</a></span> object:
-  {
-    &quot;.tag&quot;: &quot;metadata&quot;,
-    &quot;metadata&quot;: ...
-  }
-or:
-  {
-    &quot;.tag&quot;: &quot;pending&quot;
-  }</p>
+    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::MediaInfo (class)">MediaInfo</a></span> object:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;metadata&quot;,
+  &quot;metadata&quot;: {...}
+}
+</code></pre>
+
+<p>or:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;pending&quot;
+}
+</code></pre>
 
 
   </div>
@@ -198,18 +203,18 @@ or:
       <pre class="lines">
 
 
-13
-14
-15
-16
-17
-18
-19
 20
-21</pre>
+21
+22
+23
+24
+25
+26
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/media_info.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/media_info.rb', line 20</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_klass'>klass</span> <span class='op'>=</span> <span class='id identifier rubyid_class_for'>class_for</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.tag</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='rparen'>)</span>
@@ -230,7 +235,7 @@ or:
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:01 2017 by
+  Generated on Fri Jun 22 17:38:41 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

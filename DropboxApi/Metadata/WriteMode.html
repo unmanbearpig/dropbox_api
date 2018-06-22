@@ -121,12 +121,12 @@ target path with contents different from the contents you&#39;re trying to
 write. The value will be one of the following datatypes:</p>
 
 <ul>
-<li>+:add+: Do not overwrite an existing file if there is a conflict. The
+<li><code>:add</code>: Do not overwrite an existing file if there is a conflict. The
 autorename strategy is to append a number to the file name. For example,
 &quot;document.txt&quot; might become &quot;document (2).txt&quot;.</li>
-<li>+:overwrite+: Always overwrite the existing file. The autorename strategy
+<li><code>:overwrite</code>: Always overwrite the existing file. The autorename strategy
 is the same as it is for add.</li>
-<li>+:update+: Overwrite if the given &quot;rev&quot; matches the existing file&#39;s
+<li><code>:update</code>: Overwrite if the given &quot;rev&quot; matches the existing file&#39;s
 &quot;rev&quot;. The autorename strategy is to append the string &quot;conflicted copy&quot;
 to the file name. For example, &quot;document.txt&quot; might become
 &quot;document (conflicted copy).txt&quot; or
@@ -423,7 +423,7 @@ to the file name. For example, &quot;document.txt&quot; might become
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:01 2017 by
+  Generated on Fri Jun 22 17:38:41 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

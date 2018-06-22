@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></dd>
+      <dd><span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></dd>
   </dl>
   
   
@@ -183,8 +183,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::Endpoints::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
 
   
   
@@ -284,7 +284,9 @@
 32
 33
 34
-35</pre>
+35
+36
+37</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/list_folder.rb', line 21</span>
@@ -294,11 +296,13 @@
     <span class='symbol'>:recursive</span><span class='comma'>,</span>
     <span class='symbol'>:include_media_info</span><span class='comma'>,</span>
     <span class='symbol'>:include_deleted</span><span class='comma'>,</span>
+    <span class='symbol'>:shared_link</span><span class='comma'>,</span>
     <span class='symbol'>:include_has_explicit_shared_members</span>
   <span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:recursive</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:include_media_info</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>false</span>
   <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:include_deleted</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:shared_link</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_build_shared_link_param'>build_shared_link_param</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:shared_link</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:shared_link</span><span class='rbracket'>]</span>
 
   <span class='id identifier rubyid_perform_request'>perform_request</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
     <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_path'>path</span>
@@ -314,7 +318,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:02 2017 by
+  Generated on Fri Jun 22 17:38:42 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></dd>
+      <dd><span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></dd>
   </dl>
   
   
@@ -183,8 +183,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::Endpoints::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
 
   
   
@@ -232,9 +232,11 @@
   <div class="discussion">
     <p>Append more data to an upload session.</p>
 
-<p>When the parameter +close+ is set, this call will close the session.</p>
+<p>When the parameter <code>close</code> is set, this call will close the session.</p>
 
-<p>A single request should not upload more than 150 MB of file contents.</p>
+<p>A single request should not upload more than 150 MB.</p>
+
+<p>The maximum size of a file one can upload to an upload session is 350 GB.</p>
 
 <p>Calling this method may update the cursor received. In particular, the
 offset variable will be increased to match the new position. This allows
@@ -297,10 +299,10 @@ updated after a successful call.</p>
             
           </span>
           
-            &mdash; <div class='inline'><p>If +true+, the current session will be
+            &mdash; <div class='inline'><p>If <code>true</code>, the current session will be
 closed, at which point you won&#39;t be able to call
 <span class='object_link'><a href="../../Client.html#upload_session_append_v2-instance_method" title="DropboxApi::Client#upload_session_append_v2 (method)">Client#upload_session_append_v2</a></span> anymore with the current session.
-The default for this field is +false+.</p>
+The default for this field is <code>false</code>.</p>
 </div>
           
         </li>
@@ -323,8 +325,6 @@ The default for this field is +false+.</p>
       <pre class="lines">
 
 
-36
-37
 38
 39
 40
@@ -333,10 +333,12 @@ The default for this field is +false+.</p>
 43
 44
 45
-46</pre>
+46
+47
+48</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_append_v2.rb', line 36</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload_session_append_v2.rb', line 38</span>
 
 <span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:upload_session_append_v2</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_cursor'>cursor</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='op'>|</span>
   <span class='id identifier rubyid_validate_options'>validate_options</span><span class='lparen'>(</span><span class='lbracket'>[</span>
@@ -359,7 +361,7 @@ The default for this field is +false+.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:04 2017 by
+  Generated on Fri Jun 22 17:38:44 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

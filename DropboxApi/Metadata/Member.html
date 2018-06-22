@@ -103,16 +103,18 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Examples of serialized <span class='object_link'><a href="AddMember.html" title="DropboxApi::Metadata::AddMember (class)">AddMember</a></span> objects:
-  [
-    {
-      &quot;.tag&quot;: &quot;email&quot;,
-      &quot;email&quot;: &quot;<a href="mailto:justin@example.com">justin@example.com</a>&quot;
-    },  {
-      &quot;.tag&quot;: &quot;dropbox_id&quot;,
-      &quot;dropbox_id&quot;: &quot;dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q&quot;
-    }
-  ]</p>
+    <p>Examples of serialized <span class='object_link'><a href="AddMember.html" title="DropboxApi::Metadata::AddMember (class)">AddMember</a></span> objects:</p>
+
+<pre class="code json"><code class="json">[
+  {
+    &quot;.tag&quot;: &quot;email&quot;,
+    &quot;email&quot;: &quot;justin@example.com&quot;
+  },  {
+    &quot;.tag&quot;: &quot;dropbox_id&quot;,
+    &quot;dropbox_id&quot;: &quot;dbid:AAEufNrMPSPe0dMQijRP0N_aZtBJRm26W4Q&quot;
+  }
+]
+</code></pre>
 
 
   </div>
@@ -225,9 +227,6 @@
       <pre class="lines">
 
 
-13
-14
-15
 16
 17
 18
@@ -236,10 +235,13 @@
 21
 22
 23
-24</pre>
+24
+25
+26
+27</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member.rb', line 13</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member.rb', line 16</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_member'>member</span><span class='rparen'>)</span>
   <span class='ivar'>@member_hash</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id identifier rubyid_member'>member</span>
@@ -281,12 +283,12 @@
       <pre class="lines">
 
 
-26
-27
-28</pre>
+29
+30
+31</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member.rb', line 26</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/member.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_hash'>to_hash</span>
   <span class='ivar'>@member_hash</span>
@@ -301,7 +303,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:00 2017 by
+  Generated on Fri Jun 22 17:38:40 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

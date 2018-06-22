@@ -93,7 +93,7 @@
   
   <dl>
       <dt>Includes:</dt>
-      <dd><span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></dd>
+      <dd><span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></dd>
   </dl>
   
   
@@ -183,8 +183,8 @@
   
   
   
-  <h3 class="inherited">Methods included from <span class='object_link'><a href="../OptionsValidator.html" title="DropboxApi::Endpoints::OptionsValidator (module)">OptionsValidator</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::Endpoints::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../OptionsValidator.html" title="DropboxApi::OptionsValidator (module)">OptionsValidator</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../OptionsValidator.html#validate_options-instance_method" title="DropboxApi::OptionsValidator#validate_options (method)">#validate_options</a></span></p>
 
   
   
@@ -232,8 +232,9 @@
   <div class="discussion">
     <p>Creates a new file.</p>
 
-<p>Do not use this to upload a file larger than 150 MB. Instead, create an
-upload session with #upload_session_start().</p>
+<p>Do not use this to upload a file larger than 150 MB.</p>
+
+<p>For larger files you can use #upload_by_chunks.</p>
 
 
   </div>
@@ -289,7 +290,7 @@ upload session with #upload_session_start().</p>
       
         &mdash;
         <div class='inline'><p>The contents of the file that will be uploaded. This
-could be the result of the +IO::read+ method.</p>
+could be the result of the <code>IO::read</code> method.</p>
 </div>
       
     </li>
@@ -314,7 +315,7 @@ could be the result of the +IO::read+ method.</p>
           </span>
           
             &mdash; <div class='inline'><p>Selects what to
-do if the file already exists. The default is +add+.</p>
+do if the file already exists. The default is <code>add</code>.</p>
 </div>
           
         </li>
@@ -327,8 +328,8 @@ do if the file already exists. The default is +add+.</p>
           </span>
           
             &mdash; <div class='inline'><p>If there&#39;s a conflict, as determined
-by +mode+, have the Dropbox server try to autorename the file to avoid
-conflict. The default for this field is +false+.</p>
+by <code>mode</code>, have the Dropbox server try to autorename the file to avoid
+conflict. The default for this field is <code>false</code>.</p>
 </div>
           
         </li>
@@ -341,11 +342,27 @@ conflict. The default for this field is +false+.</p>
           </span>
           
             &mdash; <div class='inline'><p>The value to store as the
-+client_modified+ timestamp. Dropbox automatically records the time at
+<code>client_modified</code> timestamp. Dropbox automatically records the time at
 which the file was written to the Dropbox servers. It can also record
 an additional timestamp, provided by Dropbox desktop clients, mobile
 clients, and API apps of when the file was actually created or
 modified.</p>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">mute</span>
+          <span class="type">(<tt>Boolean</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Normally, users are made aware of any
+file modifications in their Dropbox account via notifications in the
+client software. If <code>true</code>, this tells the clients that this
+modification shouldn&#39;t result in a user notification. The default for
+this field is <code>false</code>.</p>
 </div>
           
         </li>
@@ -368,12 +385,6 @@ modified.</p>
       <pre class="lines">
 
 
-43
-44
-45
-46
-47
-48
 49
 50
 51
@@ -382,10 +393,13 @@ modified.</p>
 54
 55
 56
-57</pre>
+57
+58
+59
+60</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload.rb', line 43</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/endpoints/files/upload.rb', line 49</span>
 
 <span class='id identifier rubyid_add_endpoint'>add_endpoint</span> <span class='symbol'>:upload</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='op'>|</span>
   <span class='id identifier rubyid_validate_options'>validate_options</span><span class='lparen'>(</span><span class='lbracket'>[</span>
@@ -395,12 +409,9 @@ modified.</p>
     <span class='symbol'>:mute</span>
   <span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
 
-  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:mode</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_build_write_mode_param'>build_write_mode_param</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:mode</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:mode</span><span class='rbracket'>]</span>
-  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:client_modified</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:client_modified</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_utc'>utc</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%FT%TZ</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:client_modified</span><span class='rbracket'>]</span>
-
-  <span class='id identifier rubyid_perform_request'>perform_request</span><span class='lparen'>(</span><span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='lbrace'>{</span>
-    <span class='symbol'>:path</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_path'>path</span>
-  <span class='rbrace'>}</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:path</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span>
+  <span class='id identifier rubyid_commit_info'>commit_info</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../../DropboxApi.html" title="DropboxApi (module)">DropboxApi</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Metadata.html" title="DropboxApi::Metadata (module)">Metadata</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../../Metadata/CommitInfo.html" title="DropboxApi::Metadata::CommitInfo (class)">CommitInfo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_build_from_options'><span class='object_link'><a href="../../Metadata/CommitInfo.html#build_from_options-class_method" title="DropboxApi::Metadata::CommitInfo.build_from_options (method)">build_from_options</a></span></span> <span class='id identifier rubyid_options'>options</span>
+  <span class='id identifier rubyid_perform_request'>perform_request</span><span class='lparen'>(</span><span class='id identifier rubyid_commit_info'>commit_info</span><span class='period'>.</span><span class='id identifier rubyid_to_hash'>to_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -412,7 +423,7 @@ modified.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:02 2017 by
+  Generated on Fri Jun 22 17:38:42 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

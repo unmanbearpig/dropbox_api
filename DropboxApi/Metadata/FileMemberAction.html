@@ -103,13 +103,15 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Example of a serialized FileMemberAction:
-  {
-    &quot;.tag&quot;: &quot;success&quot;,
-    &quot;success&quot;: {
-      &quot;.tag&quot;: &quot;viewer&quot;
-    }
-  }</p>
+    <p>Example of a serialized FileMemberAction:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;success&quot;,
+  &quot;success&quot;: {
+    &quot;.tag&quot;: &quot;viewer&quot;
+  }
+}
+</code></pre>
 
 
   </div>
@@ -196,13 +198,13 @@
       <pre class="lines">
 
 
-11
-12
-13
-14</pre>
+14
+15
+16
+17</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/file_member_action.rb', line 11</span>
+      <pre class="code"><span class="info file"># File 'lib/dropbox_api/metadata/file_member_action.rb', line 14</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_tag'>tag</span> <span class='op'>=</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.tag</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -218,7 +220,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:02 2017 by
+  Generated on Fri Jun 22 17:38:43 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>

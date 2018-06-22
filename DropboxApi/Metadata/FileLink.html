@@ -103,35 +103,37 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::FileLink (class)">FileLink</a></span> object:
-  {
-    &quot;.tag&quot;: &quot;file&quot;,
-    &quot;url&quot;: &quot;<a href="https://www.dropbox.com/s/2sn712vy1ovegw8/Prime_Numbers.txt?dl=0">https://www.dropbox.com/s/2sn712vy1ovegw8/Prime_Numbers.txt?dl=0</a>&quot;,
-    &quot;name&quot;: &quot;Prime_Numbers.txt&quot;,
-    &quot;link_permissions&quot;: {
-      &quot;can_revoke&quot;: false,
-      &quot;resolved_visibility&quot;: {
-        &quot;.tag&quot;: &quot;public&quot;
-      },
-      &quot;revoke_failure_reason&quot;: {
-        &quot;.tag&quot;: &quot;owner_only&quot;
-      }
+    <p>Example of a serialized <span class='object_link'><a href="" title="DropboxApi::Metadata::FileLink (class)">FileLink</a></span> object:</p>
+
+<pre class="code json"><code class="json">{
+  &quot;.tag&quot;: &quot;file&quot;,
+  &quot;url&quot;: &quot;https://www.dropbox.com/s/2sn712vy1ovegw8/Prime_Numbers.txt?dl=0&quot;,
+  &quot;name&quot;: &quot;Prime_Numbers.txt&quot;,
+  &quot;link_permissions&quot;: {
+    &quot;can_revoke&quot;: false,
+    &quot;resolved_visibility&quot;: {
+      &quot;.tag&quot;: &quot;public&quot;
     },
-    &quot;client_modified&quot;: &quot;2015-05-12T15:50:38Z&quot;,
-    &quot;server_modified&quot;: &quot;2015-05-12T15:50:38Z&quot;,
-    &quot;rev&quot;: &quot;a1c10ce0dd78&quot;,
-    &quot;size&quot;: 7212,
-    &quot;id&quot;: &quot;id:a4ayc_80_OEAAAAAAAAAXw&quot;,
-    &quot;path_lower&quot;: &quot;/homework/math/prime_numbers.txt&quot;,
-    &quot;team_member_info&quot;: {
-      &quot;team_info&quot;: {
-        &quot;id&quot;: &quot;dbtid:AAFdgehTzw7WlXhZJsbGCLePe8RvQGYDr-I&quot;,
-        &quot;name&quot;: &quot;Acme, Inc.&quot;
-      },
-      &quot;display_name&quot;: &quot;Roger Rabbit&quot;,
-      &quot;member_id&quot;: &quot;dbmid:abcd1234&quot;
+    &quot;revoke_failure_reason&quot;: {
+      &quot;.tag&quot;: &quot;owner_only&quot;
     }
-  }</p>
+  },
+  &quot;client_modified&quot;: &quot;2015-05-12T15:50:38Z&quot;,
+  &quot;server_modified&quot;: &quot;2015-05-12T15:50:38Z&quot;,
+  &quot;rev&quot;: &quot;a1c10ce0dd78&quot;,
+  &quot;size&quot;: 7212,
+  &quot;id&quot;: &quot;id:a4ayc_80_OEAAAAAAAAAXw&quot;,
+  &quot;path_lower&quot;: &quot;/homework/math/prime_numbers.txt&quot;,
+  &quot;team_member_info&quot;: {
+    &quot;team_info&quot;: {
+      &quot;id&quot;: &quot;dbtid:AAFdgehTzw7WlXhZJsbGCLePe8RvQGYDr-I&quot;,
+      &quot;name&quot;: &quot;Acme, Inc.&quot;
+    },
+    &quot;display_name&quot;: &quot;Roger Rabbit&quot;,
+    &quot;member_id&quot;: &quot;dbmid:abcd1234&quot;
+  }
+}
+</code></pre>
 
 
   </div>
@@ -168,7 +170,7 @@
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  3 09:27:01 2017 by
+  Generated on Fri May 11 17:13:32 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.3.3).
 </div>
